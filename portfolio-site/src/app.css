@@ -23,7 +23,7 @@
   }
 
   .btn-nav {
-		@apply transition duration-75 p-2 rounded-full shadow-md active:translate-y-0.5 hover:shadow-lg border-[1px] border-zinc-400 fill-zinc-400 hover:fill-zinc-600 hover:border-zinc-600 cursor-pointer bg-white;
+		@apply transition p-2 rounded-full shadow-sm active:translate-y-0.5 hover:shadow-lg fill-zinc-500 hover:fill-zinc-600 hover:bg-white cursor-pointer bg-zinc-50;
 
     &:active {
       @apply translate-y-[1px];
