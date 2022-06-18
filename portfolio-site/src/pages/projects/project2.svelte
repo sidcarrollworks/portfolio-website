@@ -5,7 +5,7 @@
 
 <div
 	id="project2"
-	class="w-[1500px] min-h-[850px] p-8 pt-56 col-start-2 col-span-1 row-start-3 row-span-1 relative flex flex-col items-center gap-56"
+	class="w-[100vw] h-[100vh] overflow-scroll p-8 py-56 col-start-2 col-span-1 row-start-3 row-span-1 relative flex flex-col items-center gap-56"
 >
 	<ProjectHead
 		name="Kabloom"

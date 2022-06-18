@@ -9,7 +9,7 @@
 </script>
 
 <Nav />
-<div class="index w-full h-full overflow-scroll relative scroll-smooth">
+<div class="index w-full h-full overflow-hidden relative scroll-smooth">
 	<div class="grid grid-cols-[auto_auto_auto] grid-rows-[auto_auto_auto] z-0">
 		<Landing />
 		<About />

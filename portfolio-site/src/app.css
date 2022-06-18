@@ -7,7 +7,7 @@
     @apply rounded-xl
     border-zinc-600
     border-solid
-    border-2
+    border-[1px]
     px-4
     py-2
     text-sm
@@ -25,12 +25,8 @@
   .btn-nav {
 		@apply transition duration-75 p-2 rounded-full shadow-md active:translate-y-0.5 hover:shadow-lg border-[1px] border-zinc-400 fill-zinc-400 hover:fill-zinc-600 hover:border-zinc-600 cursor-pointer bg-white;
 
-    &:hover {
-      @apply translate-y-[-1px];
-    }
-
     &:active {
-      @apply translate-y-[0px];
+      @apply translate-y-[1px];
     }
 	}
 
@@ -71,4 +67,13 @@
 
 body {
   @apply bg-zinc-100 w-full h-[100vh];
+}
+
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
 }

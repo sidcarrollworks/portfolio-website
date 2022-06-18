@@ -1,7 +1,7 @@
 <script>
 </script>
 
-<div class="absolute top-6 left-6 z-20 flex flex-row gap-2 ">
+<div class="absolute top-6 left-6 z-20 flex flex-row gap-2 transition">
 	<a href="#home">
 		<button class="btn-nav">
 			<svg

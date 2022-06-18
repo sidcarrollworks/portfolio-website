@@ -10,8 +10,8 @@
 	<div
 		class="bg-white border-[1px] border-zinc-900 rounded-xl flex flex-row p-12 gap-12 w-min h-min node-shadow"
 	>
-		<Card link={'#project1'} />
-		<Card link={'#project2'} />
-		<Card link={'#project3'} />
+		<Card link={'#project1'} name="Botpress" time="00/0000 - 00/0000" />
+		<Card link={'#project2'} name="Kabloom" time="00/0000 - 00/0000" />
+		<Card link={'#project3'} name="Sheridan Printing" time="00/0000 - 00/0000" />
 	</div>
 </div>

@@ -1,5 +1,13 @@
 <script>
-	export let link;
+	export /**
+	 * @type {string}
+	 */ let link;
+	export /**
+	 * @type {string}
+	 */ let name;
+	export /**
+	 * @type {string}
+	 */ let time;
 </script>
 
 <div
@@ -7,8 +15,8 @@
 >
 	<div class="flex h-full w-full justify-center items-center">IMG</div>
 	<div class="info z-10 flex flex-col gap-3">
-		<h2 class="font-medium text-xl">Project Name</h2>
-		<h4 class="text-sm">Project Time frame or something</h4>
+		<h2 class="font-medium text-xl">{name}</h2>
+		<h4 class="text-sm">{time}</h4>
 		<a href={link}>
 			<button
 				class="text-center p-2 border-[1px] border-zinc-900 w-full rounded-lg text-sm bg-white lifted-shadow active:lifted-shadow-active"
