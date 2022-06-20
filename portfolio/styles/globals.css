@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn {
+    @apply rounded-xl
+    border-zinc-600
+    border-solid
+    border-[1px]
+    px-4
+    py-2
+    text-sm
+    hover:bg-white
+    active:translate-y-[1px]
+    transition;
+
+    box-shadow: 0px 2px 0px #343434, 0px 4px 4px rgba(0, 0, 0, 0.24);
+
+    &:active {
+      box-shadow: 0px 1px 0px #343434, 0px 1px 4px rgba(0, 0, 0, 0.24);
+    }
+  }
+
+  .btn-nav {
+    @apply transition duration-150 p-2 rounded-full shadow-sm active:translate-y-0.5 hover:shadow-md fill-zinc-500 hover:fill-zinc-600 hover:bg-white cursor-pointer bg-zinc-50;
+
+    &:active {
+      @apply translate-y-[1px];
+    }
+  }
+
+  .section-title {
+    @apply text-[246px] text-zinc-300 absolute top-16 left-16 font-bold -z-10 leading-[180px];
+
+    &:before {
+      content: "Work";
+      position: absolute;
+      left: -8px;
+      top: -8px;
+      -webkit-text-stroke: 1px black;
+      -webkit-text-fill-color: rgba(0, 0, 0, 0);
+      z-index: 10;
+      color: white;
+    }
+  }
+}
+
+@layer utilities {
+  .layered-fade {
+    text-shadow: 0px 4px 0px rgba(0, 0, 0, 0.25), 0px 8px 0px rgba(0, 0, 0, 0.2),
+      0px 12px 0px rgba(0, 0, 0, 0.1);
+  }
+  .node-shadow {
+    box-shadow: 0px 2px 0px #343434, 0px 4px 4px rgba(0, 0, 0, 0.24);
+  }
+  .lifted-shadow {
+    @apply transition duration-75;
+    box-shadow: 0px -4px 13px #ffffff, 0px 4px 12px rgba(0, 0, 0, 0.25),
+      inset -1px -1px 2px rgba(0, 0, 0, 0.17), inset 1px 1px 3px #ffffff;
+  }
+  .lifted-shadow-active {
+    @apply transition duration-75 translate-y-[1px];
+    box-shadow: 0px -2px 6px #ffffff, 0px 2px 6px rgba(0, 0, 0, 0.25),
+      inset -1px -1px 2px rgba(0, 0, 0, 0.17), inset 1px 1px 3px #ffffff;
+  }
+
+  .scroll-block {
+    scroll-snap-type: block mandatory;
+  }
+
+  .scroll-both {
+    scroll-snap-type: both mandatory;
+  }
+
+  .scroll-x {
+    scroll-snap-type: x mandatory;
+  }
+
+  .scroll-y {
+    scroll-snap-type: y mandatory;
+  }
+
+  .scroll-inline {
+    scroll-snap-type: inline mandatory;
+  }
+
+  .scroll-align-start {
+    scroll-snap-align: start;
+  }
+
+  .scroll-invisible {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scroll-invisible::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+#__next {
+  @apply w-full h-[100vh];
+}
+
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
