@@ -1,15 +1,16 @@
 import ProjectHead from "../../components/ProjectHead";
 import SectionNode from "../../components/SectionNode";
+import logo from "../../assets/png/Kabloom-Logo-Large.png";
 
 const Project2 = () => {
   return (
     <div
       id="project2"
-      className="w-[100vw] p-8 py-56 col-start-2 col-span-1 row-start-3 row-span-1 relative flex flex-col items-center gap-56 scroll-align-start"
+      className="w-[100vw] h-[100vh] p-8 py-56 col-start-2 col-span-1 row-start-3 row-span-1 relative flex flex-col items-center gap-56 scroll-align-start overflow-y-scroll"
     >
       <ProjectHead
         name="Kabloom"
-        time="00/0000 - 00/0000"
+        image={logo}
         description="Job description. Talk about value I added to the company. Talk about projects and some other
   stuff."
       />

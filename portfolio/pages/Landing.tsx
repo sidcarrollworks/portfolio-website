@@ -4,7 +4,7 @@ const Landing = () => {
   return (
     <div
       id="home"
-      className="w-[100vw] h-[100vh] p-8 col-start-2 col-span-1 row-start-1 row-span-1 relative scroll-align-start"
+      className="w-[100vw] h-[100vh] p-8 col-start-2 col-span-1 row-start-1 row-span-1 relative scroll-align-start scroll-snap-always"
     >
       <div className="w-full h-full text-center flex flex-col pt-48 gap-14">
         <h2 className="md:text-8xl sm:text-2xl italic font-serif">

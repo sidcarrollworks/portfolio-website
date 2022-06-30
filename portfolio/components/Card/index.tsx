@@ -1,13 +1,15 @@
 import React, { FC } from "react";
 import style from "./style.module.css";
+import cx from "classnames";
 
 type Props = {
   link: string;
   name: string;
   time: string;
+  color?: string;
 };
 
-const Card: FC<Props> = ({ link, name, time }) => {
+const Card: FC<Props> = ({ link, name, time, color }) => {
   return (
     <div className={style.card}>
       <div className="flex h-full w-full justify-center items-center">IMG</div>

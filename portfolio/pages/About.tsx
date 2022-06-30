@@ -6,7 +6,7 @@ const About = () => {
   return (
     <div
       id="about"
-      className="w-[100vw] h-[100vh] p-8 col-start-3 col-span-1 row-start-1 row-span-1 relative flex justify-center items-center scroll-align-start"
+      className="w-[100vw] h-[100vh] p-8 col-start-3 col-span-1 row-start-1 row-span-1 relative flex justify-center items-center scroll-align-start scroll-snap-always"
     >
       <h1 className="section-title before:content-['About'] top-28">About</h1>
       <div
