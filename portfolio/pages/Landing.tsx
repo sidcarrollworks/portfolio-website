@@ -8,13 +8,13 @@ const Landing = () => {
     >
       <div className="w-full h-full text-center flex flex-col pt-48 gap-14">
         <h2 className="md:text-8xl sm:text-2xl italic font-serif">
-          {"Hi I'm"}
+          {"Howdy, I'm"}
         </h2>
         <h1 className="md:text-9xl sm:text-4xl font-bold font-sans layered-fade">
           SID CARROLL
         </h1>
         <h2 className="md:text-3xl sm:text-xl font-sans">
-          Graphics + UX/UI + Front-end Dev
+          Graphics + UI + Front-end
         </h2>
       </div>
 

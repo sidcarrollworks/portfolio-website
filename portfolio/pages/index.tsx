@@ -12,7 +12,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Nav />
-      <div className="bg-zinc-100 w-full h-full overflow-hidden relative scroll-smooth scroll-both z-0">
+      <div className="bg-orange-50 w-full h-full overflow-hidden relative scroll-smooth scroll-both z-0">
         <div className="grid grid-cols-[auto_auto_auto] grid-rows-[auto_auto_auto] z-0">
           <Landing />
           <About />

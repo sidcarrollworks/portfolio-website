@@ -1,7 +1,7 @@
 import React from "react";
 import ProjectHead from "../../components/ProjectHead";
 import SectionNode from "../../components/SectionNode";
-import logo from "../../assets/png/botpressLogo.png";
+import logo from "../../assets/png/botpress/botpressLogo.png";
 
 const Project1 = () => {
   return (
@@ -12,6 +12,7 @@ const Project1 = () => {
       <ProjectHead
         name="Botpress"
         image={logo}
+        bgColor="bg-indigo-200"
         description="Job description. Talk about value I added to the company. Talk about projects and some other
 stuff."
       />

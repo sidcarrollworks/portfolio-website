@@ -1,6 +1,7 @@
 import ProjectHead from "../../components/ProjectHead";
+import Image from "next/image";
 import SectionNode from "../../components/SectionNode";
-import logo from "../../assets/png/Kabloom-Logo-Large.png";
+import logo from "../../assets/png/kabloom/Kabloom-Logo-Large.png";
 
 const Project2 = () => {
   return (
@@ -11,6 +12,7 @@ const Project2 = () => {
       <ProjectHead
         name="Kabloom"
         image={logo}
+        bgColor="bg-red-200"
         description="Job description. Talk about value I added to the company. Talk about projects and some other
   stuff."
       />

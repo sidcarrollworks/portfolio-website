@@ -1,10 +1,10 @@
 .card {
-  @apply h-[400px] w-72 bg-white border-[1px] border-zinc-900 rounded-lg p-6 flex flex-col justify-between;
+  @apply h-[400px] w-72 bg-white border-[1px] border-zinc-900 rounded-lg flex flex-col justify-between;
   position: relative;
   overflow: hidden;
 }
+
 .card:after {
-  @apply bg-zinc-100;
   content: "";
   position: absolute;
   bottom: 0;

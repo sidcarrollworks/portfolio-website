@@ -21,6 +21,7 @@ const SectionNode: FC<Props> = ({ content, flip, image, title }) => {
           src={image}
           alt={title ? title : "img"}
         /> */}
+        {/* <Image src={image} alt={title ? title : "img"} /> */}
       </div>
       <div className="flex flex-col gap-4">
         {title ? <h2 className="text-2xl font-bold">{title}</h2> : null}

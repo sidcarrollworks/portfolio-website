@@ -1,6 +1,6 @@
 import ProjectHead from "../../components/ProjectHead";
 import SectionNode from "../../components/SectionNode";
-import logo from "../../assets/png/sheridanPrintingLogo.png";
+import logo from "../../assets/png/shrprint/sheridanPrintingLogo.png";
 
 const Project3 = () => {
   return (
@@ -11,6 +11,7 @@ const Project3 = () => {
       <ProjectHead
         name="Sheridan Printing"
         image={logo}
+        bgColor="bg-green-200"
         description="Job description. Talk about value I added to the company. Talk about projects and some other
 stuff."
       />
