@@ -14,3 +14,75 @@
 .fugaz {
   font-family: "Fugaz One", cursive;
 }
+
+.poppins {
+  font-family: "Poppins", sans-serif;
+}
+
+.separator {
+  position: relative;
+  width: 100%;
+}
+
+.separator::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: -80px;
+  /* background-color: #404040; */
+  clip-path: polygon(100% 80px, 0 0, 0 80px);
+  z-index: 20;
+}
+
+.separator-top {
+  position: relative;
+  width: 100%;
+}
+
+.separator-top::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  background-color: #fafaf9;
+  z-index: 10;
+  clip-path: polygon(0 80px, 0 0, 100% 0);
+}
+
+.wiggle-x {
+  animation: wigglex 24s ease-in-out 0s infinite normal forwards;
+}
+
+.wiggle-x-2 {
+  animation: wigglex 24s ease-in-out 1s infinite normal forwards;
+}
+
+@keyframes wigglex {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  10%,
+  30%,
+  50%,
+  70% {
+    transform: translateX(15px);
+  }
+
+  20%,
+  40%,
+  60% {
+    transform: translateX(0px);
+  }
+
+  80% {
+    transform: translateX(8px);
+  }
+
+  90% {
+    transform: translateX(0px);
+  }
+}
