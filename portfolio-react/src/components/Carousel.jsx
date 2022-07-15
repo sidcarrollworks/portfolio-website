@@ -26,10 +26,10 @@ const Carousel = (props) => {
     <div className="max-w-5xl w-full flex flex-col gap-4 h-full px-8">
       <div className="flex flex-row w-full p-5 relative justify-center items-center text-start rounded-xl backdrop-blur-sm bg-white/95 border-2 border-white shadow-slate-500/30">
         <div className="flex flex-row w-full text-start gap-2 poppins">
-          <h2 className="font-extrabold text-3xl text-[#3276ea] uppercase">
+          <h2 className="font-extrabold text-2xl text-[#3276ea] uppercase">
             {props.company}
           </h2>
-          <h3 className="text-3xl text-stone-900 uppercase">{props.project}</h3>
+          <h3 className="text-2xl text-stone-900 uppercase">{props.project}</h3>
         </div>
 
         <button
