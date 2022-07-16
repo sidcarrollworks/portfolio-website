@@ -1,0 +1,12 @@
+.spin-once {
+  animation: spin 1s ease-in-out 1 normal forwards;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg), scale(1.25);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

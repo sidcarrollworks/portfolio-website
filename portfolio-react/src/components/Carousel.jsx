@@ -24,7 +24,7 @@ const Carousel = (props) => {
 
   return (
     <div className="max-w-5xl w-full flex flex-col gap-4 h-full px-8">
-      <div className="flex flex-row w-full p-5 relative justify-center items-center text-start rounded-xl backdrop-blur-sm bg-white/95 border-2 border-white shadow-slate-500/30">
+      <div className="flex flex-row w-full p-5 relative justify-center items-center text-start rounded-xl shadow-2xl backdrop-blur-sm bg-white/95 border-2 border-white shadow-slate-500/20">
         <div className="flex flex-row w-full text-start gap-2 poppins">
           <h2 className="font-extrabold text-2xl text-[#3276ea] uppercase">
             {props.company}
@@ -42,7 +42,7 @@ const Carousel = (props) => {
         </button>
       </div>
 
-      <div className="w-full h-full max-w-5xl project-box z-50 rounded-xl flex relative flex-col gap-3 shadow-2xl shadow-slate-500/30 p-6 backdrop-blur-sm bg-white/95 text-start border-2 border-white">
+      <div className="w-full h-full max-w-5xl project-box z-20 rounded-xl flex relative flex-col gap-3 shadow-2xl shadow-slate-500/30 p-6 backdrop-blur-sm bg-white/95 text-start border-2 border-white">
         {/* Control Buttons */}
         <span
           onClick={prevFrame}
