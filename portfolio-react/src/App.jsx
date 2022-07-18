@@ -10,9 +10,14 @@ import Kabloom from "./assets/png/Kabloom.png";
 import SHRPrint from "./assets/png/SHRPrint.png";
 import BHDLogo from "./assets/BHDLogo.svg";
 import Space from "./assets/spaceMe.svg";
+import Mountains from "./assets/Mountains.svg";
+import BPLogo from "./assets/BPLOGO.svg";
+import KabloomLogo from "./assets/KabloomLogo.svg";
+import BHDSymbol from "./assets/BHDSymbol.svg";
+import SPLogo from "./assets/SPLogo.svg";
 
 import Carousel from "./components/Carousel";
-
+import SidePanel from "./components/SidePanel/SidePanel";
 import NavEl from "./components/NavEl";
 
 import { useWindowDimensions } from "./lib/calcWInDim";
@@ -35,6 +40,7 @@ function App() {
 
   const [bpIsOpen, setBpIsOpen] = useState(false);
   const [kbIsOpen, setKbIsOpen] = useState(false);
+  const [isGdOpen, setGdIsOpen] = useState(false);
 
   const pageRef = useRef(null);
   const homeRef = useRef(null);
@@ -44,6 +50,10 @@ function App() {
   const aboutRef = useRef(null);
 
   const { height } = useWindowDimensions();
+
+  const handleGdClose = () => {
+    setGdIsOpen(false);
+  };
 
   return (
     <div
@@ -161,7 +171,7 @@ function App() {
       {/* Work */}
       <div className="flex flex-col w-full items-center mx-auto separator-bot bg-stone-50 before:bg-white">
         {/* Work Title */}
-        <h2 className="text-5xl font-bold fugaz my-40">« WORK »</h2>
+        <h2 className="text-5xl font-bold fugaz mt-40 mb-20">« WORK »</h2>
       </div>
       {/* Botpress */}
       <div
@@ -180,6 +190,11 @@ function App() {
         </div>
         {/* Info Container */}
         <div className="flex flex-col w-full h-full gap-4 items-center justify-center py-14 ">
+          <img
+            src={BPLogo}
+            alt="Botpress Logo"
+            className="absolute top-8 right-[10%] md:right-28 opacity-20"
+          />
           {bpIsOpen ? (
             <Carousel
               handleClose={() => setBpIsOpen(false)}
@@ -279,6 +294,11 @@ function App() {
 
         {/* Info Container */}
         <div className="flex flex-col w-full h-full gap-4 items-center justify-center py-20 max-h-[100vh]">
+          <img
+            src={KabloomLogo}
+            alt="Kabloom Logo"
+            className="transition-all absolute top-28 right-[10%] md:right-28 opacity-20"
+          />
           {kbIsOpen ? (
             <Carousel
               handleClose={() => setKbIsOpen(false)}
@@ -360,40 +380,63 @@ function App() {
         </div>
       </div>
 
-      {/* Sheridan Printing */}
+      {/* Graphic Design */}
       <div
         ref={shrRef}
-        className="w-full h-[120vh] min-h-[650px] justify-center items-center flex flex-col md:flex-row-reverse gap-8 bg-emerald-400 separator-bot before:bg-indigo-700 relative z-10"
+        className="w-full h-[120vh] min-h-[650px] justify-center items-center flex flex-col md:flex-row bg-emerald-500 separator-bot before:bg-indigo-700 relative z-10 overflow-hidden"
       >
-        <div className="w-full max-w-5xl min-h-[100vh] flex flex-col gap-16 justify-start relative py-20 z-10">
-          <h2 className="fugaz uppercase text-4xl text-start ">
-            Sheridan printing <br /> Bighorn Design
-          </h2>
+        <div className="flex flex-col items-center justify-center w-5/6 px-8 pl-20 gap-4 z-10">
+          <img className="w-full" src={Mountains} alt="Mountains" />
+          {/* <Lottie options={defaultOptions} height={"75%"} width={"90%"} /> */}
         </div>
-        {/*  <div
-          className={cx(
-            "transition-all shadow-2xl min-w-[500px] flex flex-col text-start rounded-xl backdrop-blur-sm bg-white/90 border-2 border-white shadow-slate-500/30 max-w-xl max-h-min min-h-fit my-auto self-end mx-auto md:mr-28 gap-8 p-8"
-          )}
-        >
-          <div className="flex flex-col gap-3">
-            <div className="flex flex-row items-end text-start gap-2 poppins">
-              <h2 className="font-extrabold text-3xl text-[#3276ea] ">
-                SHERIDAN
-              </h2>
-              <h3 className="text-3xl text-stone-900">PRINTING</h3>
-            </div>
-            <div className="w-full text-start"></div>
-          </div>
 
-          <button
-            onClick={() => {
-              setBpIsOpen(true);
-            }}
-            className="self-end active:shadow-inner bg-white px-4 py-2 rounded-lg border-[1px] text-sm hover:bg-neutral-50 transition-all font-medium"
-          >
-            view work
-          </button> 
-        </div> */}
+        {/* Info Container */}
+        <div className="flex flex-col w-full h-full gap-4 items-center justify-center py-20 max-h-[100vh]">
+          <div className="transition-all flex flex-row gap-2 absolute top-28 right-[10%] md:right-28 h-[20px] opacity-20">
+            <img src={BHDSymbol} alt="Sheridan Printing" />
+            <img src={SPLogo} alt="Sheridan Printing" />
+          </div>
+          <SidePanel isOpen={isGdOpen} handleClose={handleGdClose}>
+            <p>HIHIHIHIHI</p>
+            <p>OMGOMGOMG</p>
+          </SidePanel>
+
+          <div className="flex flex-col w-3/4 self-center max-w-xl text-start gap-12 rounded-xl p-8 pt-10">
+            <div className="flex flex-col gap-2">
+              <div className="flex flex-row items-end text-start gap-2">
+                <h2 className="font-extrabold text-3xl ">GRAPHICS</h2>
+                <h3 className="text-3xl ">& PRINTING</h3>
+              </div>
+              <div className="w-full text-start ">
+                <p>
+                  My design started in the summer of 2017 at Bighorn Design
+                  Studio in Sheridan Wyoming. Here I worked with customers on
+                  anything from logos to t-shirts to flyers. I learned that my
+                  passion for design came from working with people to bring
+                  their ideas to life.
+                </p>
+                <br />
+                <p>
+                  A couple years later I worked for a small print shop owned by
+                  BHD. I was the in house graphic designer as well as
+                  typesetter. I set up all print jobs that came through the shop
+                  and oversaw the printing as well. We produced and sold a
+                  number of in house stock products, including posters,
+                  magazines, newsletters, and more...
+                </p>
+              </div>
+            </div>
+
+            <button
+              onClick={() => {
+                setGdIsOpen(true);
+              }}
+              className="self-end active:shadow-inner bg-zinc-900 px-4 py-2 rounded-lg text-white border-[1px] border-black text-sm hover:bg-zinc-800 transition-all font-medium"
+            >
+              view work
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* About */}
@@ -457,9 +500,9 @@ function App() {
         </div>
       </div>
       {/* Personal Work */}
-      <div className="flex flex-col w-full h-[120vh] items-center justify-center mx-auto bg-[#101012] bg-gradient-to-b from-[#101012] to-black relative ">
-        <div className="w-full max-w-5xl min-h-[100vh] flex flex-col gap-16 justify-center relative py-20 z-10">
-          <div className="flex flex-row gap-2 bg-[#0A0A0B] h-min w-full rounded-2xl border-2 border-black p-10 z-20"></div>
+      <div className="flex flex-col w-full h-[120vh] items-center justify-center mx-auto bg-black separator-bot before:bg-[#101012] relative ">
+        <div className="w-full max-w-5xl min-h-[100vh] flex flex-col gap-16 justify-center items-center relative py-20 z-10">
+          <div className="flex flex-row gap-2 bg-zinc-900 h-full w-full rounded-2xl border-2 border-black p-10 z-20"></div>
         </div>
       </div>
     </div>
