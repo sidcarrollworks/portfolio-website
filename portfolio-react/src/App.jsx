@@ -428,7 +428,7 @@ function App() {
                 <h2 className="font-extrabold text-3xl ">GRAPHICS</h2>
                 <h3 className="text-3xl ">& PRINTING</h3>
               </div>
-              <div className="w-full text-justify">
+              <div className="w-full text-justify text-base md:text-lg lg:text-2xl">
                 <p>
                   My design started in the summer of 2017 at Bighorn Design
                   Studio in Sheridan Wyoming. Here I worked with customers on
