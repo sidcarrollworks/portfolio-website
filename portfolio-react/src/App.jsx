@@ -137,7 +137,7 @@ function App() {
       <div
         ref={homeRef}
         className={
-          "h-[100vh] flex flex-col justify-between py-12 bg-white bg-gradient-to-b from-stone-100 to-white"
+          "h-[100vh] flex flex-col justify-between py-20 bg-white bg-gradient-to-b from-stone-100 to-white"
         }
       >
         <div className="flex flex-col items-center gap-1 pt-4">
@@ -145,13 +145,13 @@ function App() {
           <h4 className="fugaz text-xs">SID CARROLL WORKS</h4>
         </div>
 
-        <div className="flex flex-col items-center gap-1">
-          <h1 className="text-center fugaz text-8xl">
+        <div className="flex flex-col items-center gap-1 px-10">
+          <h1 className="text-center fugaz text-5xl md:text-7xl lg:text-9xl">
             PURPOSEFUL
             <br />
             DESIGN SOLUTIONS
           </h1>
-          <h3 className="text-xl font-medium uppercase">
+          <h3 className="text-base md:text-xl font-medium uppercase">
             I use my experience in graphics and ui design to create captivating
             experiences.
           </h3>
@@ -159,7 +159,7 @@ function App() {
 
         <div className="p-4 flex flex-col items-center gap-8 ">
           <h4 className="font-bold">PEOPLE I'VE WORKED WITH</h4>
-          <div className="flex flex-row gap-8">
+          <div className="flex flex-row flex-wrap items-center justify-center gap-8">
             <img src={BP} className="h-8" alt="Botpress" />
             <img src={Kabloom} className="h-8" alt="Kabloom" />
             <img src={SHRPrint} className="h-8" alt="Sheridan Printing" />
@@ -179,6 +179,7 @@ function App() {
         className="w-full h-[120vh] min-h-[650px] flex flex-col gap-8 relative separator-top bg-stone-50 bg-gradient-to-b from-stone-50 to-stone-100 before:bg-stone-50 py-20"
       >
         {/* Graphic */}
+
         <div className="flex flex-col w-full gap-4 absolute top-0 left-0 h-full">
           <iframe
             title="Studio UI"
@@ -188,6 +189,7 @@ function App() {
             height="100%"
           ></iframe>
         </div>
+
         {/* Info Container */}
         <div className="flex flex-col w-full h-full gap-4 items-center justify-center py-14 ">
           <img
@@ -242,11 +244,11 @@ function App() {
           ) : (
             <div
               className={cx(
-                "transition-all shadow-2xl min-w-[500px] flex flex-col text-start rounded-xl backdrop-blur-sm bg-white/70 border-2 border-white shadow-slate-500/30 max-w-xl max-h-min min-h-fit my-auto self-end mx-auto md:mr-28 gap-8 p-8"
+                "transition-all shadow-2xl  flex flex-col text-start rounded-xl backdrop-blur-sm bg-white/70 border-2 border-white shadow-slate-500/30 max-w-xl max-h-min min-h-fit my-auto self-center md:self-end mx-10 md:mr-28 gap-8 p-8"
               )}
             >
               <div className="flex flex-col gap-3">
-                <div className="flex flex-row items-end text-start gap-2 poppins">
+                <div className="flex flex-row flex-wrap items-end text-start gap-2 poppins">
                   <h2 className="font-extrabold text-3xl text-[#3276ea] ">
                     BOTPRESS
                   </h2>
@@ -283,17 +285,28 @@ function App() {
       {/* Kabloom */}
       <div
         ref={kbRef}
-        className="w-full h-[120vh] min-h-[650px] justify-center px-6 items-center flex flex-col md:flex-row-reverse gap-8 bg-indigo-600 separator-right bg-gradient-to-b from-indigo-600 to-indigo-700 after:bg-indigo-600 relative z-0"
+        className="w-full h-[120vh] min-h-[650px] justify-center px-10 items-center flex flex-col md:flex-row-reverse md:gap-8 bg-indigo-600 separator-right bg-gradient-to-b from-indigo-600 to-indigo-700 after:bg-indigo-600 relative z-0"
       >
-        <div className="hidden md:block overflow-hidden shadow-xl bg-red-400 rounded-l-full absolute h-80 w-2/4 top-1/2 right-0 -z-10 wiggle-x"></div>
-        <div className="hidden md:block overflow-hidden shadow-red-700/30 bg-red-300 rounded-l-full absolute h-80 w-1/4 top-1/4 right-0 wiggle-x-2"></div>
-        <div className="flex flex-col items-center justify-center h-[650px] w-3/4 gap-4 z-10">
-          {/* <img src={PC} alt="laptop" className="w-3/4" /> */}
-          <Lottie options={defaultOptions} height={"75%"} width={"90%"} />
+        <div className="absolute w-full h-full top-full -translate-y-1/2 right-0">
+          <div className="relative h-1/2 w-full -translate-y-1/2">
+            <div className="hidden md:block overflow-hidden shadow-xl bg-red-400 rounded-l-full absolute h-80 w-2/4 top-1/2 right-0 -z-10 wiggle-x"></div>
+            <div className="hidden md:block overflow-hidden shadow-red-700/30 bg-red-300 rounded-l-full absolute h-80 w-1/4 top-1/4 right-0 wiggle-x-2"></div>
+          </div>
         </div>
+        {kbIsOpen ? null : (
+          <div className="flex flex-col items-center justify-center h-fit w-full md:1/2 lg:p-20 z-10">
+            {/* <img src={PC} alt="laptop" className="w-3/4" /> */}
+            <Lottie
+              className=" max-w-xl"
+              options={defaultOptions}
+              height={"100%"}
+              width={"100%"}
+            />
+          </div>
+        )}
 
         {/* Info Container */}
-        <div className="flex flex-col w-full h-full gap-4 items-center justify-center py-20 max-h-[100vh]">
+        <div className="flex flex-col w-full h-full items-center md:justify-center max-h-[100vh]">
           <img
             src={KabloomLogo}
             alt="Kabloom Logo"
@@ -343,9 +356,9 @@ function App() {
               </div>
             </Carousel>
           ) : (
-            <div className="flex flex-col w-3/4 self-center max-w-xl text-start gap-12 rounded-xl backdrop-blur-sm bg-white/90 border-2 border-white shadow-2xl p-8 pt-10">
-              <div className="flex flex-col gap-2">
-                <div className="flex flex-row items-end text-start gap-4">
+            <div className="flex flex-col w-full max-w-xl text-start gap-12 rounded-xl backdrop-blur-sm bg-white/90 border-2 border-white shadow-2xl p-8 pt-10">
+              <div className="flex flex-col  gap-2">
+                <div className="flex flex-row flex-wrap items-end text-start gap-4">
                   <h2 className="font-extrabold text-3xl text-indigo-500">
                     KABLOOM
                   </h2>

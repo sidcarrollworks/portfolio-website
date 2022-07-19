@@ -5,7 +5,7 @@ const SidePanel = ({ children, isOpen, handleClose }) => {
   return (
     <div
       className={cx(
-        "absolute side-panel h-full w-1/2 py-20 px-20 text-white text-start flex flex-col items-start justify-center transition duration-200 ease-in-out z-10",
+        "absolute side-panel h-full w-full md:w-1/2 py-20 px-20 text-white text-start flex flex-col items-start justify-center transition duration-200 ease-in-out z-10",
         isOpen ? "" : "translate-x-[150%]"
       )}
     >

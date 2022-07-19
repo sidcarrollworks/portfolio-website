@@ -23,9 +23,9 @@ const Carousel = (props) => {
   });
 
   return (
-    <div className="max-w-5xl w-full flex flex-col gap-4 h-full px-8">
+    <div className="max-w-5xl max-h-[800px] w-full flex flex-col gap-4 h-full px-8">
       <div className="flex flex-row w-full p-5 relative justify-center items-center text-start rounded-xl shadow-2xl backdrop-blur-sm bg-white/95 border-2 border-white shadow-slate-500/20">
-        <div className="flex flex-row w-full text-start gap-2 poppins">
+        <div className="flex flex-row w-full flex-wrap text-start gap-2 poppins">
           <h2 className="font-extrabold text-2xl text-[#3276ea] uppercase">
             {props.company}
           </h2>
@@ -36,7 +36,7 @@ const Carousel = (props) => {
           onClick={() => {
             props.handleClose();
           }}
-          className="transition-all self-end p-2 px-3 active:shadow-inner text-stone-500 border-[1px] hover:text-stone-700 text-xs bg-white text-center rounded-xl  hover:bg-neutral-50"
+          className="transition-all self-start p-2 px-3 active:shadow-inner text-stone-500 border-[1px] hover:text-stone-700 text-xs bg-white text-center rounded-xl  hover:bg-neutral-50"
         >
           X
         </button>
