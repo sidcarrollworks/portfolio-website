@@ -48,6 +48,7 @@ function App() {
   const kbRef = useRef(null);
   const shrRef = useRef(null);
   const aboutRef = useRef(null);
+  const sidePanel = useRef(null);
 
   const { height } = useWindowDimensions();
 
@@ -140,9 +141,11 @@ function App() {
           "h-[100vh] flex flex-col justify-between py-20 bg-white bg-gradient-to-b from-stone-100 to-white"
         }
       >
-        <div className="flex flex-col items-center gap-1 pt-4">
-          <Logo />
-          <h4 className="fugaz text-xs">SID CARROLL WORKS</h4>
+        <div className="flex flex-col h-min items-center gap-1 pt-4">
+          <Logo className={"w-32 md:w-48 lg:w-52"} />
+          <h4 className="fugaz text-xs md:text-lg lg:text-xl">
+            SID CARROLL WORKS
+          </h4>
         </div>
 
         <div className="flex flex-col items-center gap-1 px-10">
@@ -396,31 +399,36 @@ function App() {
       {/* Graphic Design */}
       <div
         ref={shrRef}
-        className="w-full h-[120vh] min-h-[650px] justify-center items-center flex flex-col md:flex-row bg-emerald-500 separator-bot before:bg-indigo-700 relative z-10 overflow-hidden"
+        className="w-full h-[120vh] justify-center items-center flex flex-col md:flex-row bg-emerald-500 separator-bot before:bg-indigo-700 relative z-10 overflow-hidden"
       >
-        <div className="flex flex-col items-center justify-center w-5/6 px-8 pl-20 gap-4 z-10">
+        <div className="hidden md:flex flex-col items-center justify-end md:justify-center w-5/6 px-8 h-full pl-20 gap-4 z-10">
           <img className="w-full" src={Mountains} alt="Mountains" />
           {/* <Lottie options={defaultOptions} height={"75%"} width={"90%"} /> */}
         </div>
 
+        <SidePanel
+          ref={sidePanel}
+          isOpen={isGdOpen}
+          handleClose={handleGdClose}
+        >
+          <p>HIHIHIHIHI</p>
+          <p>OMGOMGOMG</p>
+        </SidePanel>
+
         {/* Info Container */}
-        <div className="flex flex-col w-full h-full gap-4 items-center justify-center py-20 max-h-[100vh]">
+        <div className="flex flex-col w-full h-full gap-4 items-center justify-center py-0 md:py-20 max-h-[100vh]">
           <div className="transition-all flex flex-row gap-2 absolute top-28 right-[10%] md:right-28 h-[20px] opacity-20">
             <img src={BHDSymbol} alt="Sheridan Printing" />
             <img src={SPLogo} alt="Sheridan Printing" />
           </div>
-          <SidePanel isOpen={isGdOpen} handleClose={handleGdClose}>
-            <p>HIHIHIHIHI</p>
-            <p>OMGOMGOMG</p>
-          </SidePanel>
 
           <div className="flex flex-col w-3/4 self-center max-w-xl text-start gap-12 rounded-xl p-8 pt-10">
             <div className="flex flex-col gap-2">
-              <div className="flex flex-row items-end text-start gap-2">
+              <div className="flex flex-row flex-wrap items-end text-start gap-2">
                 <h2 className="font-extrabold text-3xl ">GRAPHICS</h2>
                 <h3 className="text-3xl ">& PRINTING</h3>
               </div>
-              <div className="w-full text-start ">
+              <div className="w-full text-justify">
                 <p>
                   My design started in the summer of 2017 at Bighorn Design
                   Studio in Sheridan Wyoming. Here I worked with customers on
