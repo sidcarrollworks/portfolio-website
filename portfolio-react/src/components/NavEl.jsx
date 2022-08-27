@@ -29,7 +29,8 @@ const NavEl = ({ icon, onClick, className, msg }) => {
       <span
         className={cx(
           "fixed left-10 top-1/2 -translate-y-1/2 bg-black font-bold text-start text-[10px] shadow-lg transition px-2 py-1 text-white rounded-xl",
-          hover ? "opacity-100" : "opacity-0"
+          hover ? "opacity-100" : "opacity-0",
+          spin || hover ? "" : "hidden"
         )}
       >
         {msg ? msg : null}

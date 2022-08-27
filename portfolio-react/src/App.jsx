@@ -48,7 +48,6 @@ function App() {
   const kbRef = useRef(null);
   const shrRef = useRef(null);
   const aboutRef = useRef(null);
-  const sidePanel = useRef(null);
 
   const { height } = useWindowDimensions();
 
@@ -142,14 +141,12 @@ function App() {
         }
       >
         <div className="flex flex-col h-min items-center gap-1 pt-4">
-          <Logo className={"w-32 md:w-48 lg:w-52"} />
-          <h4 className="fugaz text-xs md:text-lg lg:text-xl">
-            SID CARROLL WORKS
-          </h4>
+          <Logo className={"w-36 "} />
+          <h4 className="fugaz text-sm">SID CARROLL WORKS</h4>
         </div>
 
         <div className="flex flex-col items-center gap-1 px-10">
-          <h1 className="text-center fugaz text-5xl md:text-7xl lg:text-9xl">
+          <h1 className="text-center fugaz text-5xl md:text-7xl lg:text-8xl">
             PURPOSEFUL
             <br />
             DESIGN SOLUTIONS
@@ -184,13 +181,13 @@ function App() {
         {/* Graphic */}
 
         <div className="flex flex-col w-full gap-4 absolute top-0 left-0 h-full">
-          <iframe
+          {/* <iframe
             title="Studio UI"
             src="https://my.spline.design/node-2043772254239c2ab25cae4855ce86e6/"
             frameBorder="0"
             width="100%"
             height="100%"
-          ></iframe>
+          ></iframe> */}
         </div>
 
         {/* Info Container */}
@@ -297,7 +294,7 @@ function App() {
           </div>
         </div>
         {kbIsOpen ? null : (
-          <div className="flex flex-col items-center justify-center h-fit w-full md:1/2 lg:p-20 z-10">
+          <div className="flex flex-col items-start justify-start h-fit w-full  p-0 z-10">
             {/* <img src={PC} alt="laptop" className="w-3/4" /> */}
             <Lottie
               className=" max-w-xl"
@@ -406,11 +403,7 @@ function App() {
           {/* <Lottie options={defaultOptions} height={"75%"} width={"90%"} /> */}
         </div>
 
-        <SidePanel
-          ref={sidePanel}
-          isOpen={isGdOpen}
-          handleClose={handleGdClose}
-        >
+        <SidePanel isOpen={isGdOpen} handleClose={handleGdClose}>
           <p>HIHIHIHIHI</p>
           <p>OMGOMGOMG</p>
         </SidePanel>
@@ -422,28 +415,19 @@ function App() {
             <img src={SPLogo} alt="Sheridan Printing" />
           </div>
 
-          <div className="flex flex-col w-3/4 self-center max-w-xl text-start gap-12 rounded-xl p-8 pt-10">
-            <div className="flex flex-col gap-2">
+          <div className="flex flex-col w-3/4 self-center max-w-xl text-start gap-8 rounded-xl p-6 pt-10">
+            <div className="flex flex-col gap-4">
               <div className="flex flex-row flex-wrap items-end text-start gap-2">
                 <h2 className="font-extrabold text-3xl ">GRAPHICS</h2>
                 <h3 className="text-3xl ">& PRINTING</h3>
               </div>
-              <div className="w-full text-justify text-base md:text-lg lg:text-2xl">
+              <div className="w-full text-justify text-base md:text-lg lg:text-xl ">
                 <p>
                   My design started in the summer of 2017 at Bighorn Design
                   Studio in Sheridan Wyoming. Here I worked with customers on
                   anything from logos to t-shirts to flyers. I learned that my
                   passion for design came from working with people to bring
                   their ideas to life.
-                </p>
-                <br />
-                <p>
-                  A couple years later I worked for a small print shop owned by
-                  BHD. I was the in house graphic designer as well as
-                  typesetter. I set up all print jobs that came through the shop
-                  and oversaw the printing as well. We produced and sold a
-                  number of in house stock products, including posters,
-                  magazines, newsletters, and more...
                 </p>
               </div>
             </div>
@@ -463,12 +447,12 @@ function App() {
       {/* About */}
       <div
         ref={aboutRef}
-        className="flex flex-col w-full h-[120vh] items-center justify-center mx-auto bg-zinc-900 bg-gradient-to-b from-zinc-900 to-[#101012] relative separator-right after:bg-zinc-900"
+        className="flex flex-col w-full h-[100vh] items-center justify-center mx-auto bg-zinc-900 bg-gradient-to-b from-zinc-900 to-[#101012] relative separator-right after:bg-zinc-900"
       >
         <div className="w-full max-w-5xl min-h-[100vh] flex flex-col gap-16 justify-center relative py-20 z-10">
           <div className="flex flex-row gap-2 bg-[#0A0A0B] h-min w-full rounded-2xl border-2 border-black p-10 z-20">
             <div className="flex flex-col w-3/5 h-full gap-8 text-zinc-300 text-start">
-              <div className="text-justify h-min flex flex-col">
+              <div className="text-justify h-min flex flex-col text-lg">
                 <h3 className="font-bold text-2xl fugaz mb-4">WHO AM I?</h3>
                 <p>
                   I’m Sid Carroll, a self taught designer who combines my
@@ -521,11 +505,11 @@ function App() {
         </div>
       </div>
       {/* Personal Work */}
-      <div className="flex flex-col w-full h-[120vh] items-center justify-center mx-auto bg-black separator-bot before:bg-[#101012] relative ">
+      {/* <div className="flex flex-col w-full h-[120vh] items-center justify-center mx-auto bg-black separator-bot before:bg-[#101012] relative ">
         <div className="w-full max-w-5xl min-h-[100vh] flex flex-col gap-16 justify-center items-center relative py-20 z-10">
           <div className="flex flex-row gap-2 bg-zinc-900 h-full w-full rounded-2xl border-2 border-black p-10 z-20"></div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
