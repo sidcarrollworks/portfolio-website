@@ -10,6 +10,7 @@ interface Props {
   color2: string;
   coverImg?: any;
   lottie?: any;
+  background?: any;
   children?: any;
   logo?: any;
   content?: any;
@@ -157,13 +158,12 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
 
   const lottieProps = useSpring({
     from: {
-      transform: "translateY(1000%)",
+      y: "100%",
       opacity: "0%",
     },
 
     to: {
-      transform: hover ? "translateY(0%)" : "translateY(100%)",
-
+      y: hover ? "0%" : "100%",
       opacity: hover ? "100%" : "0%",
     },
 
@@ -180,7 +180,7 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
       ref={ref}
       onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
       onMouseLeave={() => set({ xy: [0, 0] })}
-      className="min-h-full md:h-full bg-gradient-to-b from-neutral-200 to-neutral-100 flex flex-col accent-edge rounded-xl scroll-align-start"
+      className="min-h-full md:h-full bg-gradient-to-b min-w-0 from-neutral-200 to-neutral-100 flex flex-col accent-edge rounded-xl scroll-align-start"
     >
       {!open ? (
         <>
@@ -205,7 +205,7 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
               style={{
                 ...lottieProps,
                 transform: paraProps.xy.to(
-                  (x, y) => `translate3d(${x / 20}px,${y / 20}px,0)`
+                  (x, y) => `translate3d(${x / 15}px,${y / 15}px,0)`
                 ),
               }}
               className={
@@ -214,8 +214,8 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
             >
               {props.lottie ? View : null}
             </animated.div>
-            {props.children
-              ? React.cloneElement(props.children, { hovered: hover })
+            {props.background
+              ? React.cloneElement(props.background, { hovered: hover })
               : null}
             <animated.img
               style={imageProps}
@@ -243,13 +243,17 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
           </animated.span>
         </>
       ) : (
-        <div className="w-full h-full flex flex-col p-24">
-          <div className="w-full flex flex-row gap-6 items-center">
-            {props.logo ? (
-              <img src={props.logo} alt="logo" className="h-12" />
-            ) : null}
-            <h2 className="text-3xl font-semibold">{props.content.title}</h2>
-          </div>
+        <div className="w-full h-full flex flex-col p-24 relative">
+          <span
+            className="top-8 right-8 font-bold text-xl absolute cursor-pointer p-4 leading-3"
+            onClick={() => {
+              setOpen(false);
+            }}
+          >
+            X
+          </span>
+
+          {props.children}
         </div>
       )}
     </animated.div>
