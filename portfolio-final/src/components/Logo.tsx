@@ -1,4 +1,12 @@
-const Logo = ({ width, height, className }) => {
+import React from "react";
+
+interface Props {
+  height?: string;
+  width?: string;
+  className?: string;
+}
+
+const Logo = ({ width, height, className }: Props) => {
   return (
     <>
       <svg
