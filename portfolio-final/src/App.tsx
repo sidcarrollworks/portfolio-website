@@ -190,10 +190,34 @@ function App() {
 
                   <div
                     ref={about}
-                    className="min-h-full w-full flex flex-row gap-6 scroll-align-start"
+                    className="min-h-full w-full flex flex-row gap-6 scroll-align-start "
                   >
-                    <div className="w-full h-full flex flex-col justify-between bg-zinc-900 rounded-xl p-6 relative accent-edge">
-                      hi
+                    <div className="w-full h-full flex flex-row justify-center items-center bg-[#0E0E0F] rounded-xl p-6 relative accent-edge">
+                      <div className="h-full w-full flex flex-col gap-8 justify-center items-end">
+                        <div className="flex flex-col gap-4 items-start">
+                          <h2 className="text-2xl font-semibold text-zinc-100 ">
+                            BUILT FOR DESIGN
+                          </h2>
+                          <p className="max-w-md text-zinc-100">
+                            I’m a self taught designer who combines my previous
+                            experience in graphic design, UX/UI, and front-end
+                            web development to turn ideas into products.
+                            <br />
+                            <br />
+                            Working print shop gave me the opportunity to work
+                            with a lot of clients. I learned how to be empathic
+                            with my clients needs as well as how to ask the
+                            right questions. The importance of somehting idsdfas
+                            <br />
+                            <br />
+                            In my free time I spend my time creating or playing
+                            music as well as the occasional Cuphead binge.
+                            Offline I enjoy hiking and spending time with my
+                            dog.
+                          </p>
+                        </div>
+                      </div>
+                      <div className="w-full h-full flex flex-col justify-between rounded-xl p-6 relative accent-edge"></div>
                     </div>
                   </div>
                 </>
