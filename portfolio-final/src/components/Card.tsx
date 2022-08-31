@@ -14,6 +14,7 @@ interface Props {
   children?: any;
   logo?: any;
   content?: any;
+  openCard?: any;
 }
 
 const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
@@ -31,13 +32,12 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
   ];
 
   useEffect(() => {
-    if (ref.current) {
+    if (ref) {
       setHeight(ref.current.clientHeight);
       setWidth(ref.current.clientWidth);
       setOffsetTop(ref.current.offsetTop);
       setOffsetLeft(ref.current.offsetLeft);
     }
-    console.log(ref.current.offsetTop, ref.current.offsetLeft);
   }, [hover, ref]);
 
   const [paraProps, set] = useSpring(() => ({
@@ -228,6 +228,7 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
               className="transition cursor-pointer justify-self-end text-lg font-medium z-10 rounded-lg h-12 py-8 text-zinc-900 shadow-md shadow-zinc-900/20 bg-gradient-to-b from-white to-white/90 hover:bg-white"
               onClick={() => {
                 setOpen(!open);
+                props.openCard(ref);
               }}
             >
               view
@@ -248,6 +249,7 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
             className="top-8 right-8 font-bold text-xl absolute cursor-pointer p-4 leading-3"
             onClick={() => {
               setOpen(false);
+              props.openCard();
             }}
           >
             X
