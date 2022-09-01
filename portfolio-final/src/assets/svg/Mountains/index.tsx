@@ -403,13 +403,11 @@ const Mountains = ({ hovered }: Props) => {
 
   const titleProps = useSpring({
     from: {
-      transform: "translateX(0rem) translateY(0rem)",
+      transform: "translateY(0rem)",
       opacity: 0,
     },
     to: {
-      transform: hovered
-        ? "translateX(0rem) translateY(-14rem)"
-        : "translateX(0rem) translateY(0rem)",
+      transform: hovered ? "translateY(19rem)" : "translateY(0rem)",
       opacity: hovered ? 1 : 0,
     },
 
@@ -433,9 +431,9 @@ const Mountains = ({ hovered }: Props) => {
 
       <animated.span
         style={titleProps}
-        className="absolute text-4xl font-bold text-white"
+        className="absolute text-3xl font-bold text-white"
       >
-        SHERIDAN PRINTING
+        Graphic Design
       </animated.span>
 
       <animated.div

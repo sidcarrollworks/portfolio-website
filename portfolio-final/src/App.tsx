@@ -4,24 +4,30 @@ import { animated, Spring, useSpring, useTransition } from "react-spring";
 
 import cx from "classnames";
 
+import BotpressBreakdown from "./components/BotpressBreakdown";
+
 import EnterLogo from "./components/EnterLogo";
 import Card from "./components/Card";
+import SheridanPrinting from "./components/SheridanPrinting";
+import KabloomBreakdown from "./components/KabloomBreakdown";
 import Mountains from "./assets/svg/Mountains";
 import Nodes from "./assets/svg/Nodes";
 import Character from "./assets/svg/Character";
+import Balloons from "./assets/svg/Balloons";
 
 import BP from "./assets/png/BP.png";
-import Kabloom from "./assets/png/Kabloom.png";
+import kabloomLogo from "./assets/png/kabloomLogo.png";
 import SHRPrint from "./assets/png/SHRPrint.png";
 import grid from "./assets/png/grid2.png";
+import luna from "./assets/jpg/luna.jpg";
 
 import BHDLogo from "./assets/svg/BHDLogo.svg";
 import logo from "./logo.svg";
+import bpLogo from "./assets/svg/bpLogo.svg";
 
 import BPIcon from "./assets/svg/BPIcon.svg";
 import KBIcon from "./assets/svg/KBIcon.svg";
 import SHRIcon from "./assets/svg/SHRIcon.svg";
-import bpLogo from "./assets/svg/bpLogo.svg";
 
 import laptopAnimation from "./assets/lottie/laptopAnimation.json";
 
@@ -45,6 +51,8 @@ function App() {
   const [height, setHeight] = useState(0);
   const [width, setWidth] = useState(0);
 
+  const [lunaHover, setLunaHover] = useState(false);
+
   const calc = (x: number, y: number) => [
     x - width + width / 2,
     y - height + height / 2,
@@ -58,9 +66,9 @@ function App() {
   }, [enter]);
 
   const transitions = useTransition(enter, {
-    from: { transform: "translateX(100%)" },
-    enter: { transform: "translateX(0%)" },
-    to: { transform: "translateX(-100%)" },
+    from: { transform: "scale(0)" },
+    enter: { transform: "scale(1)" },
+    to: { transform: "scale(0)" },
     reverse: enter,
     delay: 200,
     config: {
@@ -76,7 +84,7 @@ function App() {
     config: { mass: 5, tension: 800, friction: 90 },
   }));
 
-  const isCardOpen = (card: any) => {
+  const openCardFn = (card: any) => {
     setOpenCard(card);
   };
 
@@ -152,16 +160,9 @@ function App() {
       coverImg: KBIcon,
       ref: Card1,
       lottie: laptopAnimation,
-      openCard: isCardOpen,
-      background: null,
-      content: (
-        <div className="w-full flex flex-row gap-6 items-center">
-          {bpLogo ? <img src={bpLogo} alt="logo" className="h-12" /> : null}
-          <h2 className="text-3xl font-semibold">
-            Kabloom Booking UI Breakdown
-          </h2>
-        </div>
-      ),
+      openCard: openCardFn,
+      background: <Balloons />,
+      content: <KabloomBreakdown />,
       close: false,
     },
     {
@@ -172,13 +173,8 @@ function App() {
       ref: Card2,
       background: <Mountains />,
       lottie: null,
-      openCard: isCardOpen,
-      content: (
-        <div className="w-full flex flex-row gap-6 items-center">
-          {bpLogo ? <img src={bpLogo} alt="logo" className="h-12" /> : null}
-          <h2 className="text-3xl font-semibold">Sheridan Printing</h2>
-        </div>
-      ),
+      openCard: openCardFn,
+      content: <SheridanPrinting logo={bpLogo} />,
       close: false,
     },
     {
@@ -190,18 +186,17 @@ function App() {
       logo: bpLogo,
       background: <Nodes />,
       lottie: null,
-      openCard: isCardOpen,
-      content: (
-        <div className="w-full flex flex-row gap-6 items-center">
-          {bpLogo ? <img src={bpLogo} alt="logo" className="h-12" /> : null}
-          <h2 className="text-3xl font-semibold">
-            Botpress Studio UI Breakdown
-          </h2>
-        </div>
-      ),
+      openCard: openCardFn,
+      content: <BotpressBreakdown bpLogo={bpLogo} />,
       close: false,
     },
   ]);
+
+  const lunaProps = useSpring({
+    from: { opacity: 0 },
+    to: { opacity: lunaHover ? 1 : 0 },
+    config: { mass: 5, tension: 800, friction: 90 },
+  });
 
   return (
     <div
@@ -222,7 +217,12 @@ function App() {
 
         <div className="relative w-full h-full rounded-xl overflow-hidden px-6">
           <div className="overflow-hidden rounded-xl flex flex-col w-full h-full ">
-            <div className="w-full h-full flex flex-col hide-scrollbar scroll-invisible gap-6 scroll-snap-y relative rounded-xl overflow-auto">
+            <div
+              className={cx(
+                "w-full h-full flex flex-col hide-scrollbar p-0 scroll-invisible gap-6 scroll-snap-y relative rounded-xl overflow-auto",
+                openCard ? "overflow-hidden" : "overflow-auto"
+              )}
+            >
               {transitions((styles, item) => {
                 return !item ? (
                   <animated.div
@@ -275,7 +275,7 @@ function App() {
                               alt="Botpress"
                             />
                             <img
-                              src={Kabloom}
+                              src={kabloomLogo}
                               className="h-6 md:h-8"
                               alt="Kabloom"
                             />
@@ -313,6 +313,7 @@ function App() {
                             background={card.background}
                             openCard={card.openCard}
                             content={card.content}
+                            closed={card.close}
                           >
                             {card.content}
                           </Card>
@@ -332,23 +333,37 @@ function App() {
                               BUILT FOR DESIGN
                             </h2>
                             <p className="max-w-md text-zinc-200">
-                              I’m a self taught designer who combines my
-                              previous experience in graphic design, UX/UI, and
-                              front-end web development to turn ideas into
-                              products.
+                              I combine my graphic design, ui, and front-end
+                              development skills to create clean, functional,
+                              and engaging experiences.
                               <br />
                               <br />
-                              Working print shop gave me the opportunity to work
-                              with a lot of clients. I learned how to be
-                              empathic with my clients needs as well as how to
-                              ask the right questions. The importance of
-                              somehting idsdfas
+                              My time in the print shop taught me how to
+                              interact with client to pull out the right
+                              information in order to create a sucessful design.
                               <br />
                               <br />
                               In my free time I spend my time creating or
-                              playing music as well as the occasional Cuphead
-                              binge. Offline I enjoy hiking and spending time
-                              with my dog.
+                              playing music as well as the occasional game of
+                              counter strike. Offline I enjoy spending time with
+                              my dog,{" "}
+                              <span className="relative max-w-min overflow-visible">
+                                <span
+                                  onMouseOver={() => setLunaHover(true)}
+                                  onMouseLeave={() => setLunaHover(false)}
+                                  className="text-amber-500 hover:text-amber-400 transition cursor-default"
+                                >
+                                  Luna
+                                </span>
+
+                                <animated.span
+                                  style={lunaProps}
+                                  className="absolute top-0 -right-4 translate-x-full -translate-y-1/2 w-80 rounded-xl overflow-hidden shadow-2xl z-10"
+                                >
+                                  <img src={luna} alt="Luna" />
+                                </animated.span>
+                              </span>
+                              .
                             </p>
                             <div className="flex flex-col gap-2 w-full text-zinc-400 pt-4">
                               <a

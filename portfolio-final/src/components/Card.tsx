@@ -15,6 +15,7 @@ interface Props {
   logo?: any;
   content?: any;
   openCard?: any;
+  closed?: any;
 }
 
 const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
@@ -27,7 +28,7 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
   const [offsetLeft, setOffsetLeft] = useState(0);
 
   let calc = (x: number, y: number) => [
-    x - width / 2 - offsetLeft,
+    x - offsetLeft - width / 2 - 20,
     (y - height / 2) / 5,
   ];
 
@@ -63,33 +64,36 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
     from: {
       padding: "0.5rem",
       width: "100%",
-      opacity: 0.95,
+
+      backgroundColor: "rgba(255, 255, 255, 0)",
     },
     to: {
-      // padding: hover ? "0rem" : "0.5rem",
+      padding: open ? "0rem" : "0.5rem",
       minWidth: open ? "100%" : "0%",
-      opacity: hover ? 1 : 0.95,
+      backgroundColor: open
+        ? "rgba(255, 255, 255, 1)"
+        : "rgba(255, 255, 255, 0)",
     },
 
     reset: true,
     config: {
       mass: 2,
-      tension: 800,
-      friction: 50,
+      tension: 500,
+      friction: 100,
     },
   });
 
   const titleProps = useSpring({
     from: {
       height: "2rem",
-      opacity: 1,
+      opacity: 0,
       marginTop: "0.5rem",
       display: "flex",
     },
     to: [
       {
         height: hover ? "0rem" : "2rem",
-        opacity: hover ? 0 : 1,
+        // opacity: hover ? 0 : 1,
         marginTop: hover ? "0rem" : "0.5rem",
       },
       // { display: hover ? "none" : "flex" },
@@ -180,7 +184,7 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
       ref={ref}
       onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
       onMouseLeave={() => set({ xy: [0, 0] })}
-      className="min-h-full md:h-full bg-gradient-to-b min-w-0 from-neutral-200 to-neutral-100 flex flex-col accent-edge rounded-xl scroll-align-start"
+      className="min-h-full w-full md:h-full min-w-0 flex flex-col accent-edge rounded-xl scroll-align-start"
     >
       {!open ? (
         <>
@@ -192,13 +196,17 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
               ),
             }}
             className={cx(
-              "h-full w-full shadow-lg group hover:shadow-inner flex flex-col items-center justify-end rounded-xl shadow-zinc-600/30 overflow-hidden p-4 relative"
+              "h-full w-full cursor-pointer shadow-lg group hover:shadow-inner flex flex-col items-center justify-end rounded-xl shadow-zinc-600/30 overflow-hidden p-4 relative"
             )}
             onMouseEnter={() => {
               setHover(true);
             }}
             onMouseLeave={() => {
               setHover(false);
+            }}
+            onClick={() => {
+              setOpen(!open);
+              props.openCard(ref);
             }}
           >
             <animated.div
@@ -223,7 +231,7 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
               className=" max-w-xs absolute opacity-80"
               alt="logo"
             />
-            <animated.button
+            {/* <animated.button
               style={buttonProps}
               className="transition cursor-pointer justify-self-end text-lg font-medium z-10 rounded-lg h-12 py-8 text-zinc-900 shadow-md shadow-zinc-900/20 bg-gradient-to-b from-white to-white/90 hover:bg-white"
               onClick={() => {
@@ -232,11 +240,11 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
               }}
             >
               view
-            </animated.button>
+            </animated.button> */}
           </animated.div>
           <animated.span
             style={titleProps}
-            className="inter w-full text-center text-xl items-center justify-center flex flex-row gap-2 text-stone-700"
+            className="inter w-full text-center text-xl items-center justify-center flex flex-row gap-2 text-zinc-300"
           >
             <span className="font-bold uppercase">{first}</span>
 
@@ -244,9 +252,9 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
           </animated.span>
         </>
       ) : (
-        <div className="w-full h-full flex flex-col p-24 relative">
+        <div className="w-full h-full flex flex-col relative overflow-y-scroll ">
           <span
-            className="top-8 right-8 font-bold text-xl absolute cursor-pointer p-4 leading-3"
+            className="top-8 right-8 font-bold text-xl absolute cursor-pointer p-2 leading-3 z-20 bg-zinc-100 rounded-full"
             onClick={() => {
               setOpen(false);
               props.openCard();
