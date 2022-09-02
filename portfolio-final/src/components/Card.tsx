@@ -180,7 +180,7 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
 
   return (
     <animated.div
-      style={holderProps}
+      style={{ ...holderProps }}
       ref={ref}
       onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
       onMouseLeave={() => set({ xy: [0, 0] })}
@@ -254,7 +254,7 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
       ) : (
         <div className="w-full h-full flex flex-col relative overflow-y-scroll ">
           <span
-            className="top-8 right-8 font-bold text-xl absolute cursor-pointer p-2 leading-3 z-20 bg-zinc-100 rounded-full"
+            className="top-8 right-8 font-bold text-xl absolute cursor-pointer p-2 leading-3 z-20 bg-zinc-50 rounded-full shadow-inner select-none text-zinc-400 hover:text-zinc-800 transition"
             onClick={() => {
               setOpen(false);
               props.openCard();

@@ -11,9 +11,11 @@ import finalDesign from "../assets/png/botpress/finalDesign.png";
 const BotpressBreakdown = ({ bpLogo }) => {
   return (
     <div className=" h-full py-24 flex flex-col gap-20 max-w-4xl self-center overflow-x-hidden p-4 md:px-12 shadow-inner">
-      <div className="w-full flex flex-row gap-6 items-center">
-        {bpLogo ? <img src={bpLogo} alt="logo" className="h-12" /> : null}
-        <h2 className="text-3xl font-semibold">Botpress Studio UI Breakdown</h2>
+      <div className="w-full flex flex-col gap-6 items-start">
+        <img src={bpLogo} alt="logo" className="h-12" />
+        <h2 className="text-3xl font-semibold">
+          Conversation Studio UI Breakdown
+        </h2>
       </div>
       <div className="text-base">
         Botpress aims to provide an intuitive editing experience that
@@ -22,7 +24,7 @@ const BotpressBreakdown = ({ bpLogo }) => {
         platform.
       </div>
       <div className="flex flex-col gap-4">
-        <h2 className="text-2xl inter">My role</h2>
+        <h2 className="section-title">my role</h2>
         <div className="text-base">
           While usuable, the current design suffered a few noticable bottlenecks
           when creating bots. My role was to work with the engineers to design
@@ -37,7 +39,7 @@ const BotpressBreakdown = ({ bpLogo }) => {
         </div>
       </div>
       <div className="flex flex-col gap-4">
-        <h2 className="text-2xl inter">Problems and inital approach</h2>
+        <h2 className="section-title">problems and inital approach</h2>
         <div className="text-base">
           I was approached by an engineer at Botpress to assist with their node
           editor UI problem. The current method of editing nodes was causing a
@@ -52,7 +54,7 @@ const BotpressBreakdown = ({ bpLogo }) => {
         </div>
       </div>
 
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-6">
         <div className="flex flex-col gap-4 bg-gradient-to-b from-indigo-600/80 to-indigo-800/80 rounded-xl md:rounded-2xl p-3 md:p-6 items-center justify-center shadow-inner-xl relative ">
           <img
             src={grid}
@@ -65,7 +67,7 @@ const BotpressBreakdown = ({ bpLogo }) => {
             className="z-10"
           />
         </div>
-        <h2 className="text-2xl inter">Wireframing revalations</h2>
+        <h2 className="section-title">wireframing revalations</h2>
         <div className="text-base">
           I wireframed the exprience while discussing it Nick Boutboul, the
           engineer. Along the way we had some realizations. First, editing
@@ -78,7 +80,7 @@ const BotpressBreakdown = ({ bpLogo }) => {
         </div>
       </div>
       <div className="flex flex-col gap-4">
-        <h2 className="text-2xl inter">Addressing the issues</h2>
+        <h2 className="section-title">addressing the issues</h2>
         <div className="text-base">
           Over the next week we developed the solution. During this time I met
           with members of the customer success team to pinpoint some other pain
@@ -89,7 +91,7 @@ const BotpressBreakdown = ({ bpLogo }) => {
       </div>
       <div className="flex flex-col-reverse md:flex-row gap-12 justify-center items-center">
         <div className="flex flex-col gap-4 w-full md:w-1/2">
-          <h2 className="text-2xl inter">Node editing</h2>
+          <h2 className="section-title">node editing</h2>
           <div className="text-base">
             Created an inspector UI component kit. This makes it easier for us
             to create the inspector UI and gives clients the ability to easily
@@ -102,7 +104,7 @@ const BotpressBreakdown = ({ bpLogo }) => {
       <div className="flex flex-col md:flex-row gap-12 justify-center items-center">
         <img src={formKit} alt="grid" className="w-full md:w-1/2" />
         <div className="flex flex-col gap-4 w-full md:w-1/2">
-          <h2 className="text-2xl inter">Inspector UI Kit</h2>
+          <h2 className="section-title">inspector ui kit</h2>
           <div className="text-base">
             Created an inspector UI component kit. This makes it easier for us
             to create the inspector UI and gives clients the ability to easily
@@ -114,7 +116,7 @@ const BotpressBreakdown = ({ bpLogo }) => {
 
       <div className="flex flex-col-reverse md:flex-row gap-12 justify-center items-center">
         <div className="flex flex-col gap-4 w-full md:w-1/2">
-          <h2 className="text-2xl inter">File explorer</h2>
+          <h2 className="section-title">file explorer</h2>
           <div className="text-base">
             Created an inspector UI component kit. This makes it easier for us
             to create the inspector UI and gives clients the ability to easily
@@ -127,7 +129,7 @@ const BotpressBreakdown = ({ bpLogo }) => {
       <div className="flex flex-col md:flex-row gap-12 justify-center items-center w-full">
         <img src={designSystem} alt="grid" className="w-full md:w-1/2" />
         <div className="flex flex-col gap-4 w-full md:w-1/2">
-          <h2 className="text-2xl inter">Design system</h2>
+          <h2 className="section-title">design system</h2>
           <div className="text-base w-full">
             There are many examples of inconsistency throughout the studio as
             well as in the style sheets. I used a very slimmed down version of
@@ -139,7 +141,7 @@ const BotpressBreakdown = ({ bpLogo }) => {
       </div>
 
       <div className="flex flex-col gap-6 w-full ">
-        <div className="flex flex-col gap-4 bg-gradient-to-b from-indigo-600/80 to-indigo-800/80 rounded-xl md:rounded-2xl p-3 md:p-6 items-center justify-center shadow-inner-xl relative ">
+        <div className="flex flex-col bg-gradient-to-b from-indigo-600/80 to-indigo-800/80 rounded-xl md:rounded-2xl p-3 md:p-6 items-center justify-center shadow-inner-xl relative ">
           <img
             src={grid}
             alt="grid"
@@ -147,7 +149,7 @@ const BotpressBreakdown = ({ bpLogo }) => {
           />
           <img src={finalDesign} alt="initial wireframe" className="z-10" />
         </div>
-        <h2 className="text-2xl inter">Final Design</h2>
+        <h2 className="section-title">final design</h2>
         <div className="text-base w-full">
           In order to make better use of space I moved the emulator under the
           inspector. When the panels were next to each other you'd have a lot of

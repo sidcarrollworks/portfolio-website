@@ -28,6 +28,7 @@ import bpLogo from "./assets/svg/bpLogo.svg";
 import BPIcon from "./assets/svg/BPIcon.svg";
 import KBIcon from "./assets/svg/KBIcon.svg";
 import SHRIcon from "./assets/svg/SHRIcon.svg";
+import kbLogo from "./assets/svg/kbLogo.svg";
 
 import laptopAnimation from "./assets/lottie/laptopAnimation.json";
 
@@ -174,7 +175,7 @@ function App() {
       background: <Mountains />,
       lottie: null,
       openCard: openCardFn,
-      content: <SheridanPrinting logo={bpLogo} />,
+      content: <SheridanPrinting />,
       close: false,
     },
     {
@@ -275,7 +276,7 @@ function App() {
                               alt="Botpress"
                             />
                             <img
-                              src={kabloomLogo}
+                              src={kbLogo}
                               className="h-6 md:h-8"
                               alt="Kabloom"
                             />
@@ -353,7 +354,7 @@ function App() {
                                   onMouseLeave={() => setLunaHover(false)}
                                   className="text-amber-500 hover:text-amber-400 transition cursor-default"
                                 >
-                                  Luna
+                                  Luna 🐶
                                 </span>
 
                                 <animated.span

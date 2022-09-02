@@ -4,8 +4,8 @@ import { useSpring, animated } from "react-spring";
 import me from "./me.svg";
 import voidPuddle1 from "./voidPuddle1.svg";
 import voidPuddle2 from "./voidPuddle2.svg";
-import handLeft from "./handLeft.svg";
-import handRight from "./handRight.svg";
+// import handLeft from "./handLeft.svg";
+// import handRight from "./handRight.svg";
 import dash1 from "./dash1.svg";
 import dash2 from "./dash2.svg";
 import dash3 from "./dash3.svg";
@@ -126,7 +126,6 @@ const Character = () => {
       opacity: 0,
       x: 130,
       y: 115,
-      scaleX: -1,
     },
     to: {
       opacity: hover ? 1 : 0,
@@ -169,31 +168,36 @@ const Character = () => {
         <span className="text-zinc-400 text-sm">v4.23</span>
       </animated.div>
 
-      <animated.img
-        style={dash1Props}
-        src={dash1}
-        alt="dash"
-        className="absolute"
-      />
+      <animated.div style={dash1Props} className="absolute">
+        <animated.img src={dash1} alt="dash" />
+        <animated.span className="text-zinc-100 text-xs translate-x-full top-2 right-1/2 absolute w-32">
+          6.5ft wingspan for <span className="font-bold">MAXIMUM</span> office
+          space efficiency.
+        </animated.span>
+      </animated.div>
 
-      <animated.img
-        style={dash2Props}
-        src={dash2}
-        alt="dash"
-        className="absolute"
-      />
-      <animated.img
-        style={dash3Props}
-        src={dash3}
-        alt="dash"
-        className="absolute"
-      />
-      <animated.img
-        style={dash4Props}
-        src={dash4}
-        alt="dash"
-        className="absolute"
-      />
+      <animated.div style={dash2Props} className="absolute">
+        <animated.img src={dash2} alt="dash" />
+        <animated.span className="text-zinc-100 text-xs -left-1/2 absolute w-32">
+          Nearsightedness provides me with a keen eye for detail.
+        </animated.span>
+      </animated.div>
+
+      <animated.div style={dash3Props} className="absolute">
+        <animated.img src={dash3} alt="dash" />
+        <animated.span className="text-zinc-100 text-xs  absolute w-32">
+          Tools for any job.
+        </animated.span>
+      </animated.div>
+
+      <animated.div style={dash4Props} className="absolute">
+        <animated.img src={dash4} alt="dash" className="-scale-x-100" />
+        <animated.span className="text-zinc-100 text-xs left-3/4 absolute w-32">
+          Extended legs provided optimal viewing angles for every event. Key for
+          <span className="font-bold"> QUALITY</span> observations.
+        </animated.span>
+      </animated.div>
+
       <animated.img
         style={voidPuddle1Props}
         src={voidPuddle1}

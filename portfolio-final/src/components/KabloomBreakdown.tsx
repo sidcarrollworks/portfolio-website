@@ -1,159 +1,145 @@
 import React from "react";
 
 import kabloomLogo from "../assets/png/kabloomLogo.png";
+import bookingFlow from "../assets/png/kabloom/bookingFlow.png";
+import frame1 from "../assets/png/kabloom/frame1.png";
+import frame2 from "../assets/png/kabloom/frame2.png";
+import frame3 from "../assets/png/kabloom/frame3.png";
+import frame4 from "../assets/png/kabloom/frame4.png";
 
 const KabloomBreakdown = () => {
   return (
     <div className=" h-full py-24 flex flex-col gap-20 max-w-4xl self-center overflow-x-hidden p-4 md:px-12 shadow-inner">
-      <div className="w-full flex flex-row gap-6 items-center">
+      <div className="w-full flex flex-col gap-8 items-start justify-center">
         <img src={kabloomLogo} alt="logo" className="h-6" />
-        <h2 className="text-3xl font-semibold">Botpress Studio UI Breakdown</h2>
+        <h2 className="text-3xl font-semibold">Booking Portal</h2>
       </div>
       <div className="text-base">
-        Botpress aims to provide an intuitive editing experience that
-        streamlines chatbot building in a low code environment. The studio
-        allows you to build, test, and collaborate with your team on a singular
-        platform.
+        Born out of the pandemic, Kabloom aims to provide a platform for people
+        to connect through themed virtual events. Due to an influx of bookings I
+        was contacted to assist in the design and development of a custom
+        booking solution.
       </div>
-      <div className="flex flex-col gap-4">
-        <h2 className="text-2xl inter">My role</h2>
+      <div className="flex flex-col gap-2">
+        <h2 className="section-title">my role</h2>
         <div className="text-base">
-          While usuable, the current design suffered a few noticable bottlenecks
-          when creating bots. My role was to work with the engineers to design
-          and create a proper node editing experience and to expand our new UX
-          vision from to the rest of the editor. I worked on a team of 3 other
-          engineers as the sole designer. I conducted user research to inform my
-          design decisions. Then, worked with the rest of the team to prototype
-          various solutions that we could implement quickly all without making
-          major changes to the backend. Finally created high fidelity mockups
-          and applied our cohesive style to the rest of the application as well
-          as mocked up future product features.
+          I, along with a project manager architected an automated booking
+          solution to relieve some stress from account admins. I created various
+          graphics for the website. Redesigned product pages as well as a web
+          application for their future product goals. Developed the web
+          application as well.
         </div>
       </div>
-      <div className="flex flex-col gap-4">
-        <h2 className="text-2xl inter">Problems and inital approach</h2>
+      <div className="flex flex-col gap-2">
+        <h2 className="section-title">context</h2>
         <div className="text-base">
-          I was approached by an engineer at Botpress to assist with their node
-          editor UI problem. The current method of editing nodes was causing a
-          lot of frustration from users do to endless time in pop-up modals.
-          Important information pertaining to the modal was blocked by the
-          layered overlays. Their initial approach was to consolidate all the
-          modals into one. An editor UI would overlay the workflow screen and
-          the use could leave at any time by clicking outside the edited node.
-          This solution added the ability to drag the content blocks inside the
-          editor node. The inspector would provide the ui to edit the node’s
-          properties.
+          Throughout the pandemic remote work became the norm. This created a
+          need for team building that could be done from home. Kabloom was
+          formed to fill the need. After a successful launch it was becoming
+          harder to manage all the event bookings. Their sales people were
+          selling events left and right leaving the account admins with too much
+          work to keep up with. Since all sales were B2B through sales people
+          they presented the idea of an automated booking solution. This would
+          allow customers to cut out the middle man and book events directly.
         </div>
       </div>
 
-      <div className="flex flex-col gap-4">
-        <div className="flex flex-col gap-4 bg-gradient-to-b from-indigo-600/80 to-indigo-800/80 rounded-xl md:rounded-2xl p-3 md:p-6 items-center justify-center shadow-inner-xl relative ">
-          {/* <img
-            src={grid}
-            alt="grid"
-            className="rotate-90 absolute mix-blend-screen translate-x-1/2 h-full"
+      <div className="flex flex-col gap-2">
+        <img src={bookingFlow} alt="grid" className="w-full" />
+        <h2 className="section-title">research and planning</h2>
+        <div className="text-base">
+          Before hopping into the design process I wanted to understand the how
+          everything was going to connect together. I created a flow chart to
+          help visualize the different endpoints and how they would connect. I
+          also created a wireframe to help visualize the different pages and how
+          they would connect together. Events needed to be created and managed
+          in hubspot while the payment was handled by stripe. Another thing they
+          mentioned wanting was the ability to scale up into an event
+          marketplace.
+        </div>
+      </div>
+
+      <div className="flex flex-col gap-2">
+        <h2 className="section-title">course of action</h2>
+        <div className="text-base">
+          I decided to build the booking system out on Firebase. Due to my lack
+          of experience in backend Firebase provided a lot of tools to help with
+          authentication, database management, and hosting. The pricing was also
+          very reasonable. I chose Nuxt for the frontend framework because of my
+          familiarity with Vue. I also chose to use Tailwind for the styling.
+        </div>
+      </div>
+
+      <div className="flex flex-col gap-12 justify-center items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 auto-rows-min grid-flow-row gap-8">
+          <img
+            src={frame1}
+            alt="frame1"
+            className="w-full rounded-xl shadow-lg min-w-[300px] -rotate-3"
           />
           <img
-            src={initialWireframe}
-            alt="initial wireframe"
-            className="z-10"
-          /> */}
-        </div>
-        <h2 className="text-2xl inter">Wireframing revalations</h2>
-        <div className="text-base">
-          I wireframed the exprience while discussing it Nick Boutboul, the
-          engineer. Along the way we had some realizations. First, editing
-          content could contained to the inspector. Second, editing should be
-          contained to the right half of the screen, and third we could achieve
-          the same results without a pop up overlay. After wireframing we set 3
-          inital goals to direct our thinking. Reduce flickering and use modals
-          throughout the experience Keep a clear and consistant style Intuitive
-          enough for a designer and powerful enough for an engineer
-        </div>
-      </div>
-      <div className="flex flex-col gap-4">
-        <h2 className="text-2xl inter">Addressing the issues</h2>
-        <div className="text-base">
-          Over the next week we developed the solution. During this time I met
-          with members of the customer success team to pinpoint some other pain
-          points users and themselves have. I also presented our revised
-          solution for feedback. A key issue they brought up was the difficulty
-          seeing what a complex node was doing in at a quick glance.
-        </div>
-      </div>
-      <div className="flex flex-col-reverse md:flex-row gap-12 justify-center items-center">
-        <div className="flex flex-col gap-4 w-full md:w-1/2">
-          <h2 className="text-2xl inter">Node editing</h2>
-          <div className="text-base">
-            Created an inspector UI component kit. This makes it easier for us
-            to create the inspector UI and gives clients the ability to easily
-            create their own custom skill nodes while maintaining a design
-            standard.
-          </div>
-        </div>
-        {/* <img src={} alt="grid" className="w-full md:w-1/2" /> */}
-      </div>
-      <div className="flex flex-col md:flex-row gap-12 justify-center items-center">
-        {/* <img src={} alt="grid" className="w-full md:w-1/2" /> */}
-        <div className="flex flex-col gap-4 w-full md:w-1/2">
-          <h2 className="text-2xl inter">Inspector UI Kit</h2>
-          <div className="text-base">
-            Created an inspector UI component kit. This makes it easier for us
-            to create the inspector UI and gives clients the ability to easily
-            create their own custom skill nodes while maintaining a design
-            standard.
-          </div>
-        </div>
-      </div>
-
-      <div className="flex flex-col-reverse md:flex-row gap-12 justify-center items-center">
-        <div className="flex flex-col gap-4 w-full md:w-1/2">
-          <h2 className="text-2xl inter">File explorer</h2>
-          <div className="text-base">
-            Created an inspector UI component kit. This makes it easier for us
-            to create the inspector UI and gives clients the ability to easily
-            create their own custom skill nodes while maintaining a design
-            standard.
-          </div>
-        </div>
-        {/* <img src={} alt="grid" className="w-full md:w-[40%]" /> */}
-      </div>
-      <div className="flex flex-col md:flex-row gap-12 justify-center items-center w-full">
-        {/* <img src={} alt="grid" className="w-full md:w-1/2" /> */}
-        <div className="flex flex-col gap-4 w-full md:w-1/2">
-          <h2 className="text-2xl inter">Design system</h2>
-          <div className="text-base w-full">
-            There are many examples of inconsistency throughout the studio as
-            well as in the style sheets. I used a very slimmed down version of
-            the 7-1 pattern to organize our styles. This combined with component
-            css modules really cleaned up the codebase folder structure and made
-            it easy to navigate.
-          </div>
-        </div>
-      </div>
-
-      <div className="flex flex-col gap-6 w-full ">
-        <div className="flex flex-col gap-4 bg-gradient-to-b from-indigo-600/80 to-indigo-800/80 rounded-xl md:rounded-2xl p-3 md:p-6 items-center justify-center shadow-inner-xl relative ">
-          <img
-            // src={}
-            alt="grid"
-            className="rotate-90 absolute mix-blend-screen translate-x-1/2 h-full"
+            src={frame2}
+            alt="frame1"
+            className="w-full rounded-xl shadow-lg  min-w-[300px] rotate-6 translate-x-3"
           />
-          {/* <img src={} alt="initial wireframe" className="z-10" /> */}
+          <img
+            src={frame3}
+            alt="frame1"
+            className="w-full rounded-xl shadow-lg  min-w-[300px] -rotate-6 -translate-x-4"
+          />
+          <img
+            src={frame4}
+            alt="frame1"
+            className="w-full rounded-xl shadow-lg  min-w-[300px] rotate-3"
+          />
         </div>
-        <h2 className="text-2xl inter">Final Design</h2>
-        <div className="text-base w-full">
-          In order to make better use of space I moved the emulator under the
-          inspector. When the panels were next to each other you'd have a lot of
-          unused space. For a majority of the time the pertinent information
-          while testing a bot is only within the past 2-3 messages.
-          <br />
-          <br />
-          This UI project taught me a lot about how to manage and design more
-          complex systems and features. The small time frame reinforced the
-          practice of rapid iteration then editing down to the best solution. It
-          gave me lots of practice simplifying experiences down to their core
-          purpose.
+        <div className="flex flex-col gap-2">
+          <h2 className="section-title">design</h2>
+          <div className="text-base">
+            The booking flow followed a simple design pattern seen in many other
+            payment flows. All booking info was displayed on left hand side
+            while user info was collected on the right. One thing I would've
+            changed looking back on it is the way the users info was collected.
+            After testing it was very apparent the larger number of fields was a
+            bit overwhelming. I would've liked to have a more progressive
+            disclosure pattern where the user would only see the fields they
+            needed to fill out. Even though the company field isn't required at
+            first it ends up being required if they end up booking. It really
+            ended up being visual exhausting.
+            <br />
+            <br />I also would've liked to make the price estimate available
+            right from the git go. Having 3 required fields of personal data was
+            a turn off to the user.
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <h2 className="section-title">development</h2>
+          <div className="text-base">
+            Firebase made handling the backend logic as well as security very
+            simple. Event data was stored in Firestore which is a no-sql
+            database. This allowed the owners to access and chanage event data
+            when needed without being too confusing. After collecting their
+            booking info a hubspot deal was created with the information
+            provided, then sent down a hubspot automation flow to notify the
+            correct people and send out a confirmation email.
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <h2 className="section-title">what i learned</h2>
+          <div className="text-base">
+            When we first launched the self serve experience we learned the long
+            user form at the beginning intimmidated users. And most of the users
+            that visited the website never even reached the booking page.
+            Overall website traffic was falling as well. The importance of
+            progressive disclourse became very apparent. Users were overwhelmed
+            with being required to give their contact info before veiwing
+            prices. What I would've done instead would've shown the pricing
+            estimator upfront so they can play around with events. By not doing
+            this we closed ourself off to potential users that would've gladly
+            givin their information if they knew what they were getting.
+          </div>
         </div>
       </div>
     </div>
