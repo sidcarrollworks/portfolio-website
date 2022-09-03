@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useState } from "react";
+import React, { forwardRef, useEffect, useState, Ref } from "react";
 
 import cx from "classnames";
 import { useSpring, animated } from "react-spring";
@@ -18,11 +18,7 @@ interface Props {
   closed?: any;
 }
 
-interface MyRef extends HTMLDivElement {
-  current: any;
-}
-
-const Card = forwardRef<MyRef, Props>((props, ref) => {
+const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
   const [first, last] = props.name.split(" ");
   const [hover, setHover] = useState(false);
   const [open, setOpen] = useState(false);
@@ -37,7 +33,7 @@ const Card = forwardRef<MyRef, Props>((props, ref) => {
   ];
 
   useEffect(() => {
-    if (ref && ref.current) {
+    if (ref && "current" in ref && ref.current) {
       setHeight(ref.current.clientHeight);
       setWidth(ref.current.clientWidth);
       setOffsetTop(ref.current.offsetTop);

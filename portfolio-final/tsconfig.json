@@ -9,5 +9,22 @@
     "moduleResolution": "node",
     "resolveJsonModule": true
   },
-  "files": ["src/index.tsx"]
+  "files": ["src/index.jsx"],
+  "include": [
+    "src/**/*.tsx",
+    "src/**/*.ts",
+    "src/import-jpg.d.ts",
+    "src/import-svg.d.ts"
+  ]
+  // "exclude": [
+  //   "node_modules",
+  //   "dist",
+  //   "@types",
+  //   "tests",
+  //   "examples",
+  //   "_src",
+  //   "__tests__"
+  // ],
+  // "types": ["node"],
+  // "typeRoots": ["./node_modules/@types"]
 }

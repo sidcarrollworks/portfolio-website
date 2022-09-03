@@ -4,7 +4,7 @@ import { useSpring, animated } from "react-spring";
 import connector from "./connector.svg";
 import node1 from "./node1.png";
 import node2 from "./node2.png";
-import grid from "../../png/grid.png";
+import grid from "../../assets/png/grid.png";
 
 interface Props {
   hovered?: any;

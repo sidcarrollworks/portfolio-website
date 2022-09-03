@@ -3,12 +3,12 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-const isProduction = process.env.NODE_ENV == "production";
+const isProduction = process.env.NODE_ENV === "production";
 
 const stylesHandler = "style-loader";
 
 const config = {
-  entry: "./src/index.tsx",
+  entry: "./src/index.jsx",
   output: {
     path: path.resolve(__dirname, "dist"),
   },
@@ -28,6 +28,11 @@ const config = {
         exclude: ["/node_modules/"],
       },
       {
+        test: /\.(js|jsx)$/i,
+        loader: "babel-loader",
+        exclude: ["/node_modules/"],
+      },
+      {
         test: /\.s[ac]ss$/i,
         use: [stylesHandler, "css-loader", "postcss-loader", "sass-loader"],
       },
@@ -36,12 +41,10 @@ const config = {
         use: [stylesHandler, "css-loader", "postcss-loader"],
       },
       {
-        test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
-        loader: "file-loader",
-        options: {
-          name: "[name].[ext]",
+        test: /\.(svg|png|jpg|gif)$/,
+        use: {
+          loader: "url-loader",
         },
-        type: "asset",
       },
 
       // Add your rules for custom modules here

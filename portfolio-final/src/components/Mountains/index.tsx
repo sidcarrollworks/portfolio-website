@@ -21,7 +21,10 @@ interface Props {
   hovered?: any;
 }
 
-const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2];
+const calc = (x: number, y: number) => [
+  x - window.innerWidth / 2,
+  y - window.innerHeight / 2,
+];
 
 const Mountains = ({ hovered }: Props) => {
   const [props, set] = useSpring(() => ({
@@ -440,7 +443,7 @@ const Mountains = ({ hovered }: Props) => {
         style={{
           ...sunProps,
           transform: props.xy.to(
-            (x, y) =>
+            (x: number, y: number) =>
               `translate3d(${x / 8}px,${
                 y / 8
               }px,0) scale(1) translateX(-6rem) translateY(-4rem)`

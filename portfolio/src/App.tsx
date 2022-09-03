@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, Ref } from "react";
 import { HomeIcon, BriefcaseIcon, UserIcon } from "@heroicons/react/24/solid";
 import { animated, useSpring, useTransition } from "react-spring";
 
@@ -46,7 +46,7 @@ function App() {
 
   const email = "sidcarrollworks@gmail.com";
 
-  const [openCard, setOpenCard] = useState(null);
+  const [openCard, setOpenCard] = useState<Ref<HTMLDivElement>>(null);
 
   const [height, setHeight] = useState(0);
   const [width, setWidth] = useState(0);
@@ -89,9 +89,9 @@ function App() {
   };
 
   useEffect(() => {
-    if (openCard) {
+    if (openCard && "current" in openCard) {
       if (Card1.current === openCard.current) {
-        setCards((prevState) => [
+        setCards((prevState: any[]) => [
           {
             ...prevState[0],
           },
@@ -105,7 +105,7 @@ function App() {
           },
         ]);
       } else if (Card2.current === openCard.current) {
-        setCards((prevState) => [
+        setCards((prevState: any[]) => [
           {
             ...prevState[0],
             close: true,
@@ -118,9 +118,8 @@ function App() {
             close: true,
           },
         ]);
-      }
-      if (Card3.current === openCard.current) {
-        setCards((prevState) => [
+      } else if (Card3.current === openCard.current) {
+        setCards((prevState: any[]) => [
           {
             ...prevState[0],
             close: true,
@@ -131,11 +130,26 @@ function App() {
           },
           {
             ...prevState[2],
+          },
+        ]);
+      } else {
+        setCards((prevState: any[]) => [
+          {
+            ...prevState[0],
+            close: false,
+          },
+          {
+            ...prevState[1],
+            close: false,
+          },
+          {
+            ...prevState[2],
+            close: false,
           },
         ]);
       }
     } else {
-      setCards((prevState) => [
+      setCards((prevState: any[]) => [
         {
           ...prevState[0],
           close: false,
@@ -204,6 +218,12 @@ function App() {
     delay: 100,
     config: { mass: 5, tension: 800, friction: 90 },
   });
+
+  const scrollTo = (ref: any) => {
+    ref.current.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
 
   return (
     <div
@@ -424,19 +444,19 @@ function App() {
           <HomeIcon
             className="h-4 w-4 text-zinc-100 cursor-pointer hover:scale-125 transition"
             onClick={() => {
-              landing.current.scrollIntoView({ behavior: "smooth" });
+              scrollTo(landing);
             }}
           />
           <BriefcaseIcon
             className="h-4 w-4 text-zinc-100 cursor-pointer hover:scale-125 transition"
             onClick={() => {
-              work.current.scrollIntoView({ behavior: "smooth" });
+              scrollTo(work);
             }}
           />
           <UserIcon
             className="h-4 w-4 text-zinc-100 cursor-pointer hover:scale-125 transition"
             onClick={() => {
-              about.current.scrollIntoView({ behavior: "smooth" });
+              scrollTo(about);
             }}
           />
         </animated.div>
