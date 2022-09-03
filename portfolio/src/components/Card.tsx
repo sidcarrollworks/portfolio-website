@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useState, Ref } from "react";
+import React, { forwardRef, useEffect, useState, useCallback } from "react";
 
 import cx from "classnames";
 import { useSpring, animated } from "react-spring";
@@ -27,7 +27,7 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
   const [offsetTop, setOffsetTop] = useState(0);
   const [offsetLeft, setOffsetLeft] = useState(0);
 
-  let calc = (x: number, y: number) => [
+  const calc = (x: number, y: number) => [
     x - offsetLeft - width / 2 - 20,
     (y - height / 2) / 5,
   ];
@@ -179,6 +179,19 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
     },
   });
 
+  const handleOnEnter = useCallback(() => {
+    setHover(true);
+  }, [setHover]);
+
+  const handleOnLeave = useCallback(() => {
+    setHover(false);
+  }, [setHover]);
+
+  const handleOnClick = useCallback(() => {
+    setOpen(!open);
+    props.openCard(ref);
+  }, [setHover]);
+
   return (
     <animated.div
       style={{ ...holderProps }}
@@ -199,16 +212,9 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
             className={cx(
               "h-full w-full cursor-pointer shadow-lg group hover:shadow-inner flex flex-col items-center justify-end rounded-xl shadow-zinc-600/30 overflow-hidden p-4 relative"
             )}
-            onMouseEnter={() => {
-              setHover(true);
-            }}
-            onMouseLeave={() => {
-              setHover(false);
-            }}
-            onClick={() => {
-              setOpen(!open);
-              props.openCard(ref);
-            }}
+            onMouseEnter={handleOnEnter}
+            onMouseLeave={handleOnLeave}
+            onClick={handleOnClick}
           >
             <animated.div
               style={{

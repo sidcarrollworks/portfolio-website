@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
+import { animated, useSpring } from "react-spring";
 
 import grid from "../assets/png/grid2.png";
 import initialWireframe from "../assets/png/botpress/initialWireframe2.png";
@@ -12,7 +13,33 @@ interface OwnProps {
   bpLogo: any;
 }
 
+const GROW_MAP: any = {
+  default: "1",
+  grow: "1.05",
+  expand: "1.2",
+};
+
 const BotpressBreakdown = ({ bpLogo }: OwnProps) => {
+  const [grow, setGrow] = useState(GROW_MAP.default);
+  const imgStyle = useSpring({
+    to: {
+      transform: `scale(${grow})`,
+    },
+  });
+
+  const handleClick = useCallback(() => {
+    console.log("wat");
+    setGrow(grow === GROW_MAP.expand ? GROW_MAP.default : GROW_MAP.expand);
+  }, [grow, setGrow]);
+
+  const handleMouseEnter = useCallback(() => {
+    setGrow(GROW_MAP.grow);
+  }, [setGrow]);
+
+  const handleMouseLeave = useCallback(() => {
+    setGrow(GROW_MAP.default);
+  }, [setGrow]);
+
   return (
     <div className=" h-full py-24 flex flex-col gap-20 max-w-4xl self-center overflow-x-hidden p-4 md:px-12 shadow-inner">
       <div className="w-full flex flex-col gap-6 items-start">
@@ -151,7 +178,15 @@ const BotpressBreakdown = ({ bpLogo }: OwnProps) => {
             alt="grid"
             className="rotate-90 absolute mix-blend-screen translate-x-1/2 h-full"
           />
-          <img src={finalDesign} alt="initial wireframe" className="z-10" />
+          <animated.img
+            src={finalDesign}
+            alt="initial wireframe"
+            className="z-10 cursor-pointer"
+            style={imgStyle}
+            onClick={handleClick}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          />
         </div>
         <h2 className="section-title">final design</h2>
         <div className="text-base w-full">
