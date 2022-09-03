@@ -1,7 +1,7 @@
 import React, { forwardRef, useEffect, useState, useCallback } from "react";
 
 import cx from "classnames";
-import { useSpring, animated } from "react-spring";
+import { useSpring, animated } from "@react-spring/web";
 import { useLottie } from "lottie-react";
 
 interface Props {

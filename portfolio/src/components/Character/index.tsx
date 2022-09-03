@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSpring, animated } from "react-spring";
+import { useSpring, animated } from "@react-spring/web";
 
 import me from "./me.svg";
 import voidPuddle1 from "./voidPuddle1.svg";
@@ -165,7 +165,7 @@ const Character = () => {
         className="absolute top-16 left-20 flex flex-col"
       >
         <span className="text-zinc-200 text-lg font-bold">SID CARROLL</span>
-        <span className="text-zinc-400 text-sm">v4.23</span>
+        <span className="text-zinc-400 text-sm">v2.3.9</span>
       </animated.div>
 
       <animated.div style={dash1Props} className="absolute">

@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react";
-import { animated, useSpring } from "react-spring";
+import { animated, useSpring } from "@react-spring/web";
 
 import grid from "../assets/png/grid2.png";
 import initialWireframe from "../assets/png/botpress/initialWireframe2.png";
@@ -24,6 +24,11 @@ const BotpressBreakdown = ({ bpLogo }: OwnProps) => {
   const imgStyle = useSpring({
     to: {
       transform: `scale(${grow})`,
+    },
+    config: {
+      mass: 1.5,
+      tension: 700,
+      friction: 20,
     },
   });
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { useSpring, animated, useChain, useSpringRef } from "react-spring";
+import { useSpring, animated, useChain, useSpringRef } from "@react-spring/web";
 
 import m1 from "./m1.svg";
 import m2 from "./m2.svg";

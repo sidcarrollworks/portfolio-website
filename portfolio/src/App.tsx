@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, Ref } from "react";
 import { HomeIcon, BriefcaseIcon, UserIcon } from "@heroicons/react/24/solid";
-import { animated, useSpring, useTransition } from "react-spring";
+import { animated, useSpring, useTransition } from "@react-spring/web";
 
 import cx from "classnames";
 
@@ -241,8 +241,8 @@ function App() {
           <div className="overflow-hidden rounded-xl flex flex-col w-full h-full ">
             <div
               className={cx(
-                "w-full h-full flex flex-col hide-scrollbar p-0 scroll-invisible gap-6 scroll-snap-y relative rounded-xl overflow-auto",
-                openCard ? "overflow-hidden" : "overflow-auto"
+                "w-full h-full flex flex-col hide-scrollbar p-0 scroll-invisible gap-6 scroll-snap-y relative rounded-xl overflow-auto"
+                // openCard ? "overflow-hidden" : "overflow-auto"
               )}
             >
               {transitions((styles, item) => {

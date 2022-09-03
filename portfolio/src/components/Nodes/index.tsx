@@ -1,5 +1,5 @@
 import React from "react";
-import { useSpring, animated } from "react-spring";
+import { useSpring, animated } from "@react-spring/web";
 
 import connector from "./connector.svg";
 import node1 from "./node1.png";

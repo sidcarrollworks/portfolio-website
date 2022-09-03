@@ -1,5 +1,5 @@
 import React from "react";
-import { useSpring, animated } from "react-spring";
+import { useSpring, animated } from "@react-spring/web";
 
 import c from "../assets/svg/logoparts/c.svg";
 import w from "../assets/svg/logoparts/w.svg";
