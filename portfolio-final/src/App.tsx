@@ -16,7 +16,6 @@ import Character from "./assets/svg/Character";
 import Balloons from "./assets/svg/Balloons";
 
 import BP from "./assets/png/BP.png";
-import kabloomLogo from "./assets/png/kabloomLogo.png";
 import SHRPrint from "./assets/png/SHRPrint.png";
 import grid from "./assets/png/grid2.png";
 import luna from "./assets/jpg/luna.jpg";
@@ -199,22 +198,25 @@ function App() {
     config: { mass: 5, tension: 800, friction: 90 },
   });
 
+  const opacityProps = useSpring({
+    from: { opacity: 0 },
+    to: { opacity: enter ? 1 : 0 },
+    delay: 100,
+    config: { mass: 5, tension: 800, friction: 90 },
+  });
+
   return (
     <div
       onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
       className="w-full h-full bg-black flex flex-col"
     >
       <div className="w-full h-full flex flex-col gap-4 max-w-[1440px] mx-auto">
-        <Spring opacity={enter ? 1 : 0}>
-          {(styles) => (
-            <animated.img
-              style={styles}
-              src={logo}
-              className="h-10 mt-4"
-              alt="logo"
-            />
-          )}
-        </Spring>
+        <animated.img
+          style={opacityProps}
+          src={logo}
+          className="h-10 mt-4"
+          alt="logo"
+        />
 
         <div className="relative w-full h-full rounded-xl overflow-hidden px-6">
           <div className="overflow-hidden rounded-xl flex flex-col w-full h-full ">
@@ -415,33 +417,29 @@ function App() {
           </div>
         </div>
 
-        <Spring opacity={enter ? 1 : 0}>
-          {(styles) => (
-            <animated.div
-              style={styles}
-              className="flex flex-row w-full justify-center items-center pb-4 gap-4 z-10 "
-            >
-              <HomeIcon
-                className="h-4 w-4 text-zinc-100 cursor-pointer hover:scale-125 transition"
-                onClick={() => {
-                  landing.current.scrollIntoView({ behavior: "smooth" });
-                }}
-              />
-              <BriefcaseIcon
-                className="h-4 w-4 text-zinc-100 cursor-pointer hover:scale-125 transition"
-                onClick={() => {
-                  work.current.scrollIntoView({ behavior: "smooth" });
-                }}
-              />
-              <UserIcon
-                className="h-4 w-4 text-zinc-100 cursor-pointer hover:scale-125 transition"
-                onClick={() => {
-                  about.current.scrollIntoView({ behavior: "smooth" });
-                }}
-              />
-            </animated.div>
-          )}
-        </Spring>
+        <animated.div
+          style={opacityProps}
+          className="flex flex-row w-full justify-center items-center pb-4 gap-4 z-10 "
+        >
+          <HomeIcon
+            className="h-4 w-4 text-zinc-100 cursor-pointer hover:scale-125 transition"
+            onClick={() => {
+              landing.current.scrollIntoView({ behavior: "smooth" });
+            }}
+          />
+          <BriefcaseIcon
+            className="h-4 w-4 text-zinc-100 cursor-pointer hover:scale-125 transition"
+            onClick={() => {
+              work.current.scrollIntoView({ behavior: "smooth" });
+            }}
+          />
+          <UserIcon
+            className="h-4 w-4 text-zinc-100 cursor-pointer hover:scale-125 transition"
+            onClick={() => {
+              about.current.scrollIntoView({ behavior: "smooth" });
+            }}
+          />
+        </animated.div>
       </div>
     </div>
   );
