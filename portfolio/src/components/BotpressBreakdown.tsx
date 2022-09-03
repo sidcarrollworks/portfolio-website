@@ -16,7 +16,7 @@ interface OwnProps {
 const GROW_MAP: any = {
   default: "1",
   grow: "1.05",
-  expand: "1.2",
+  expand: "1.4",
 };
 
 const BotpressBreakdown = ({ bpLogo }: OwnProps) => {
@@ -28,7 +28,6 @@ const BotpressBreakdown = ({ bpLogo }: OwnProps) => {
   });
 
   const handleClick = useCallback(() => {
-    console.log("wat");
     setGrow(grow === GROW_MAP.expand ? GROW_MAP.default : GROW_MAP.expand);
   }, [grow, setGrow]);
 
