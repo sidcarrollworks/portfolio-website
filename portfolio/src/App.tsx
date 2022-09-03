@@ -4,10 +4,9 @@ import { animated, useSpring, useTransition } from "react-spring";
 
 import cx from "classnames";
 
-import BotpressBreakdown from "./components/BotpressBreakdown";
-
 import EnterLogo from "./components/EnterLogo";
 import Card from "./components/Card";
+import BotpressBreakdown from "./components/BotpressBreakdown";
 import SheridanPrinting from "./components/SheridanPrinting";
 import KabloomBreakdown from "./components/KabloomBreakdown";
 import Mountains from "./components/Mountains";

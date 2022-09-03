@@ -30,7 +30,7 @@ const SheridanPrinting = () => {
         with Maureen, the head manager, to automate lots of the old workflows of
         the past owner. I digitized manual printing plates and reorganized the
         projects into google drive for everyone in the company to access when
-        needed. Eventually we bought a digital printer to increase our printing
+        needed. Eventually, we bought a digital printer to increase our printing
         capacity and opportunities. I was able to set up repeat printing tasks
         which cut the project setup time by half. I also managed the business
         card design and printing for many companies around the state including
