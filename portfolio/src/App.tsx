@@ -227,7 +227,7 @@ function App() {
   return (
     <div
       onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
-      className="w-full h-full bg-black flex flex-col"
+      className="w-full h-full bg-black flex flex-col overflow-hidden"
     >
       <div className="w-full h-full flex flex-col gap-4 max-w-[1440px] mx-auto">
         <animated.img
