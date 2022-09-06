@@ -246,7 +246,11 @@ function App() {
           <div
             className={cx(
               "w-full h-full flex flex-col hide-scrollbar p-0 scroll-invisible gap-6 relative rounded-xl overflow-auto scroll-snap-y-prox",
-              !enter ? "overflow-hidden" : "overflow-auto"
+              !enter
+                ? "overflow-hidden"
+                : openCard
+                ? "overflow-hidden"
+                : "overflow-auto"
             )}
           >
             {/* Landing */}
