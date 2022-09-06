@@ -45,7 +45,7 @@ const BotpressBreakdown = ({ bpLogo }: OwnProps) => {
   }, [setGrow]);
 
   return (
-    <div className=" h-full py-24 flex flex-col gap-20 max-w-4xl self-center overflow-x-hidden p-4 md:px-12 shadow-inner">
+    <div className="card-content">
       <div className="w-full flex flex-col gap-6 items-start">
         <img src={bpLogo} alt="logo" className="h-12" />
         <h2 className="text-3xl font-semibold">

@@ -259,7 +259,7 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
           </animated.span>
         </>
       ) : (
-        <div className="w-full h-full flex flex-col relative overflow-y-scroll ">
+        <div className="w-full max-h-full relative">
           <span
             className="top-8 right-8 font-bold text-xl absolute cursor-pointer p-2 leading-3 z-20 bg-zinc-50 rounded-full shadow-inner select-none text-zinc-400 hover:text-zinc-800 transition"
             onClick={() => {
@@ -269,8 +269,9 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
           >
             X
           </span>
-
-          {props.children}
+          <div className="h-full w-full flex flex-col items-center overflow-y-auto">
+            {props.children}
+          </div>
         </div>
       )}
     </animated.div>

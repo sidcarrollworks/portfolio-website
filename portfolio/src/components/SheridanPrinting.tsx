@@ -4,7 +4,7 @@ import bhdLogo from "../assets/svg/bhdIcon.svg";
 
 const SheridanPrinting = () => {
   return (
-    <div className=" h-full py-24 flex flex-col gap-20 max-w-4xl self-center overflow-x-hidden p-4 md:px-12 shadow-inner">
+    <div className="card-content">
       <div className="w-full flex flex-col gap-6 ">
         <div className="flex gap-4">
           <img src={shrLogo} alt="logo" className="h-10" />
