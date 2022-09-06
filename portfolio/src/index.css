@@ -83,6 +83,10 @@ code {
     scroll-snap-type: y mandatory;
   }
 
+  .scroll-snap-y-prox {
+    scroll-snap-type: y proximity;
+  }
+
   .scroll-snap-inline {
     scroll-snap-type: inline mandatory;
   }

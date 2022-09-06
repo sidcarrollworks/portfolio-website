@@ -26,8 +26,8 @@ const BotpressBreakdown = ({ bpLogo }: OwnProps) => {
       transform: `scale(${grow})`,
     },
     config: {
-      mass: 1.5,
-      tension: 700,
+      mass: 1.1,
+      tension: 300,
       friction: 20,
     },
   });

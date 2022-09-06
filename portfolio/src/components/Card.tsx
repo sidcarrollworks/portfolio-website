@@ -2,7 +2,6 @@ import React, { forwardRef, useEffect, useState, useCallback } from "react";
 
 import cx from "classnames";
 import { useSpring, animated } from "@react-spring/web";
-import { useLottie } from "lottie-react";
 
 interface Props {
   name: string;
@@ -47,18 +46,13 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
     config: { mass: 5, tension: 800, friction: 90 },
   }));
 
-  const { View, play, pause } = useLottie({
-    animationData: props.lottie,
-    loop: true,
-  });
-
-  useEffect(() => {
-    if (hover) {
-      play();
-    } else {
-      pause();
-    }
-  }, [hover, play, pause]);
+  // useEffect(() => {
+  //   if (hover) {
+  //     play();
+  //   } else {
+  //     pause();
+  //   }
+  // }, [hover, play, pause]);
 
   const holderProps = useSpring({
     from: {
@@ -190,7 +184,7 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
   const handleOnClick = useCallback(() => {
     setOpen(!open);
     props.openCard(ref);
-  }, [setHover]);
+  }, [open, setOpen, props, ref]);
 
   return (
     <animated.div
@@ -227,7 +221,7 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
                 "absolute w-full h-full top-0 left-0 flex items-center justify-center "
               }
             >
-              {props.lottie ? View : null}
+              {props.lottie}
             </animated.div>
             {props.background
               ? React.cloneElement(props.background, { hovered: hover })

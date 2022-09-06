@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect, Ref } from "react";
 import { HomeIcon, BriefcaseIcon, UserIcon } from "@heroicons/react/24/solid";
 import { animated, useSpring, useTransition } from "@react-spring/web";
-
+import { useLottie } from "lottie-react";
 import cx from "classnames";
 
 import EnterLogo from "./components/EnterLogo";
@@ -65,9 +65,9 @@ function App() {
   }, [enter]);
 
   const transitions = useTransition(enter, {
-    from: { transform: "scale(0)" },
-    enter: { transform: "scale(1)" },
-    to: { transform: "scale(0)" },
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    to: { opacity: 0 },
     reverse: enter,
     delay: 200,
     config: {
@@ -86,6 +86,11 @@ function App() {
   const openCardFn = (card: any) => {
     setOpenCard(card);
   };
+
+  const KBLottie = useLottie({
+    animationData: laptopAnimation,
+    loop: true,
+  });
 
   useEffect(() => {
     if (openCard && "current" in openCard) {
@@ -172,7 +177,7 @@ function App() {
       color2: "#f43f5e",
       coverImg: KBIcon,
       ref: Card1,
-      lottie: laptopAnimation,
+      lottie: KBLottie.View,
       openCard: openCardFn,
       background: <Balloons />,
       content: <KabloomBreakdown />,
@@ -241,10 +246,11 @@ function App() {
           <div className="overflow-hidden rounded-xl flex flex-col w-full h-full ">
             <div
               className={cx(
-                "w-full h-full flex flex-col hide-scrollbar p-0 scroll-invisible gap-6 relative rounded-xl overflow-auto scroll-snap-y",
+                "w-full h-full flex flex-col hide-scrollbar p-0 scroll-invisible gap-6 relative rounded-xl overflow-auto scroll-snap-y-prox",
                 !enter ? "overflow-hidden" : "overflow-auto"
               )}
             >
+              {/* Landing */}
               <div
                 ref={landing}
                 className={cx(
@@ -252,15 +258,18 @@ function App() {
                 )}
               >
                 <div className="spotlight h-full w-full rotate-180 absolute opacity-90 top-0 left-1/2 -translate-x-1/2" />
-                {transitions((styles, item) => {
+                {transitions(({ opacity }, item) => {
                   return !item ? (
-                    <EnterLogo
-                      logoProps={{ ...styles, ...logoProps }}
-                      setEnter={setEnter}
-                    />
+                    <EnterLogo logoProps={logoProps} setEnter={setEnter} />
                   ) : (
                     <animated.div
-                      ref={{ ...styles, ...landing }}
+                      ref={landing}
+                      style={{
+                        opacity: opacity.to({
+                          range: [0.0, 1.0],
+                          output: [0, 1],
+                        }),
+                      }}
                       className="w-full h-full flex flex-col justify-between bg-zinc-200 rounded-xl p-6 relative accent-edge"
                     >
                       <div className="spotlight h-full w-full absolute rotate-180 opacity-90 top-0 left-1/2 -translate-x-1/2 z-0" />
