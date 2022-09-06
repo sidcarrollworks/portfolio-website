@@ -46,7 +46,6 @@ const EnterLogo = ({ className, logoProps, setEnter }: Props) => {
     delay: 1500,
     config: { mass: 1, tension: 800, friction: 200 },
   });
-
   const enterSpring = useSpring({
     from: { opacity: 0, y: 500 },
     to: { opacity: 1, y: 70 },
@@ -63,7 +62,7 @@ const EnterLogo = ({ className, logoProps, setEnter }: Props) => {
           ),
           ...bg,
         }}
-        className="bg-zinc-900 items-center justify-center flex gap-4 p-5 rounded-2xl shadow-lg z-10 w-fit h-56"
+        className="bg-zinc-900 items-center justify-center flex gap-4 p-3 md:p-5 rounded-2xl shadow-lg z-10 w-fit h-24 md:h-56"
       >
         <animated.div
           style={{
@@ -71,7 +70,7 @@ const EnterLogo = ({ className, logoProps, setEnter }: Props) => {
               (x: number, y: number) => `translate3d(${x / 18}px,${y / 20}px,0)`
             ),
           }}
-          className="flex flex-col gap-1 h-full drop-shadow-lg w-1/3"
+          className="flex flex-col gap-1 h-full drop-shadow-lg w-min"
         >
           <animated.svg
             className="h-[46%] w-min"
@@ -404,7 +403,7 @@ const EnterLogo = ({ className, logoProps, setEnter }: Props) => {
       </animated.div>
       <animated.h2
         style={titleSpring}
-        className="inter text-2xl font-black tracking-[0.5rem] text-center ml-2 text-shadow-inner z-20"
+        className="inter text-md md:text-2xl font-black tracking-[0.5rem] text-center ml-2 text-shadow-inner z-20"
       >
         SIDCARROLLWORKS
       </animated.h2>

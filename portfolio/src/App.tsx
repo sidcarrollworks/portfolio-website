@@ -6,9 +6,9 @@ import cx from "classnames";
 
 import EnterLogo from "./components/EnterLogo";
 import Card from "./components/Card";
-import BotpressBreakdown from "./components/BotpressBreakdown";
-import SheridanPrinting from "./components/SheridanPrinting";
-import KabloomBreakdown from "./components/KabloomBreakdown";
+import BotpressBreakdown from "./pages/BotpressBreakdown";
+import SheridanPrinting from "./pages/SheridanPrinting";
+import KabloomBreakdown from "./pages/KabloomBreakdown";
 import Mountains from "./components/Mountains";
 import Nodes from "./components/Nodes";
 import Character from "./components/Character";
@@ -20,7 +20,7 @@ import grid from "./assets/png/grid2.png";
 import luna from "./assets/jpg/luna.jpg";
 
 import BHDLogo from "./assets/svg/BHDLogo.svg";
-import logo from "./logo.svg";
+import logoBare from "./assets/svg/logoBare.svg";
 import bpLogo from "./assets/svg/bpLogo.svg";
 
 import BPIcon from "./assets/svg/BPIcon.svg";
@@ -232,13 +232,13 @@ function App() {
   return (
     <div
       onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
-      className="w-screen h-screen bg-black flex flex-col overflow-hidden"
+      className="w-full h-full bg-black flex flex-col overflow-hidden"
     >
       <div className="w-full h-full flex flex-col max-w-[1440px] mx-auto">
         <animated.img
+          src={logoBare}
           style={opacityProps}
-          src={logo}
-          className="md:h-10 h-5 my-2 md:my-4"
+          className="md:h-6 h-4 my-2 md:my-4"
           alt="logo"
         />
 
@@ -323,7 +323,7 @@ function App() {
               {/* WORK SECTION */}
               <animated.div
                 ref={work}
-                className="min-h-full w-full flex flex-col md:flex-row gap-6 scroll-align-start overflow-x-hidden md:overflow-y-hidden scroll-snap-y md:scroll-snap-x"
+                className="min-h-full w-full flex flex-col md:flex-row gap-6 scroll-align-start overflow-y-auto scroll-snap-y md:scroll-snap-x rounded-xl"
               >
                 {cards.map((card, i) =>
                   !card.close ? (
@@ -421,7 +421,7 @@ function App() {
                       </div>
                     </div>
                   </div>
-                  <div className="w-full h-full flex flex-col justify-between rounded-xl p-6 relative accent-edge">
+                  <div className="w-full h-full flex-col justify-between rounded-xl p-6 relative accent-edge hidden md:flex">
                     <img src={grid} alt="#" className="h-full object-cover" />
                     <Character />
                   </div>
