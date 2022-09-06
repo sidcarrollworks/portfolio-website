@@ -227,25 +227,26 @@ function App() {
   return (
     <div
       onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
-      className="w-full h-full bg-black flex flex-col overflow-hidden"
+      className="w-screen h-screen bg-black flex flex-col overflow-hidden"
     >
-      <div className="w-full h-full flex flex-col gap-4 max-w-[1440px] mx-auto">
+      <div className="w-full h-full flex flex-col max-w-[1440px] mx-auto">
         <animated.img
           style={opacityProps}
           src={logo}
-          className="h-10 mt-4"
+          className="md:h-10 h-5 my-2 md:my-4"
           alt="logo"
         />
 
-        <div className="relative w-full h-full rounded-xl overflow-hidden px-6">
+        <div className="relative w-full h-full rounded-xl overflow-hidden px-2 md:px-6">
           <div className="overflow-hidden rounded-xl flex flex-col w-full h-full ">
             <div
               className={cx(
-                "w-full h-full flex flex-col hide-scrollbar p-0 scroll-invisible gap-6 relative rounded-xl overflow-auto scroll-snap-y"
-                // openCard ? "overflow-hidden" : "overflow-auto"
+                "w-full h-full flex flex-col hide-scrollbar p-0 scroll-invisible gap-6 relative rounded-xl overflow-auto scroll-snap-y",
+                !enter ? "overflow-hidden" : "overflow-auto"
               )}
             >
               <div
+                ref={landing}
                 className={cx(
                   "w-full min-h-full flex flex-col justify-center items-center select-none rounded-xl bg-zinc-200 relative accent-edge scroll-align-start"
                 )}
@@ -274,7 +275,7 @@ function App() {
                         </h1>
                         <h3 className="text-base md:text-xl text-left md:text-center font-medium uppercase">
                           I use my experience in graphics and ui design to
-                          create captivating experiences.
+                          create quality ui experiences.
                         </h3>
                       </div>
                       {/* People I've Worked With */}
@@ -354,8 +355,8 @@ function App() {
                         <br />
                         <br />
                         My time in the print shop taught me how to interact with
-                        client to pull out the right information in order to
-                        create a sucessful design.
+                        clients to efficiently pull out key information in order
+                        to create successful designs.
                         <br />
                         <br />
                         In my free time I spend my time creating or playing
@@ -424,7 +425,7 @@ function App() {
         {/* Bottom Menu */}
         <animated.div
           style={opacityProps}
-          className="flex flex-row w-full justify-center items-center pb-4 gap-4 z-10 "
+          className="flex flex-row w-full justify-center items-center my-2 md:my-4 gap-4 z-10 "
         >
           <HomeIcon
             className="h-4 w-4 text-zinc-100 cursor-pointer hover:scale-125 transition"
