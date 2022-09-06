@@ -62,7 +62,7 @@ const EnterLogo = ({ className, logoProps, setEnter }: Props) => {
           ),
           ...bg,
         }}
-        className="bg-zinc-900 items-center justify-center flex gap-4 p-3 md:p-5 rounded-2xl shadow-lg z-10 w-fit h-24 md:h-56"
+        className="bg-zinc-900 items-center justify-center flex gap-4 p-3 md:p-5 rounded-2xl shadow-lg z-10 w-min h-24 md:h-56"
       >
         <animated.div
           style={{
@@ -70,7 +70,7 @@ const EnterLogo = ({ className, logoProps, setEnter }: Props) => {
               (x: number, y: number) => `translate3d(${x / 18}px,${y / 20}px,0)`
             ),
           }}
-          className="flex flex-col gap-1 h-full drop-shadow-lg w-min"
+          className="flex flex-col gap-1 h-full drop-shadow-lg px-0 mx-0"
         >
           <animated.svg
             className="h-[46%] w-min"

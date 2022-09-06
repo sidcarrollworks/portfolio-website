@@ -255,13 +255,13 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
       ) : (
         <div className="w-full max-h-full relative">
           <span
-            className="top-8 right-8 font-bold text-xl absolute cursor-pointer p-2 leading-3 z-20 bg-zinc-50 rounded-full shadow-inner select-none text-zinc-400 hover:text-zinc-800 transition"
+            className="top-8 right-8 leading-[0.5rem] font-bold text-lg inter absolute cursor-pointer p-2 z-20 bg-zinc-50 rounded-full shadow-inner select-none text-zinc-400 hover:text-zinc-800 transition"
             onClick={() => {
               setOpen(false);
               props.openCard();
             }}
           >
-            X
+            x
           </span>
           <div className="h-full w-full flex flex-col items-center overflow-y-auto">
             {props.children}
