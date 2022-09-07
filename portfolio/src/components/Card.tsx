@@ -1,4 +1,5 @@
 import React, { forwardRef, useEffect, useState, useCallback } from "react";
+import Lottie from "lottie-react";
 
 import cx from "classnames";
 import { useSpring, animated } from "@react-spring/web";
@@ -221,7 +222,7 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
                 "absolute w-full h-full top-0 left-0 flex items-center justify-center "
               }
             >
-              {props.lottie}
+              <Lottie animationData={props.lottie} />
             </animated.div>
             {props.background
               ? React.cloneElement(props.background, { hovered: hover })

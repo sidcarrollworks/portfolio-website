@@ -87,11 +87,6 @@ function App() {
     setOpenCard(card);
   };
 
-  const KBLottie = useLottie({
-    animationData: laptopAnimation,
-    loop: true,
-  });
-
   useEffect(() => {
     if (openCard && "current" in openCard) {
       if (Card1.current === openCard.current) {
@@ -177,7 +172,7 @@ function App() {
       color2: "#f43f5e",
       coverImg: KBIcon,
       ref: Card1,
-      lottie: KBLottie.View,
+      lottie: laptopAnimation,
       openCard: openCardFn,
       background: <Balloons />,
       content: <KabloomBreakdown />,
