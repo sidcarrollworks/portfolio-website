@@ -1,4 +1,10 @@
-import React, { forwardRef, useEffect, useState, useCallback } from "react";
+import React, {
+  forwardRef,
+  useEffect,
+  useState,
+  useCallback,
+  useRef,
+} from "react";
 import Lottie from "lottie-react";
 
 import cx from "classnames";
@@ -26,6 +32,8 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
   const [width, setWidth] = useState(0);
   const [offsetTop, setOffsetTop] = useState(0);
   const [offsetLeft, setOffsetLeft] = useState(0);
+
+  const lottieRef = useRef(null);
 
   const calc = (x: number, y: number) => [
     x - offsetLeft - width / 2 - 20,
@@ -176,10 +184,18 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
 
   const handleOnEnter = useCallback(() => {
     setHover(true);
+
+    // if (props.lottie) {
+    //   lottieRef.current.play(); // eslint-disable-line
+    // }
   }, [setHover]);
 
   const handleOnLeave = useCallback(() => {
     setHover(false);
+
+    // if (props.lottie) {
+    //   lottieRef.current.pause(); // eslint-disable-line no-unused-expressions
+    // }
   }, [setHover]);
 
   const handleOnClick = useCallback(() => {
@@ -222,7 +238,7 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
                 "absolute w-full h-full top-0 left-0 flex items-center justify-center "
               }
             >
-              <Lottie animationData={props.lottie} />
+              <Lottie lottieRef={lottieRef} animationData={props.lottie} />
             </animated.div>
             {props.background
               ? React.cloneElement(props.background, { hovered: hover })

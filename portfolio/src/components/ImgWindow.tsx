@@ -12,7 +12,7 @@ interface OwnProps {
 const GROW_MAP: any = {
   default: "1",
   grow: "1.05",
-  expand: "1.4",
+  expand: "1.45",
 };
 
 const ImgWindow = ({ img, twBG }: OwnProps) => {
@@ -44,7 +44,7 @@ const ImgWindow = ({ img, twBG }: OwnProps) => {
     <div className="flex flex-col gap-6 w-full ">
       <div
         className={cx(
-          "flex flex-col rounded-xl md:rounded-2xl p-3 md:p-6 items-center justify-center shadow-inner-xl relative",
+          "flex flex-col rounded-xl md:rounded-2xl p-3 md:p-10 items-center justify-center shadow-inner-xl relative",
           twBG
         )}
       >

@@ -39,7 +39,7 @@ code {
   }
 
   .card-content {
-    @apply max-w-4xl flex flex-col gap-20 shadow-inner px-4 md:px-12 py-4 md:py-24;
+    @apply max-w-4xl flex flex-col gap-16 shadow-inner px-4 md:px-12 py-4 md:py-24;
   }
 
   .accent-edge {
