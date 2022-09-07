@@ -101,7 +101,7 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
       },
       // { display: hover ? "none" : "flex" },
     ],
-
+    delay: 100,
     config: {
       mass: 1,
       tension: 800,
@@ -115,7 +115,7 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
       opacity: hover ? 1 : 0.95,
       background: hover ? props.color2 : props.color,
     },
-
+    delay: 100,
     config: {
       mass: 1,
       tension: 500,
@@ -136,33 +136,33 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
       height: hover ? "2rem" : "6rem",
       marginTop: hover ? "1rem" : "0",
     },
-
+    delay: 100,
     config: {
       mass: 1,
       tension: 800,
-      friction: 50,
+      friction: 80,
     },
   });
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const buttonProps = useSpring({
-    from: {
-      padding: "0 0.5rem 0 0.5rem",
-      width: "30%",
-      opacity: 1,
-      transform: "translateY(150%)",
-    },
-    to: {
-      width: hover ? "100%" : "30%",
-      transform: hover ? "translateY(0%)" : "translateY(150%)",
-    },
-    delay: 100,
-    config: {
-      mass: 0.4,
-      tension: 800,
-      friction: 40,
-    },
-  });
+  // const buttonProps = useSpring({
+  //   from: {
+  //     padding: "0 0.5rem 0 0.5rem",
+  //     width: "30%",
+  //     opacity: 1,
+  //     transform: "translateY(150%)",
+  //   },
+  //   to: {
+  //     width: hover ? "100%" : "30%",
+  //     transform: hover ? "translateY(0%)" : "translateY(150%)",
+  //   },
+  //   delay: 100,
+  //   config: {
+  //     mass: 0.4,
+  //     tension: 800,
+  //     friction: 40,
+  //   },
+  // });
 
   const lottieProps = useSpring({
     from: {
@@ -175,10 +175,12 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
       opacity: hover ? "100%" : "0%",
     },
 
+    delay: 100,
+
     config: {
       mass: 1,
       tension: 800,
-      friction: 50,
+      friction: 80,
     },
   });
 
@@ -238,7 +240,9 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
                 "absolute w-full h-full top-0 left-0 flex items-center justify-center "
               }
             >
-              <Lottie lottieRef={lottieRef} animationData={props.lottie} />
+              {props.lottie ? (
+                <Lottie lottieRef={lottieRef} animationData={props.lottie} />
+              ) : null}
             </animated.div>
             {props.background
               ? React.cloneElement(props.background, { hovered: hover })
