@@ -1,8 +1,8 @@
-import React, { useCallback, useState } from "react";
-import { animated, useSpring } from "@react-spring/web";
+import React from "react";
 
-import grid from "../assets/png/grid2.png";
-import initialWireframe from "../assets/png/botpress/initialWireframe2.png";
+import ImgWindow from "../components/ImgWindow";
+
+import initialWireframe from "../assets/png/botpress/initialWireframe.png";
 import designSystem from "../assets/png/botpress/designSystem.png";
 import formKit from "../assets/png/botpress/formKit.png";
 import inspector from "../assets/png/botpress/inspector.png";
@@ -13,37 +13,7 @@ interface OwnProps {
   bpLogo: any;
 }
 
-const GROW_MAP: any = {
-  default: "1",
-  grow: "1.05",
-  expand: "1.4",
-};
-
 const BotpressBreakdown = ({ bpLogo }: OwnProps) => {
-  const [grow, setGrow] = useState(GROW_MAP.default);
-  const imgStyle = useSpring({
-    to: {
-      transform: `scale(${grow})`,
-    },
-    config: {
-      mass: 1.1,
-      tension: 300,
-      friction: 20,
-    },
-  });
-
-  const handleClick = useCallback(() => {
-    setGrow(grow === GROW_MAP.expand ? GROW_MAP.default : GROW_MAP.expand);
-  }, [grow, setGrow]);
-
-  const handleMouseEnter = useCallback(() => {
-    setGrow(GROW_MAP.grow);
-  }, [setGrow]);
-
-  const handleMouseLeave = useCallback(() => {
-    setGrow(GROW_MAP.default);
-  }, [setGrow]);
-
   return (
     <div className="card-content">
       <div className="w-full flex flex-col gap-6 items-start">
@@ -90,19 +60,11 @@ const BotpressBreakdown = ({ bpLogo }: OwnProps) => {
       </div>
 
       <div className="flex flex-col gap-6">
-        <div className="flex flex-col gap-4 bg-gradient-to-b from-indigo-600/80 to-indigo-800/80 rounded-xl md:rounded-2xl p-3 md:p-6 items-center justify-center shadow-inner-xl relative ">
-          <img
-            src={grid}
-            alt="grid"
-            className="rotate-90 absolute mix-blend-screen translate-x-1/2 h-full"
-          />
-          <img
-            src={initialWireframe}
-            alt="initial wireframe"
-            className="z-10"
-          />
-        </div>
         <h2 className="section-title">wireframing revalations</h2>
+        <ImgWindow
+          img={initialWireframe}
+          twBG="bg-gradient-to-b from-indigo-600/80 to-indigo-800/80"
+        />
         <div className="text-base">
           I wireframed the exprience while discussing it Nick Boutboul, the
           engineer. Along the way we had some realizations. First, editing
@@ -176,23 +138,11 @@ const BotpressBreakdown = ({ bpLogo }: OwnProps) => {
       </div>
 
       <div className="flex flex-col gap-6 w-full ">
-        <div className="flex flex-col bg-gradient-to-b from-indigo-600/80 to-indigo-800/80 rounded-xl md:rounded-2xl p-3 md:p-6 items-center justify-center shadow-inner-xl relative ">
-          <img
-            src={grid}
-            alt="grid"
-            className="rotate-90 absolute mix-blend-screen translate-x-1/2 h-full"
-          />
-          <animated.img
-            src={finalDesign}
-            alt="initial wireframe"
-            className="z-10 cursor-pointer"
-            style={imgStyle}
-            onClick={handleClick}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          />
-        </div>
         <h2 className="section-title">final design</h2>
+        <ImgWindow
+          img={finalDesign}
+          twBG="bg-gradient-to-b from-indigo-600/80 to-indigo-800/80"
+        />
         <div className="text-base w-full">
           In order to make better use of space I moved the emulator under the
           inspector. When the panels were next to each other you'd have a lot of
@@ -210,4 +160,5 @@ const BotpressBreakdown = ({ bpLogo }: OwnProps) => {
     </div>
   );
 };
+
 export default BotpressBreakdown;
