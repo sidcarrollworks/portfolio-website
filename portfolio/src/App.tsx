@@ -30,8 +30,6 @@ import kbLogo from "./assets/svg/kbLogo.svg";
 
 import laptopAnimation from "./assets/lottie/laptopAnimation.json";
 
-import "./App.css";
-
 function App() {
   const [enter, setEnter] = useState(false);
 

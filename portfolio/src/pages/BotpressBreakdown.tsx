@@ -2,12 +2,10 @@ import React from "react";
 
 import ImgWindow from "../components/ImgWindow";
 import Inspector from "../components/Inspector";
+import FileExplorer from "../components/FileExplorer";
 
-import initialWireframe from "../assets/png/botpress/initialWireframe.png";
 import designSystem from "../assets/png/botpress/designSystem.png";
-import formKit from "../assets/png/botpress/formKit.png";
-// import inspector from "../assets/png/botpress/inspector.png";
-import fileExplorer from "../assets/png/botpress/fileExplorer.png";
+
 import finalDesign from "../assets/png/botpress/finalDesign.png";
 
 interface OwnProps {
@@ -62,10 +60,10 @@ const BotpressBreakdown = ({ bpLogo }: OwnProps) => {
 
       <div className="flex flex-col gap-6">
         <h2 className="section-title">wireframing revalations</h2>
-        <ImgWindow
+        {/* <ImgWindow
           img={initialWireframe}
           twBG="bg-gradient-to-b from-indigo-600/80 to-indigo-800/80"
-        />
+        /> */}
         <div className="text-base">
           I wireframed the exprience while discussing it Nick Boutboul, the
           engineer. Along the way we had some realizations. First, editing
@@ -92,14 +90,16 @@ const BotpressBreakdown = ({ bpLogo }: OwnProps) => {
         <div className="flex flex-col gap-1 w-full h-full justify-start">
           <h2 className="section-title">inspector</h2>
           <p>
-            The node editing experience was condensed down to the inspector
-            component. The inspector can be broken down into two sections.
-            First, the tab bar and second, the inspector panes. All sub menus
-            originated from the inspector as well.
+            Consilidating the node editing experience to the inspector was a fun
+            challenge. Over time and interation we came up with a few ideas. It
+            is important for users to easily view the node's actions. Often
+            users need to compare 2 actions' values. The old way of doing things
+            lead to uneccessary clicks to leave and enter modals now viewing and
+            action's content takes 2 clicks from anywhere.
           </p>
         </div>
         <div className="flex flex-col md:flex-row gap-8 w-full items-start rounded-2xl ">
-          <div className="w-full max-w-sm p-8 bg-gradient-to-br from-indigo-600 to-violet-800 shadow-inner rounded-xl h-full flex flex-col border-[1px] border-zinc-900 ">
+          <div className="morph-shadow outline outline-1 outline-offset-2 w-full max-w-full md:max-w-sm p-8 bg-gradient-to-br from-indigo-600 to-violet-800 rounded-xl h-full flex flex-col border-[1px] border-zinc-900 ">
             <Inspector />
           </div>
           <div className="flex flex-col gap-4 w-full text-zinc-900">
@@ -130,17 +130,7 @@ const BotpressBreakdown = ({ bpLogo }: OwnProps) => {
           </div>
         </div>
       </div>
-      {/* <div className="flex flex-col md:flex-row gap-12 justify-center items-center">
-        <img src={formKit} alt="grid" className="w-full md:w-1/2" />
-        <div className="flex flex-col gap-4 w-full md:w-1/2">
-          <h2 className="section-title">inspector ui kit</h2>
-          <div className="text-base">
-            Created an inspector UI component kit for or internal team to create
-            the inspector UI. Customers also have the ability to easily create
-            their own custom skill nodes while maintaining our design standard.
-          </div>
-        </div>
-      </div> */}
+
       <div className="flex flex-col gap-8 justify-center items-center ">
         <div className="flex flex-col gap-1 w-full h-full justify-start">
           <h2 className="section-title">file explorer</h2>
@@ -151,36 +141,38 @@ const BotpressBreakdown = ({ bpLogo }: OwnProps) => {
             switch editing windows.
           </p>
         </div>
-        <div className="flex flex-col md:flex-row gap-8 w-full items-start rounded-2xl ">
-          <div className="w-full max-w-sm h-full rounded-xl border-[1px] border-zinc-900 ">
-            {/* <Inspector /> */}
-            <img src={fileExplorer} alt="grid" className="w-full" />
+
+        <div className="flex flex-col md:flex-row-reverse gap-8 w-full text-zinc-900">
+          <div className="outline outline-1 outline-offset-2 max-w-full md:max-w-sm p-8 bg-gradient-to-br to-rose-600 from-violet-800 shadow-inner rounded-xl h-full flex flex-col border-[1px] border-zinc-900 ">
+            <FileExplorer />
           </div>
           <div className="flex flex-col gap-4 w-full text-zinc-900">
             <div className="flex flex-col gap-1 w-full">
               <h3 className="subtitle">Search</h3>
-              <p className="w-full">Added search bar</p>
+              <p className="w-full">
+                The old node search in the workflow area was replaced with an
+                omni search bar. This works well with the explorer file tree
+                design. A dropdown with application options is displayed with
+                clicking the logo icon.
+              </p>
             </div>
             <div className="flex flex-col gap-1 w-full">
-              <h3 className="subtitle">Options</h3>
-              <p>right click</p>
+              <h3 className="subtitle">File Tree</h3>
+              <p className="text-base">
+                One thing we did in order to make the explorer more intuitive
+                and reduce flickering was to remove the need to switch editing
+                windows. We noticed a lot of redundency while swapping between
+                each editor. Every window had the bottom panel accessible as
+                well as the emulator. I then mocked up a few ideas and created
+                the studios model layout. Now when editing hooks, the center
+                pane opens a code editor tab. The center view to allow for easy
+                swapping between editors and access to important information.
+              </p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* <div className="flex flex-col-reverse md:flex-row gap-12 justify-center items-center">
-        <div className="flex flex-col gap-4 w-full md:w-1/2">
-          <h2 className="section-title">file explorer</h2>
-          <div className="text-base">
-            The explorer redesign completely removed the need for the nav bar
-            and replaced ith with a file explorer. Now the user can navigate to
-            any directory in their bot and view the contents without having to
-            switch editing windows.
-          </div>
-        </div>
-        <img src={fileExplorer} alt="grid" className="w-full md:w-[40%]" />
-      </div> */}
       <div className="flex flex-col md:flex-row gap-12 justify-center items-center w-full">
         <img src={designSystem} alt="grid" className="w-full md:w-1/2" />
         <div className="flex flex-col gap-4 w-full md:w-1/2">
