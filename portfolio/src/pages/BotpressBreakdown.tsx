@@ -1,11 +1,12 @@
 import React from "react";
 
 import ImgWindow from "../components/ImgWindow";
+import Inspector from "../components/Inspector";
 
 import initialWireframe from "../assets/png/botpress/initialWireframe.png";
 import designSystem from "../assets/png/botpress/designSystem.png";
 import formKit from "../assets/png/botpress/formKit.png";
-import inspector from "../assets/png/botpress/inspector.png";
+// import inspector from "../assets/png/botpress/inspector.png";
 import fileExplorer from "../assets/png/botpress/fileExplorer.png";
 import finalDesign from "../assets/png/botpress/finalDesign.png";
 
@@ -15,7 +16,7 @@ interface OwnProps {
 
 const BotpressBreakdown = ({ bpLogo }: OwnProps) => {
   return (
-    <div className="card-content">
+    <div className="card-content inter">
       <div className="w-full flex flex-col gap-6 items-start">
         <img src={bpLogo} alt="logo" className="h-12" />
         <h2 className="text-3xl font-semibold">
@@ -44,7 +45,7 @@ const BotpressBreakdown = ({ bpLogo }: OwnProps) => {
         </div>
       </div>
       <div className="flex flex-col gap-4">
-        <h2 className="section-title">problems and inital approach</h2>
+        <h2 className="section-title">problems and initial approach</h2>
         <div className="text-base">
           I was approached by an engineer at Botpress to assist with their node
           editor UI problem. The current method of editing nodes was causing a
@@ -86,43 +87,100 @@ const BotpressBreakdown = ({ bpLogo }: OwnProps) => {
           seeing what a complex node was doing in at a quick glance.
         </div>
       </div>
-      <div className="flex flex-col-reverse md:flex-row gap-12 justify-center items-center">
-        <div className="flex flex-col gap-4 w-full md:w-1/2">
-          <h2 className="section-title">node editing</h2>
-          <div className="text-base">
-            Created an inspector UI component kit. This makes it easier for us
-            to create the inspector UI and gives clients the ability to easily
-            create their own custom skill nodes while maintaining a design
-            standard.
+      {/* Inspector */}
+      <div className="flex flex-col gap-8 justify-center items-center ">
+        <div className="flex flex-col gap-1 w-full h-full justify-start">
+          <h2 className="section-title">inspector</h2>
+          <p>
+            The node editing experience was condensed down to the inspector
+            component. The inspector can be broken down into two sections.
+            First, the tab bar and second, the inspector panes. All sub menus
+            originated from the inspector as well.
+          </p>
+        </div>
+        <div className="flex flex-col md:flex-row gap-8 w-full items-start rounded-2xl ">
+          <div className="w-full max-w-sm p-8 bg-gradient-to-br from-indigo-600 to-violet-800 shadow-inner rounded-xl h-full flex flex-col border-[1px] border-zinc-900 ">
+            <Inspector />
+          </div>
+          <div className="flex flex-col gap-4 w-full text-zinc-900">
+            <div className="flex flex-col gap-1 w-full">
+              <h3 className="subtitle">Tab Bar</h3>
+              <p className="w-full">
+                The tab bar allows the user to switch between multiple content
+                editing panes at once. A tab is created when a content or action
+                is selected for editing. The tab stays in the bar stays in the
+                tab bar until it's closed by clicking the red X. Selecting
+                another node in the workflow won't close the tab but it will
+                swap the pane to the node's properties. When in a content pane a
+                user can go back to the nodes properties by clicking the node
+                properties button on the left of the tab bar component.
+              </p>
+            </div>
+            <div className="flex flex-col gap-1 w-full">
+              <h3 className="subtitle">Inspector Panes</h3>
+              <p>
+                When a node is selected in the worflow, the inspector displays
+                the node properties pane. Node name, description, and 3 action
+                lists are displayed. Action lists can be expanded or collapsed
+                to save space and are drag and drop reorderable. The inspector
+                mirrors the node's design to keep the experience feeling
+                familiar.
+              </p>
+            </div>
           </div>
         </div>
-        <img src={inspector} alt="grid" className="w-full md:w-1/2" />
       </div>
-      <div className="flex flex-col md:flex-row gap-12 justify-center items-center">
+      {/* <div className="flex flex-col md:flex-row gap-12 justify-center items-center">
         <img src={formKit} alt="grid" className="w-full md:w-1/2" />
         <div className="flex flex-col gap-4 w-full md:w-1/2">
           <h2 className="section-title">inspector ui kit</h2>
           <div className="text-base">
-            Created an inspector UI component kit. This makes it easier for us
-            to create the inspector UI and gives clients the ability to easily
-            create their own custom skill nodes while maintaining a design
-            standard.
+            Created an inspector UI component kit for or internal team to create
+            the inspector UI. Customers also have the ability to easily create
+            their own custom skill nodes while maintaining our design standard.
+          </div>
+        </div>
+      </div> */}
+      <div className="flex flex-col gap-8 justify-center items-center ">
+        <div className="flex flex-col gap-1 w-full h-full justify-start">
+          <h2 className="section-title">file explorer</h2>
+          <p>
+            The explorer redesign completely removed the need for the nav bar
+            and replaced ith with a file explorer. Now the user can navigate to
+            any directory in their bot and view the contents without having to
+            switch editing windows.
+          </p>
+        </div>
+        <div className="flex flex-col md:flex-row gap-8 w-full items-start rounded-2xl ">
+          <div className="w-full max-w-sm h-full rounded-xl border-[1px] border-zinc-900 ">
+            {/* <Inspector /> */}
+            <img src={fileExplorer} alt="grid" className="w-full" />
+          </div>
+          <div className="flex flex-col gap-4 w-full text-zinc-900">
+            <div className="flex flex-col gap-1 w-full">
+              <h3 className="subtitle">Search</h3>
+              <p className="w-full">Added search bar</p>
+            </div>
+            <div className="flex flex-col gap-1 w-full">
+              <h3 className="subtitle">Options</h3>
+              <p>right click</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="flex flex-col-reverse md:flex-row gap-12 justify-center items-center">
+      {/* <div className="flex flex-col-reverse md:flex-row gap-12 justify-center items-center">
         <div className="flex flex-col gap-4 w-full md:w-1/2">
           <h2 className="section-title">file explorer</h2>
           <div className="text-base">
-            Created an inspector UI component kit. This makes it easier for us
-            to create the inspector UI and gives clients the ability to easily
-            create their own custom skill nodes while maintaining a design
-            standard.
+            The explorer redesign completely removed the need for the nav bar
+            and replaced ith with a file explorer. Now the user can navigate to
+            any directory in their bot and view the contents without having to
+            switch editing windows.
           </div>
         </div>
         <img src={fileExplorer} alt="grid" className="w-full md:w-[40%]" />
-      </div>
+      </div> */}
       <div className="flex flex-col md:flex-row gap-12 justify-center items-center w-full">
         <img src={designSystem} alt="grid" className="w-full md:w-1/2" />
         <div className="flex flex-col gap-4 w-full md:w-1/2">

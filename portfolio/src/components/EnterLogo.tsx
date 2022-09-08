@@ -53,6 +53,13 @@ const EnterLogo = ({ className, logoProps, setEnter }: Props) => {
     config: { mass: 1, tension: 200, friction: 20 },
   });
 
+  const fadeIn = useSpring({
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+    delay: 2000,
+    config: { mass: 1, tension: 500, friction: 40 },
+  });
+
   return (
     <animated.div className="w-full h-full relative flex items-center justify-center flex-col z-0">
       <animated.div
@@ -438,6 +445,7 @@ const EnterLogo = ({ className, logoProps, setEnter }: Props) => {
           fill="#ECECEC"
         />
       </animated.svg>
+      <animated.span style={fadeIn}>WORK IN PROGRESS</animated.span>
     </animated.div>
   );
 };

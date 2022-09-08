@@ -80,9 +80,9 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
 
     reset: true,
     config: {
-      mass: 2,
-      tension: 500,
-      friction: 100,
+      mass: 1,
+      tension: 200,
+      friction: 50,
     },
   });
 
@@ -167,14 +167,13 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
   const lottieProps = useSpring({
     from: {
       y: "100%",
-      opacity: "0%",
+      opacity: 0,
     },
 
     to: {
       y: hover ? "0%" : "100%",
-      opacity: hover ? "100%" : "0%",
+      opacity: !hover ? 0 : open ? 0 : 1,
     },
-
     delay: 100,
 
     config: {
@@ -241,7 +240,11 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
               }
             >
               {props.lottie ? (
-                <Lottie lottieRef={lottieRef} animationData={props.lottie} />
+                <Lottie
+                  lottieRef={lottieRef}
+                  animationData={props.lottie}
+                  style={{ maxWidth: "440px" }}
+                />
               ) : null}
             </animated.div>
             {props.background

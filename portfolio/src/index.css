@@ -31,13 +31,17 @@ code {
   .inter {
     font-family: "Inter", sans-serif;
   }
-}
 
-@layer components {
   .section-title {
     @apply text-xl font-bold inter uppercase;
   }
 
+  .subtitle {
+    @apply font-medium text-lg inter;
+  }
+}
+
+@layer components {
   .card-content {
     @apply max-w-4xl flex flex-col gap-16 shadow-inner px-4 md:px-12 py-4 md:py-24;
   }
@@ -45,6 +49,14 @@ code {
   .accent-edge {
     box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.8) inset,
       0 1px 1px 0 rgba(#050b1e, 0.6) inset, 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .input-focus {
+    box-shadow: 0 0 0 0px rgba(50, 50, 200, 0);
+  }
+
+  .input-focus:focus-within {
+    box-shadow: 0 0 0 2px rgba(150, 150, 250, 0.25);
   }
 }
 
