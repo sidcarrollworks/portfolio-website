@@ -190,12 +190,8 @@ const SingleChoice = () => {
   return (
     <>
       <div className="pane-header">
-        <span className="font-bold text-zinc-700 text-md px-3">
-          chooseOption
-        </span>
-        <span className="text-zinc-700 text-xs px-3">
-          A single choice question.
-        </span>
+        <span className="pane-title">chooseOption</span>
+        <span className="pane-description">A single choice question.</span>
       </div>
       <div className="pane-section">
         <div className="flex flex-col w-full gap-2">

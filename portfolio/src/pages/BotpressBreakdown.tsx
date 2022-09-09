@@ -181,8 +181,7 @@ const BotpressBreakdown = ({ bpLogo }: OwnProps) => {
             There are many examples of inconsistency throughout the studio as
             well as in the style sheets. I used a very slimmed down version of
             the 7-1 pattern to organize our styles. This combined with component
-            css modules really cleaned up the codebase folder structure and made
-            it easy to navigate.
+            css modules really cleaned up the codebase folder structure.
           </div>
         </div>
       </div>

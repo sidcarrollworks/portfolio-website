@@ -55,7 +55,7 @@ const EnterLogo = ({ className, logoProps, setEnter }: Props) => {
 
   const fadeIn = useSpring({
     from: { opacity: 0 },
-    to: { opacity: 1 },
+    to: { opacity: 1, y: 35, rotate: 15 },
     delay: 2000,
     config: { mass: 1, tension: 500, friction: 40 },
   });
@@ -445,7 +445,12 @@ const EnterLogo = ({ className, logoProps, setEnter }: Props) => {
           fill="#ECECEC"
         />
       </animated.svg>
-      <animated.span style={fadeIn}>WORK IN PROGRESS</animated.span>
+      <animated.span
+        style={fadeIn}
+        className="px-2 py-1 rounded-lg bg-orange-500 font-bold border-2 border-zinc-900 z-10"
+      >
+        WORK IN PROGRESS
+      </animated.span>
     </animated.div>
   );
 };
