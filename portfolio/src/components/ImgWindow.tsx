@@ -5,7 +5,8 @@ import cx from "classnames";
 import grid from "../assets/png/grid2.png";
 
 interface OwnProps {
-  img: any;
+  img?: any;
+  comp?: any;
   twBG: string;
 }
 
@@ -15,7 +16,7 @@ const GROW_MAP: any = {
   expand: "1.45",
 };
 
-const ImgWindow = ({ img, twBG }: OwnProps) => {
+const ImgWindow = ({ img, twBG, comp }: OwnProps) => {
   const [grow, setGrow] = useState(GROW_MAP.default);
   const imgStyle = useSpring({
     to: {
@@ -53,15 +54,19 @@ const ImgWindow = ({ img, twBG }: OwnProps) => {
           alt="grid"
           className="rotate-90 absolute mix-blend-screen translate-x-1/2 h-full"
         />
-        <animated.img
-          src={img}
-          alt="initial wireframe"
-          className="z-10 cursor-pointer shadow-lg"
-          style={imgStyle}
-          onClick={handleClick}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        />
+        {comp ? (
+          comp
+        ) : img ? (
+          <animated.img
+            src={img}
+            alt="initial wireframe"
+            className="z-10 cursor-pointer shadow-lg"
+            style={imgStyle}
+            onClick={handleClick}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          />
+        ) : null}
       </div>
     </div>
   );

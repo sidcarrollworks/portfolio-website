@@ -287,7 +287,7 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
           >
             x
           </span>
-          <div className="h-full w-full flex flex-col items-center overflow-y-auto">
+          <div className="h-full w-full flex flex-col items-center overflow-y-auto bg-zinc-50 ">
             {props.children}
           </div>
         </div>

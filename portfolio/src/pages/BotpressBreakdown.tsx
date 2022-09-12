@@ -1,11 +1,15 @@
 import React from "react";
+import {
+  ReactCompareSlider,
+  ReactCompareSliderImage,
+} from "react-compare-slider";
 
 import ImgWindow from "../components/ImgWindow";
 import Inspector from "../components/Inspector";
 import FileExplorer from "../components/FileExplorer";
 
 import designSystem from "../assets/png/botpress/designSystem.png";
-
+import original from "../assets/png/botpress/original.png";
 import finalDesign from "../assets/png/botpress/finalDesign.png";
 
 interface OwnProps {
@@ -16,30 +20,45 @@ const BotpressBreakdown = ({ bpLogo }: OwnProps) => {
   return (
     <div className="card-content inter">
       <div className="w-full flex flex-col gap-6 items-start">
-        <img src={bpLogo} alt="logo" className="h-12" />
-        <h2 className="text-3xl font-semibold">
-          Conversation Studio UI Breakdown
-        </h2>
+        <div className="flex flex-row gap-4">
+          <img src={bpLogo} alt="logo" className="h-8" />
+          <h2 className="text-3xl font-semibold">
+            Conversation Studio UI Breakdown
+          </h2>
+        </div>
+
+        <ImgWindow
+          img={null}
+          comp={
+            <ReactCompareSlider
+              itemOne={<ReactCompareSliderImage src={original} />}
+              itemTwo={<ReactCompareSliderImage src={finalDesign} />}
+              className="border-xl w-full"
+            />
+          }
+          twBG="bg-gradient-to-bl from-indigo-600 to-violet-800 outline outline-1 outline-offset-2"
+        />
+
+        <div className="text-base">
+          Botpress aims to provide an intuitive editing experience that
+          streamlines chatbot building in a low code environment. The studio
+          allows you to build, test, and collaborate with your team on a
+          singular platform.
+        </div>
       </div>
-      <div className="text-base">
-        Botpress aims to provide an intuitive editing experience that
-        streamlines chatbot building in a low code environment. The studio
-        allows you to build, test, and collaborate with your team on a singular
-        platform.
-      </div>
+
       <div className="flex flex-col gap-4">
         <h2 className="section-title">my role</h2>
         <div className="text-base">
-          While usuable, the current design suffered a few noticable bottlenecks
-          when creating bots. My role was to work with the engineers to design
-          and create a proper node editing experience and to expand our new UX
-          vision from to the rest of the editor. I worked on a team of 3 other
-          engineers as the sole designer. I conducted user research to inform my
-          design decisions. Then, worked with the rest of the team to prototype
-          various solutions that we could implement quickly all without making
-          major changes to the backend. Finally created high fidelity mockups
-          and applied our cohesive style to the rest of the application as well
-          as mocked up future product features.
+          My role was to work with the engineers to design and create a proper
+          node editing experience and to expand our new UX vision from to the
+          rest of the editor. I worked on a team of 3 other engineers as the
+          sole designer. First I met with the customer success team to get the
+          users perspective. Then, worked with the rest of the team to design
+          and prototype various solutions. We needed to implement quickly
+          without making major changes to the backend. Finally created high
+          fidelity mockups and applied a cohesive style to the rest of the
+          application as well as mocked up future product features.
         </div>
       </div>
       <div className="flex flex-col gap-4">
@@ -173,8 +192,14 @@ const BotpressBreakdown = ({ bpLogo }: OwnProps) => {
         </div>
       </div>
 
-      <div className="flex flex-col md:flex-row gap-12 justify-center items-center w-full">
-        <img src={designSystem} alt="grid" className="w-full md:w-1/2" />
+      <div className="flex flex-col md:flex-row gap-12 justify-center items-center w-full h-min">
+        <div className="outline relative w-full overflow-hidden outline-1 outline-offset-2 max-w-full md:max-w-sm bg-gradient-to-bl from-fuchsia-700 to-indigo-700 shadow-inner rounded-xl h-[320px] flex flex-col border-[1px] border-zinc-900 ">
+          <img
+            src={designSystem}
+            alt="grid"
+            className=" object-top m-8 absolute"
+          />
+        </div>
         <div className="flex flex-col gap-4 w-full md:w-1/2">
           <h2 className="section-title">design system</h2>
           <div className="text-base w-full">
@@ -188,10 +213,7 @@ const BotpressBreakdown = ({ bpLogo }: OwnProps) => {
 
       <div className="flex flex-col gap-6 w-full ">
         <h2 className="section-title">final design</h2>
-        <ImgWindow
-          img={finalDesign}
-          twBG="bg-gradient-to-b from-indigo-600/80 to-indigo-800/80"
-        />
+
         <div className="text-base w-full">
           In order to make better use of space I moved the emulator under the
           inspector. When the panels were next to each other you'd have a lot of
