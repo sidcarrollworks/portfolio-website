@@ -165,7 +165,9 @@ function App() {
 
   const [cards, setCards] = useState([
     {
-      name: "Kabloom Booking",
+      name: "Self-serve Booking",
+      desciption:
+        "Designed, architected, and built a self-serve booking portal",
       color: "#f43f5e",
       color2: "#f43f5e",
       coverImg: KBIcon,
@@ -178,6 +180,7 @@ function App() {
     },
     {
       name: "Sheridan Printing",
+      desciption: "Gathered experience in design and working with customers",
       color: "#10B981",
       color2: "#10B981",
       coverImg: SHRIcon,
@@ -190,6 +193,7 @@ function App() {
     },
     {
       name: "Botpress Studio UI",
+      desciption: "Designed and assisted in building a conversation studio UI",
       color: "#3730a3",
       color2: "#171718",
       coverImg: BPIcon,
@@ -279,8 +283,8 @@ function App() {
                         DESIGN SOLUTIONS
                       </h1>
                       <h3 className="text-base md:text-xl text-left md:text-center font-medium uppercase">
-                        I use my experience in graphics and ui design to create
-                        quality ui experiences.
+                        I create quality user experiences with in-depth research
+                        and compelling visual design.
                       </h3>
                     </div>
                     {/* People I've Worked With */}
@@ -322,6 +326,7 @@ function App() {
                   <Card
                     key={i}
                     name={card.name}
+                    description={card.desciption}
                     color={card.color}
                     color2={card.color2}
                     coverImg={card.coverImg}

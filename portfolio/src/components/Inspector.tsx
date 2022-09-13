@@ -48,7 +48,7 @@ const Inspector = () => {
         activeTab={activeTab}
       />
       {/* inspector panes */}
-      <div className="flex flex-col w-full h-full bg-white">
+      <div className="flex flex-col w-full h-full bg-white pb-3">
         {tabs[activeTab].pane}
       </div>
     </div>

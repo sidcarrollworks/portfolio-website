@@ -13,6 +13,7 @@ import { useSpring, animated } from "@react-spring/web";
 interface Props {
   name: string;
   color: string;
+  description?: string;
   color2: string;
   coverImg?: any;
   lottie?: any;
@@ -144,25 +145,23 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
     },
   });
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  // const buttonProps = useSpring({
-  //   from: {
-  //     padding: "0 0.5rem 0 0.5rem",
-  //     width: "30%",
-  //     opacity: 1,
-  //     transform: "translateY(150%)",
-  //   },
-  //   to: {
-  //     width: hover ? "100%" : "30%",
-  //     transform: hover ? "translateY(0%)" : "translateY(150%)",
-  //   },
-  //   delay: 100,
-  //   config: {
-  //     mass: 0.4,
-  //     tension: 800,
-  //     friction: 40,
-  //   },
-  // });
+  const descriptionProps = useSpring({
+    from: {
+      width: "80%",
+      top: "100%",
+      opacity: 0,
+    },
+    to: {
+      top: hover ? "90%" : "100%",
+      opacity: hover ? 1 : 0,
+    },
+    delay: 200,
+    config: {
+      mass: 1,
+      tension: 800,
+      friction: 150,
+    },
+  });
 
   const lottieProps = useSpring({
     from: {
@@ -186,8 +185,8 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
   const handleOnEnter = useCallback(() => {
     setHover(true);
 
-    // if (props.lottie) {
-    //   lottieRef.current.play(); // eslint-disable-line
+    // if (props.lottie && lottieRef && "current" in lottieRef && lottieRef.current) {
+    //   lottieRef.current.play();
     // }
   }, [setHover]);
 
@@ -195,7 +194,7 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
     setHover(false);
 
     // if (props.lottie) {
-    //   lottieRef.current.pause(); // eslint-disable-line no-unused-expressions
+    //   lottieRef.current.pause();
     // }
   }, [setHover]);
 
@@ -256,6 +255,12 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
               className=" max-w-xs absolute opacity-80"
               alt="logo"
             />
+            <animated.div
+              style={descriptionProps}
+              className="text-center text-white text-sm absolute p-4"
+            >
+              {props.description}
+            </animated.div>
             {/* <animated.button
               style={buttonProps}
               className="transition cursor-pointer justify-self-end text-lg font-medium z-10 rounded-lg h-12 py-8 text-zinc-900 shadow-md shadow-zinc-900/20 bg-gradient-to-b from-white to-white/90 hover:bg-white"
@@ -279,7 +284,7 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
       ) : (
         <div className="w-full max-h-full relative">
           <span
-            className="top-8 right-8 leading-[0.5rem] font-bold text-lg inter absolute cursor-pointer p-2 z-20 bg-zinc-50 rounded-full shadow-inner select-none text-zinc-400 hover:text-zinc-800 transition"
+            className="top-8 right-8 leading-[0.5rem] font-bold text-lg inter absolute cursor-pointer p-2 z-20 bg-zinc-100 rounded-full shadow-inner select-none text-zinc-400 hover:text-zinc-800 transition"
             onClick={() => {
               setOpen(false);
               props.openCard();

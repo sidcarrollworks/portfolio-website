@@ -11,6 +11,7 @@ import FileExplorer from "../components/FileExplorer";
 import designSystem from "../assets/png/botpress/designSystem.png";
 import original from "../assets/png/botpress/original.png";
 import finalDesign from "../assets/png/botpress/finalDesign.png";
+import grid from "../assets/png/grid2.png";
 
 interface OwnProps {
   bpLogo: any;
@@ -19,14 +20,13 @@ interface OwnProps {
 const BotpressBreakdown = ({ bpLogo }: OwnProps) => {
   return (
     <div className="card-content inter">
-      <div className="w-full flex flex-col gap-6 items-start">
+      <div className="w-full flex flex-col gap-8 items-start">
         <div className="flex flex-row gap-4">
           <img src={bpLogo} alt="logo" className="h-8" />
           <h2 className="text-3xl font-semibold">
             Conversation Studio UI Breakdown
           </h2>
         </div>
-
         <ImgWindow
           img={null}
           comp={
@@ -50,64 +50,114 @@ const BotpressBreakdown = ({ bpLogo }: OwnProps) => {
       <div className="flex flex-col gap-4">
         <h2 className="section-title">my role</h2>
         <div className="text-base">
-          My role was to work with the engineers to design and create a proper
-          node editing experience and to expand our new UX vision from to the
-          rest of the editor. I worked on a team of 3 other engineers as the
-          sole designer. First I met with the customer success team to get the
-          users perspective. Then, worked with the rest of the team to design
-          and prototype various solutions. We needed to implement quickly
-          without making major changes to the backend. Finally created high
-          fidelity mockups and applied a cohesive style to the rest of the
-          application as well as mocked up future product features.
+          I worked with software engineers to design and create a proper node
+          editing experience and to expand our new UX vision from to the rest of
+          the editor. Our objective was to implement a solution quickly, without
+          making major changes to the backend. First, I met with the customer
+          success team to understand the user’s perspective. Then, I worked with
+          3 engineers to design and prototype potential solutions. Finally, I
+          created high fidelity mockups and applied a cohesive style to match
+          the rest of the application.
         </div>
       </div>
       <div className="flex flex-col gap-4">
         <h2 className="section-title">problems and initial approach</h2>
         <div className="text-base">
-          I was approached by an engineer at Botpress to assist with their node
-          editor UI problem. The current method of editing nodes was causing a
-          lot of frustration from users do to endless time in pop-up modals.
-          Important information pertaining to the modal was blocked by the
-          layered overlays. Their initial approach was to consolidate all the
-          modals into one. An editor UI would overlay the workflow screen and
-          the use could leave at any time by clicking outside the edited node.
-          This solution added the ability to drag the content blocks inside the
-          editor node. The inspector would provide the ui to edit the node’s
-          properties.
+          Botpress first tasked me with redesigning their Node Editor UI – used
+          for visual scripting. The previous method was causing frustration from
+          users, due to endless time in pop-up modals. Important info pertaining
+          to the modal was blocked by layered overlays. The solution was to
+          consolidate all the modals into one and create an editor UI that would
+          overlay the center screen. We also added the ability for users to drag
+          content blocks inside the edited node.
         </div>
       </div>
 
-      <div className="flex flex-col gap-6">
-        <h2 className="section-title">wireframing revalations</h2>
-        {/* <ImgWindow
-          img={initialWireframe}
-          twBG="bg-gradient-to-b from-indigo-600/80 to-indigo-800/80"
-        /> */}
-        <div className="text-base">
-          I wireframed the exprience while discussing it Nick Boutboul, the
-          engineer. Along the way we had some realizations. First, editing
-          content could contained to the inspector. Second, editing should be
-          contained to the right half of the screen, and third we could achieve
-          the same results without a pop up overlay. After wireframing we set 3
-          inital goals to direct our thinking. Reduce flickering and use modals
-          throughout the experience Keep a clear and consistant style Intuitive
-          enough for a designer and powerful enough for an engineer
+      <div className="flex flex-col md:flex-row gap-6 w-full items-center h-[488px] sm:my-8 md:my-20">
+        <div className="flex flex-col gap-4">
+          <h2 className="section-title">learnings</h2>
+          <div className="text-base flex flex-col gap-4">
+            I wireframed the experience after conducting discovery with our
+            engineers. Along the way, we had some realizations. First, editing
+            content could be contained within the inspector window. And third,
+            we could achieve the same results without a pop-up overlay. After
+            wireframing we set 3 initial goals to direct our thinking.
+            <ul className="flex flex-col gap-4">
+              <li>• Reduce the number of view changes</li>
+              <li>• Remove modals (that were causing the problem)</li>
+              <li>
+                • Maintain a clear and consistent style that’s intuitive enough
+                for a designer and powerful enough for an engineer.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="morph-shadow relative outline outline-1 outline-offset-2 w-full max-w-full md:max-w-sm p-8 bg-gradient-to-br from-indigo-600 to-violet-800 rounded-xl h-full flex flex-col border-[1px] border-zinc-900 ">
+          <img
+            src={grid}
+            alt="grid"
+            className="rotate-90 absolute mix-blend-screen -top-5 left-0 h-full -z-10"
+          />
+          <Inspector />
         </div>
       </div>
-      <div className="flex flex-col gap-4">
-        <h2 className="section-title">addressing the issues</h2>
-        <div className="text-base">
-          Over the next week we developed the solution. During this time I met
-          with members of the customer success team to pinpoint some other pain
-          points users and themselves have. I also presented our revised
-          solution for feedback. A key issue they brought up was the difficulty
-          seeing what a complex node was doing in at a quick glance.
+
+      <div className="flex flex-col md:flex-row gap-12 justify-center items-center w-full h-min my-20">
+        <div className="outline relative w-full overflow-hidden outline-1 outline-offset-2 max-w-full md:max-w-sm bg-gradient-to-bl from-fuchsia-700 to-indigo-700 shadow-inner rounded-xl h-[320px] flex flex-col border-[1px] border-zinc-900 ">
+          <img
+            src={designSystem}
+            alt="grid"
+            className=" object-top m-8 absolute"
+          />
+        </div>
+        <div className="flex flex-col gap-4 w-full md:w-1/2">
+          <h2 className="section-title">design system</h2>
+          <div className="text-base w-full">
+            There are many examples of inconsistency throughout the studio as
+            well as in the style sheets. I used a very slimmed down version of
+            the 7-1 pattern to organize our styles. This combined with component
+            css modules really cleaned up the codebase folder structure.
+          </div>
         </div>
       </div>
+
+      <div className="flex flex-col-reverse md:flex-row gap-6 w-full items-center my-20">
+        <div className="flex flex-col gap-4">
+          <h2 className="section-title">final design</h2>
+
+          <div className="text-base w-full">
+            To make better use of space, I moved the emulator under the
+            inspector. When the panels were next to each other you'd have a lot
+            of unused space. For a majority of the time the pertinent
+            information while testing a bot is only within the past 2-3
+            messages.
+            <br />
+            <br />
+            This UI project taught me a lot about how to manage and design more
+            complex, technical systems and features. The small time-frame
+            reinforced the practice of reaching a final solution through rapid
+            iteration. It gave me lots of practice simplifying experiences down
+            to their core purpose.
+          </div>
+        </div>
+
+        <div className="morph-shadow relative outline outline-1 outline-offset-2 w-full max-w-full h-96 md:max-w-sm p-8 bg-gradient-to-br from-indigo-600 to-violet-800 rounded-xl flex flex-col border-[1px] border-zinc-900 ">
+          <img
+            src={grid}
+            alt="grid"
+            className="rotate-90 absolute mix-blend-screen -top-5 left-0 h-full -z-10"
+          />
+          <FileExplorer />
+        </div>
+      </div>
+
+      <h2 className="  text-sm mt-10 text-indigo-600">components breakdown</h2>
+
       {/* Inspector */}
-      <div className="flex flex-col gap-8 justify-center items-center ">
-        <div className="flex flex-col gap-1 w-full h-full justify-start">
-          <h2 className="section-title">inspector</h2>
+      <div className="flex flex-col gap-8 justify-center items-center mb-8 md:mb-20">
+        <div className="flex flex-col gap-1 w-full h-full justify-start ">
+          <h2 className="section-title ">inspector</h2>
           <p>
             Consilidating the node editing experience to the inspector was a fun
             challenge. Over time and interation we came up with a few ideas. It
@@ -149,8 +199,8 @@ const BotpressBreakdown = ({ bpLogo }: OwnProps) => {
           </div>
         </div>
       </div>
-
-      <div className="flex flex-col gap-8 justify-center items-center ">
+      {/* File Explorer */}
+      <div className="flex flex-col gap-8 justify-center items-center mb-8 md:mb-20">
         <div className="flex flex-col gap-1 w-full h-full justify-start">
           <h2 className="section-title">file explorer</h2>
           <p>
@@ -189,43 +239,6 @@ const BotpressBreakdown = ({ bpLogo }: OwnProps) => {
               </p>
             </div>
           </div>
-        </div>
-      </div>
-
-      <div className="flex flex-col md:flex-row gap-12 justify-center items-center w-full h-min">
-        <div className="outline relative w-full overflow-hidden outline-1 outline-offset-2 max-w-full md:max-w-sm bg-gradient-to-bl from-fuchsia-700 to-indigo-700 shadow-inner rounded-xl h-[320px] flex flex-col border-[1px] border-zinc-900 ">
-          <img
-            src={designSystem}
-            alt="grid"
-            className=" object-top m-8 absolute"
-          />
-        </div>
-        <div className="flex flex-col gap-4 w-full md:w-1/2">
-          <h2 className="section-title">design system</h2>
-          <div className="text-base w-full">
-            There are many examples of inconsistency throughout the studio as
-            well as in the style sheets. I used a very slimmed down version of
-            the 7-1 pattern to organize our styles. This combined with component
-            css modules really cleaned up the codebase folder structure.
-          </div>
-        </div>
-      </div>
-
-      <div className="flex flex-col gap-6 w-full ">
-        <h2 className="section-title">final design</h2>
-
-        <div className="text-base w-full">
-          In order to make better use of space I moved the emulator under the
-          inspector. When the panels were next to each other you'd have a lot of
-          unused space. For a majority of the time the pertinent information
-          while testing a bot is only within the past 2-3 messages.
-          <br />
-          <br />
-          This UI project taught me a lot about how to manage and design more
-          complex systems and features. The small time frame reinforced the
-          practice of rapid iteration then editing down to the best solution. It
-          gave me lots of practice simplifying experiences down to their core
-          purpose.
         </div>
       </div>
     </div>

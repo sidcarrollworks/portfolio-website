@@ -12,7 +12,7 @@ const Balloons = ({ hovered }: Props) => {
       opacity: 0,
     },
     to: {
-      transform: hovered ? "translateY(19rem)" : "translateY(0rem)",
+      transform: hovered ? "translateY(18rem)" : "translateY(0rem)",
       opacity: hovered ? 1 : 0,
     },
 
@@ -29,7 +29,7 @@ const Balloons = ({ hovered }: Props) => {
         style={titleProps}
         className="absolute text-3xl font-bold text-white inter"
       >
-        Booking System
+        Self-serve Booking
       </animated.span>
     </div>
   );

@@ -118,7 +118,7 @@ const Nodes = ({ hovered }: Props) => {
       opacity: 0,
     },
     to: {
-      transform: hovered ? "translateY(19rem)" : "translateY(0rem)",
+      transform: hovered ? "translateY(18rem)" : "translateY(0rem)",
       opacity: hovered ? 1 : 0,
     },
 
