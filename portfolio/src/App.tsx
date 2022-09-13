@@ -82,6 +82,22 @@ function App() {
     config: { mass: 5, tension: 800, friction: 90 },
   }));
 
+  const spotlightProps = useSpring({
+    from: {
+      opacity: 0,
+      rotate: 180,
+    },
+    to: {
+      opacity: 1,
+    },
+    delay: 300,
+    config: {
+      mass: 1,
+      tension: 200,
+      friction: 50,
+    },
+  });
+
   const openCardFn = (card: any) => {
     setOpenCard(card);
   };
@@ -214,13 +230,6 @@ function App() {
     config: { mass: 5, tension: 800, friction: 90 },
   });
 
-  const spotlightProps = useSpring({
-    from: { opacity: 0 },
-    to: { opacity: 1 },
-    delay: 500,
-    config: { mass: 1, tension: 700, friction: 90 },
-  });
-
   const emailProps = useSpring({
     from: { opacity: 0 },
     to: { opacity: emailCopied ? 1 : 0 },
@@ -238,7 +247,7 @@ function App() {
     from: { opacity: 0 },
     to: { opacity: enter ? 1 : 0 },
     delay: 100,
-    config: { mass: 5, tension: 800, friction: 90 },
+    config: { mass: 1, tension: 800, friction: 90 },
   });
 
   const scrollTo = (ref: any) => {
@@ -263,7 +272,7 @@ function App() {
         <div className="relative w-full h-full rounded-xl overflow-hidden px-2 md:px-6">
           <div
             className={cx(
-              "w-full h-full flex flex-col hide-scrollbar p-0 scroll-invisible gap-6 relative rounded-xl overflow-auto scroll-snap-y-prox",
+              "w-full h-full flex flex-col hide-scrollbar p-0 scroll-invisible gap-6 relative rounded-xl overflow-x-hidden scroll-snap-y-prox",
               !enter
                 ? "overflow-hidden"
                 : openCard
@@ -278,10 +287,9 @@ function App() {
                 "w-full min-h-full flex flex-col justify-center items-center select-none rounded-xl bg-zinc-200 relative accent-edge scroll-align-start"
               )}
             >
-              <div className="h-full w-full rotate-180 absolute opacity-90 top-0 left-1/2 -translate-x-1/2" />
               <animated.div
                 style={spotlightProps}
-                className="spotlight bottom-0 h-full w-full absolute rotate-180 opacity-90 top-0 left-1/2 -translate-x-1/2 z-0"
+                className="spotlight bottom-0 top-0 h-full w-full absolute opacity-90 rotate-180 z-0"
               />
               {transitions(({ opacity }, item) => {
                 return !item ? (
@@ -297,8 +305,8 @@ function App() {
                     }}
                     className="w-full h-full flex flex-col justify-between bg-zinc-200 rounded-xl p-6 relative accent-edge"
                   >
+                    <div className="spotlight bottom-0 top-0 h-full w-full absolute opacity-90 rotate-180 z-0" />
                     <div className="flex flex-col h-min items-center gap-1 pt-4"></div>
-
                     {/* Focus */}
                     <div className="flex flex-col items-start md:items-center gap-4 md:gap-1 px-0 md:px-10 z-10">
                       <h1 className=" text-left md:text-center fugaz text-5xl md:text-7xl lg:text-8xl">

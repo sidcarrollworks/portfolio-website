@@ -128,10 +128,11 @@ const BotpressBreakdown = ({ bpLogo }: OwnProps) => {
 
           <div className="text-base w-full">
             To make better use of space, I moved the emulator under the
-            inspector. When the panels were next to each other you'd have a lot
-            of unused space. For a majority of the time the pertinent
-            information while testing a bot is only within the past 2-3
-            messages.
+            inspector. For a majority of the time the pertinent information
+            while testing a bot is only within the past 2-3 messages. The
+            explorer redesign completely removed the need for the nav bar. Now
+            the users can navigate to any directory in their bot and view the
+            contents without switching the entire view.
             <br />
             <br />
             This UI project taught me a lot about how to manage and design more
@@ -152,10 +153,10 @@ const BotpressBreakdown = ({ bpLogo }: OwnProps) => {
         </div>
       </div>
 
-      <h2 className="text-sm text-zinc-300">components breakdown</h2>
+      {/* <h2 className="text-sm text-zinc-300">components breakdown</h2> */}
 
       {/* Inspector */}
-      <div className="flex flex-col gap-8 justify-center items-center mb-8 md:mb-20">
+      {/* <div className="flex flex-col gap-8 justify-center items-center mb-8 md:mb-20">
         <div className="flex flex-col gap-6 w-full h-full justify-start ">
           <h2 className="section-title ">inspector</h2>
           <p>
@@ -198,9 +199,9 @@ const BotpressBreakdown = ({ bpLogo }: OwnProps) => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       {/* File Explorer */}
-      <div className="flex flex-col gap-8 justify-center items-center mb-8 md:mb-20">
+      {/* <div className="flex flex-col gap-8 justify-center items-center mb-8 md:mb-20">
         <div className="flex flex-col gap-6 w-full h-full justify-start">
           <h2 className="section-title">file explorer</h2>
           <p>
@@ -240,7 +241,7 @@ const BotpressBreakdown = ({ bpLogo }: OwnProps) => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
