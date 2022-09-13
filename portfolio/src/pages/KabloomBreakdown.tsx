@@ -1,11 +1,67 @@
-import React from "react";
+import React, { CSSProperties } from "react";
+import Carousel from "nuka-carousel";
 
 import kabloomLogo from "../assets/png/kabloomLogo.png";
 import bookingFlow from "../assets/png/kabloom/bookingFlow.png";
+import grid from "../assets/png/grid2.png";
 import frame1 from "../assets/png/kabloom/frame1.png";
 import frame2 from "../assets/png/kabloom/frame2.png";
 import frame3 from "../assets/png/kabloom/frame3.png";
 import frame4 from "../assets/png/kabloom/frame4.png";
+
+interface DefaultControlsConfig {
+  containerClassName?: string;
+  nextButtonClassName?: string;
+  nextButtonStyle?: CSSProperties;
+  nextButtonText?: string;
+  pagingDotsClassName?: string;
+  pagingDotsContainerClassName?: string;
+  pagingDotsStyle?: CSSProperties;
+  prevButtonClassName?: string;
+  prevButtonStyle?: CSSProperties;
+  prevButtonText?: string;
+}
+
+const controlsConfig: DefaultControlsConfig = {
+  nextButtonText: ">",
+  prevButtonText: "<",
+  pagingDotsStyle: {
+    fill: "#fff",
+    margin: "0 2px",
+    border: "1px solid #4f46e5",
+    borderRadius: "50%",
+  },
+  nextButtonStyle: {
+    borderRadius: "0.5rem",
+    color: "#4f46e5",
+    height: "28px",
+    width: "40px",
+    lineHeight: "14px",
+    fontWeight: "bold",
+    boxShadow:
+      "0 4px 6px -1px rgb(0 0 0 / 0.15), 0 2px 4px -2px rgb(0 0 0 / 0.15)",
+    padding: "0.25rem",
+    textAlign: "center",
+    backgroundColor: "#fff",
+    backdropFilter: "blur(4px)",
+    transform: "translateX(50%)",
+  },
+  prevButtonStyle: {
+    borderRadius: "0.5rem",
+    color: "#4f46e5",
+    height: "28px",
+    width: "40px",
+    lineHeight: "14px",
+    fontWeight: "bold",
+    boxShadow:
+      "0 4px 6px -1px rgb(0 0 0 / 0.15), 0 2px 4px -2px rgb(0 0 0 / 0.15)",
+    padding: "0.25rem",
+    textAlign: "center",
+    backgroundColor: "rgba(255, 255, 255, 1)",
+    backdropFilter: "blur(4px)",
+    transform: "translateX(-50%)",
+  },
+};
 
 const KabloomBreakdown = () => {
   return (
@@ -32,8 +88,25 @@ const KabloomBreakdown = () => {
           creation for each new booking.
         </div>
       </div>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-4">
         <h2 className="section-title">design</h2>
+        <div className="relative outline outline-1 outline-offset-2 w-full max-w-full p-10 bg-gradient-to-r to-indigo-500 from-violet-800 rounded-xl h-full flex flex-col border-[1px] border-zinc-900 ">
+          <img
+            src={grid}
+            alt="grid"
+            className="absolute mix-blend-screen top-0 left-0"
+          />
+          <Carousel
+            defaultControlsConfig={controlsConfig}
+            className="w-full h-min rounded-xl max-h-[520px] shadow-xl"
+          >
+            <img src={frame1} className="-translate-y-8" alt="frame1" />
+            <img src={frame2} className="-translate-y-2" alt="frame2" />
+            <img src={frame3} className="-translate-y-4" alt="frame3" />
+            <img src={frame4} className="-translate-y-1" alt="frame4" />
+          </Carousel>
+        </div>
+
         <div className="text-base">
           I followed a simple design pattern seen in many event booking and
           payment flows. All booking info was displayed on the left-hand side
@@ -142,7 +215,7 @@ const KabloomBreakdown = () => {
         </div> */}
 
         <div className="flex flex-col gap-2">
-          <h2 className="section-title">Key Learnings</h2>
+          <h2 className="section-title">key learnings</h2>
           <div className="text-base">
             <ul className="flex flex-col gap-4">
               <li>

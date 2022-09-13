@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect, Ref } from "react";
 import { HomeIcon, BriefcaseIcon, UserIcon } from "@heroicons/react/24/solid";
 import { animated, useSpring, useTransition } from "@react-spring/web";
-import { useLottie } from "lottie-react";
+
 import cx from "classnames";
 
 import EnterLogo from "./components/EnterLogo";
@@ -214,6 +214,13 @@ function App() {
     config: { mass: 5, tension: 800, friction: 90 },
   });
 
+  const spotlightProps = useSpring({
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+    delay: 500,
+    config: { mass: 1, tension: 700, friction: 90 },
+  });
+
   const emailProps = useSpring({
     from: { opacity: 0 },
     to: { opacity: emailCopied ? 1 : 0 },
@@ -271,7 +278,11 @@ function App() {
                 "w-full min-h-full flex flex-col justify-center items-center select-none rounded-xl bg-zinc-200 relative accent-edge scroll-align-start"
               )}
             >
-              <div className="spotlight h-full w-full rotate-180 absolute opacity-90 top-0 left-1/2 -translate-x-1/2" />
+              <div className="h-full w-full rotate-180 absolute opacity-90 top-0 left-1/2 -translate-x-1/2" />
+              <animated.div
+                style={spotlightProps}
+                className="spotlight bottom-0 h-full w-full absolute rotate-180 opacity-90 top-0 left-1/2 -translate-x-1/2 z-0"
+              />
               {transitions(({ opacity }, item) => {
                 return !item ? (
                   <EnterLogo logoProps={logoProps} setEnter={setEnter} />
@@ -286,7 +297,6 @@ function App() {
                     }}
                     className="w-full h-full flex flex-col justify-between bg-zinc-200 rounded-xl p-6 relative accent-edge"
                   >
-                    <div className="spotlight h-full w-full absolute rotate-180 opacity-90 top-0 left-1/2 -translate-x-1/2 z-0" />
                     <div className="flex flex-col h-min items-center gap-1 pt-4"></div>
 
                     {/* Focus */}
@@ -357,6 +367,7 @@ function App() {
                 ) : null
               )}
             </animated.div>
+
             {/* ABOUT SECTION */}
             <animated.div
               ref={about}
