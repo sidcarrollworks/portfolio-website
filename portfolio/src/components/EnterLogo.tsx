@@ -445,12 +445,12 @@ const EnterLogo = ({ className, logoProps, setEnter }: Props) => {
           fill="#ECECEC"
         />
       </animated.svg>
-      <animated.span
+      {/* <animated.span
         style={fadeIn}
         className="px-2 py-1 rounded-lg bg-orange-500 font-bold border-2 border-zinc-900 z-10"
       >
         WORK IN PROGRESS
-      </animated.span>
+      </animated.span> */}
     </animated.div>
   );
 };
