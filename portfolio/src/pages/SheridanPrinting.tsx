@@ -4,8 +4,8 @@ import bhdLogo from "../assets/svg/bhdIcon.svg";
 
 const SheridanPrinting = () => {
   return (
-    <div className="card-content">
-      <div className="w-full flex flex-col gap-6 ">
+    <div className="card-content inter">
+      <div className="w-full flex flex-row gap-6 ">
         <div className="flex gap-4">
           <img src={shrLogo} alt="logo" className="h-10" />
           <img src={bhdLogo} alt="logo" className="h-10" />
@@ -15,7 +15,7 @@ const SheridanPrinting = () => {
         </h2>
       </div>
       <div className="flex flex-col gap-4">
-        <h2 className="section-title">beginning</h2>
+        <h2 className="section-title ">beginning</h2>
         <div className="text-base">
           I started my design journey as a graphic designer at Bighorn Design
           Studio (as well as Sheridan Printing, one of their subsidiaries).

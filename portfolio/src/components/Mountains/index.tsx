@@ -449,7 +449,7 @@ const Mountains = ({ hovered }: Props) => {
               }px,0) scale(1) translateX(-6rem) translateY(-4rem)`
           ),
         }}
-        className="rounded-full absolute bg-gradient-to-b from-amber-200 to-orange-300 w-28 h-28 accent-edge"
+        className="rounded-full absolute bg-gradient-to-b from-amber-200 to-orange-300 w-28 h-28"
       />
 
       <animated.img

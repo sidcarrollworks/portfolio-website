@@ -9,7 +9,7 @@ import frame4 from "../assets/png/kabloom/frame4.png";
 
 const KabloomBreakdown = () => {
   return (
-    <div className="card-content">
+    <div className="card-content inter">
       <div className="w-full flex flex-col gap-8 items-start justify-center">
         <img src={kabloomLogo} alt="logo" className="h-6" />
         <h2 className="text-3xl font-semibold">Booking Portal</h2>

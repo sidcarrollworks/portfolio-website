@@ -47,6 +47,7 @@ function App() {
 
   const [height, setHeight] = useState(0);
   const [width, setWidth] = useState(0);
+  const [emailCopied, setEmailCopied] = useState(false);
 
   const [lunaHover, setLunaHover] = useState(false);
 
@@ -213,6 +214,19 @@ function App() {
     config: { mass: 5, tension: 800, friction: 90 },
   });
 
+  const emailProps = useSpring({
+    from: { opacity: 0 },
+    to: { opacity: emailCopied ? 1 : 0 },
+    config: { mass: 4, tension: 600, friction: 10 },
+    onRest: () => {
+      if (emailCopied) {
+        setTimeout(() => {
+          setEmailCopied(false);
+        }, 1000);
+      }
+    },
+  });
+
   const opacityProps = useSpring({
     from: { opacity: 0 },
     to: { opacity: enter ? 1 : 0 },
@@ -348,13 +362,13 @@ function App() {
               ref={about}
               className="min-h-full w-full flex flex-row gap-6 scroll-align-start overflow-hidden"
             >
-              <div className="w-full h-full flex flex-col-reverse md:flex-row justify-center items-center bg-[#0E0E0F] rounded-xl p-6 relative accent-edge">
+              <div className="w-full h-full flex flex-col-reverse gap-8 md:flex-row justify-center items-center bg-[#0E0E0F] rounded-xl p-6 relative accent-edge">
                 <div className="h-full w-full flex flex-col gap-8 justify-center items-end">
                   <div className="flex flex-col gap-4 items-start pr-4">
-                    <h2 className="text-2xl font-semibold text-zinc-100 ">
+                    <h2 className="text-2xl font-semibold text-zinc-200 ">
                       BUILT FOR DESIGN
                     </h2>
-                    <p className="max-w-md text-zinc-200">
+                    <p className="max-w-md text-zinc-300">
                       I combine my graphic design, ui, and front-end development
                       skills to create clean, functional, and engaging
                       experiences.
@@ -399,13 +413,17 @@ function App() {
                       <span
                         onClick={(event) => {
                           navigator.clipboard.writeText(email);
+                          setEmailCopied(true);
                         }}
-                        className="transition cursor-pointer relative group w-min hover:text-blue-500"
+                        className="transition cursor-pointer relative w-min hover:text-blue-500"
                       >
                         sidcarrollworks@gmail.com
-                        <div className="transition -translate-x-full -left-4 rounded-xl bg-zinc-700 absolute w-min text-xs py-1 px-2 group-active:scale-1 scale-0">
+                        <animated.div
+                          style={emailProps}
+                          className="transition -translate-x-full -left-4 rounded-xl bg-zinc-700 absolute w-min text-xs py-1 px-2 top-0"
+                        >
                           copied
-                        </div>
+                        </animated.div>
                       </span>
                       <a
                         href="https://www.linkedin.com/in/sidcarrollworks/"
@@ -418,7 +436,7 @@ function App() {
                     </div>
                   </div>
                 </div>
-                <div className="w-full h-full flex-col justify-between rounded-xl p-6 relative accent-edge hidden md:flex">
+                <div className="w-full h-full flex-col justify-between rounded-xl p-6 relative hidden md:flex bg-black">
                   <img src={grid} alt="#" className="h-full object-cover" />
                   <Character />
                 </div>

@@ -152,11 +152,11 @@ const BotpressBreakdown = ({ bpLogo }: OwnProps) => {
         </div>
       </div>
 
-      <h2 className="  text-sm mt-10 text-indigo-600">components breakdown</h2>
+      <h2 className="text-sm text-zinc-300">components breakdown</h2>
 
       {/* Inspector */}
       <div className="flex flex-col gap-8 justify-center items-center mb-8 md:mb-20">
-        <div className="flex flex-col gap-1 w-full h-full justify-start ">
+        <div className="flex flex-col gap-6 w-full h-full justify-start ">
           <h2 className="section-title ">inspector</h2>
           <p>
             Consilidating the node editing experience to the inspector was a fun
@@ -201,7 +201,7 @@ const BotpressBreakdown = ({ bpLogo }: OwnProps) => {
       </div>
       {/* File Explorer */}
       <div className="flex flex-col gap-8 justify-center items-center mb-8 md:mb-20">
-        <div className="flex flex-col gap-1 w-full h-full justify-start">
+        <div className="flex flex-col gap-6 w-full h-full justify-start">
           <h2 className="section-title">file explorer</h2>
           <p>
             The explorer redesign completely removed the need for the nav bar

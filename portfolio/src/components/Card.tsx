@@ -209,7 +209,7 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
       ref={ref}
       onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
       onMouseLeave={() => set({ xy: [0, 0] })}
-      className="min-h-full w-full md:h-full min-w-0 flex flex-col accent-edge rounded-xl scroll-align-start"
+      className="min-h-full w-full md:h-full min-w-0 flex flex-col rounded-xl scroll-align-start"
     >
       {!open ? (
         <>
@@ -221,7 +221,7 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
               ),
             }}
             className={cx(
-              "h-full w-full cursor-pointer shadow-lg group hover:shadow-inner flex flex-col items-center justify-end rounded-xl shadow-zinc-600/30 overflow-hidden p-4 relative"
+              "h-full w-full cursor-pointer accent-edge group flex flex-col items-center justify-end rounded-xl overflow-hidden p-4 relative"
             )}
             onMouseEnter={handleOnEnter}
             onMouseLeave={handleOnLeave}
