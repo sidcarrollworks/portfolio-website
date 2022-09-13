@@ -5,10 +5,10 @@ import bhdLogo from "../assets/svg/bhdIcon.svg";
 const SheridanPrinting = () => {
   return (
     <div className="card-content inter">
-      <div className="w-full flex flex-row gap-6 ">
+      <div className="w-full flex flex-row justify-between items-center gap-6 ">
         <div className="flex gap-4">
-          <img src={shrLogo} alt="logo" className="h-10" />
-          <img src={bhdLogo} alt="logo" className="h-10" />
+          <img src={shrLogo} alt="logo" className="h-7" />
+          <img src={bhdLogo} alt="logo" className="h-7" />
         </div>
         <h2 className="text-3xl font-semibold w-full">
           Graphic Design & Printing

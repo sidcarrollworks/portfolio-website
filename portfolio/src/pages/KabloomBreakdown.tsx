@@ -8,6 +8,7 @@ import frame1 from "../assets/png/kabloom/frame1.png";
 import frame2 from "../assets/png/kabloom/frame2.png";
 import frame3 from "../assets/png/kabloom/frame3.png";
 import frame4 from "../assets/png/kabloom/frame4.png";
+import landing from "../assets/png/kabloom/landing2.png";
 
 interface DefaultControlsConfig {
   containerClassName?: string;
@@ -66,9 +67,12 @@ const controlsConfig: DefaultControlsConfig = {
 const KabloomBreakdown = () => {
   return (
     <div className="card-content inter">
-      <div className="w-full flex flex-col gap-8 items-start justify-center">
-        <img src={kabloomLogo} alt="logo" className="h-6" />
-        <h2 className="text-3xl font-semibold">Booking Portal</h2>
+      <div className="w-full flex gap-4 items-center ">
+        <img src={kabloomLogo} alt="logo" className="h-5" />
+        <h2 className="text-3xl font-semibold">Self-serve Booking Portal</h2>
+      </div>
+      <div className="relative outline outline-1 outline-offset-2 w-full z-0 bg-transparent max-w-full shadow-inner overflow-hidden rounded-xl h-full flex flex-col border-[1px] border-zinc-900 ">
+        <img src={landing} alt="landing" className="rounded-md -z-10" />
       </div>
       <div className="text-base">
         Born out of the pandemic, Kabloom provides a platform for remote teams

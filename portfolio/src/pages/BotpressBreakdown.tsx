@@ -21,7 +21,7 @@ const BotpressBreakdown = ({ bpLogo }: OwnProps) => {
   return (
     <div className="card-content inter">
       <div className="w-full flex flex-col gap-8 items-start">
-        <div className="flex flex-row gap-4">
+        <div className="flex flex-row gap-4 ">
           <img src={bpLogo} alt="logo" className="h-8" />
           <h2 className="text-3xl font-semibold">
             Conversation Studio UI Breakdown
