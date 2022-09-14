@@ -71,9 +71,9 @@ const KabloomBreakdown = () => {
         <img src={kabloomLogo} alt="logo" className="h-5" />
         <h2 className="text-3xl font-semibold">Self-serve Booking Portal</h2>
       </div>
-      <div className="relative outline outline-1 outline-offset-2 w-full z-0 bg-transparent max-w-full shadow-inner overflow-hidden rounded-xl h-full flex flex-col border-[1px] border-zinc-900 ">
+      {/* <div className="relative outline outline-1 outline-offset-2 w-full z-0 bg-transparent max-w-full shadow-inner overflow-hidden rounded-xl h-full flex flex-col border-[1px] border-zinc-900 ">
         <img src={landing} alt="landing" className="rounded-md -z-10" />
-      </div>
+      </div> */}
       <div className="text-base">
         Born out of the pandemic, Kabloom provides a platform for remote teams
         to connect through themed virtual events. Due to an influx of bookings,
