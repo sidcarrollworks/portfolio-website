@@ -422,7 +422,7 @@ function App() {
                     <div className="flex flex-col gap-2 w-full text-zinc-400 pt-4">
                       <a
                         className="transition w-min hover:text-blue-500"
-                        href="https://drive.google.com/file/d/1aYnPzXiBiZCGVcJLzGPn8MNy0ViBWi92/view?usp=sharing"
+                        href="https://drive.google.com/file/d/1Kl3zjGm-rdyZtJK9np8-KzVE4ZYKT6ck/view?usp=sharing"
                         target="_blank"
                         download
                         rel="noreferrer"
