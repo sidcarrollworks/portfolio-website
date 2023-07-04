@@ -1,10 +1,9 @@
 import React, { useState, useRef, useEffect, Ref } from "react";
 import { HomeIcon, BriefcaseIcon, UserIcon } from "@heroicons/react/24/solid";
-import { animated, useSpring, useTransition } from "@react-spring/web";
+import { animated, useSpring } from "@react-spring/web";
 
 import cx from "classnames";
 
-import EnterLogo from "./components/EnterLogo";
 import Card from "./components/Card";
 import BotpressBreakdown from "./pages/BotpressBreakdown";
 import SheridanPrinting from "./pages/SheridanPrinting";
@@ -31,8 +30,6 @@ import kbLogo from "./assets/svg/kbLogo.svg";
 import laptopAnimation from "./assets/lottie/laptopAnimation.json";
 
 function App() {
-  const [enter, setEnter] = useState(false);
-
   const Card1 = useRef(null);
   const Card2 = useRef(null);
   const Card3 = useRef(null);
@@ -45,58 +42,9 @@ function App() {
 
   const [openCard, setOpenCard] = useState<Ref<HTMLDivElement>>(null);
 
-  const [height, setHeight] = useState(0);
-  const [width, setWidth] = useState(0);
   const [emailCopied, setEmailCopied] = useState(false);
 
   const [lunaHover, setLunaHover] = useState(false);
-
-  const calc = (x: number, y: number) => [
-    x - width + width / 2,
-    y - height + height / 2,
-  ];
-
-  useEffect(() => {
-    if (!enter) {
-      setHeight(window.innerHeight);
-      setWidth(window.innerWidth);
-    }
-  }, [enter]);
-
-  const transitions = useTransition(enter, {
-    from: { opacity: 0 },
-    enter: { opacity: 1 },
-    to: { opacity: 0 },
-    reverse: enter,
-    delay: 200,
-    config: {
-      mass: 2,
-      tension: 700,
-      friction: 50,
-    },
-  });
-
-  const [logoProps, set] = useSpring(() => ({
-    xy: [0, 0],
-
-    config: { mass: 5, tension: 800, friction: 90 },
-  }));
-
-  const spotlightProps = useSpring({
-    from: {
-      opacity: 0,
-      rotate: 180,
-    },
-    to: {
-      opacity: 1,
-    },
-    delay: 300,
-    config: {
-      mass: 1,
-      tension: 200,
-      friction: 50,
-    },
-  });
 
   const openCardFn = (card: any) => {
     setOpenCard(card);
@@ -243,13 +191,6 @@ function App() {
     },
   });
 
-  const opacityProps = useSpring({
-    from: { opacity: 0 },
-    to: { opacity: enter ? 1 : 0 },
-    delay: 100,
-    config: { mass: 1, tension: 800, friction: 90 },
-  });
-
   const scrollTo = (ref: any) => {
     ref.current.scrollIntoView({
       behavior: "smooth",
@@ -257,95 +198,67 @@ function App() {
   };
 
   return (
-    <div
-      onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
-      className="w-full h-full bg-black flex flex-col overflow-hidden"
-    >
+    <div className="w-full h-full bg-black flex flex-col overflow-hidden">
       <div className="w-full h-full flex flex-col max-w-[1440px] mx-auto">
         <animated.img
           src={logoBare}
-          style={opacityProps}
           className="md:h-6 h-4 my-2 md:my-4 select-none"
           alt="logo"
         />
 
+        {/* Content */}
         <div className="relative w-full h-full rounded-xl overflow-hidden px-2 md:px-6">
           <div
             className={cx(
               "w-full h-full flex flex-col hide-scrollbar p-0 scroll-invisible gap-6 relative rounded-xl overflow-x-hidden scroll-snap-y-prox",
-              !enter
-                ? "overflow-hidden"
-                : openCard
-                ? "overflow-hidden"
-                : "overflow-auto"
+              openCard ? "overflow-hidden" : "overflow-auto"
             )}
           >
             {/* Landing */}
             <div
               ref={landing}
               className={cx(
-                "w-full min-h-full flex flex-col justify-center items-center select-none rounded-xl bg-zinc-200 relative accent-edge scroll-align-start"
+                "w-full min-h-full flex flex-col justify-center items-center select-none rounded-xl relative accent-edge scroll-align-start"
               )}
             >
               <animated.div
-                style={spotlightProps}
-                className="spotlight bottom-0 top-0 h-full w-full absolute opacity-90 rotate-180 z-0"
-              />
-              {transitions(({ opacity }, item) => {
-                return !item ? (
-                  <EnterLogo logoProps={logoProps} setEnter={setEnter} />
-                ) : (
-                  <animated.div
-                    ref={landing}
-                    style={{
-                      opacity: opacity.to({
-                        range: [0.0, 1.0],
-                        output: [0, 1],
-                      }),
-                    }}
-                    className="w-full h-full flex flex-col justify-between bg-zinc-200 rounded-xl p-6 relative accent-edge"
-                  >
-                    <div className="spotlight bottom-0 top-0 h-full w-full absolute opacity-90 rotate-180 z-0" />
-                    <div className="flex flex-col h-min items-center gap-1 pt-4"></div>
-                    {/* Focus */}
-                    <div className="flex flex-col items-start md:items-center gap-4 md:gap-1 px-0 md:px-10 z-10">
-                      <h1 className=" text-left md:text-center fugaz text-5xl md:text-7xl lg:text-8xl">
-                        PURPOSEFUL
-                        <br />
-                        DESIGN SOLUTIONS
-                      </h1>
-                      <h3 className="text-base md:text-xl text-left md:text-center font-medium uppercase">
-                        I create quality user experiences with in-depth research
-                        and compelling visual design.
-                      </h3>
-                    </div>
-                    {/* People I've Worked With */}
-                    <div className="p-0 md:p-4 flex flex-col items-center gap-8 z-10">
-                      <h4 className="font-bold text-base md:text-lg">
-                        PEOPLE I'VE WORKED WITH
-                      </h4>
-                      <div className="flex flex-row flex-wrap items-center justify-center gap-8">
-                        <img src={BP} className=" h-6 md:h-8" alt="Botpress" />
-                        <img
-                          src={kbLogo}
-                          className="h-6 md:h-8"
-                          alt="Kabloom"
-                        />
-                        <img
-                          src={SHRPrint}
-                          className="h-6 md:h-8"
-                          alt="Sheridan Printing"
-                        />
-                        <img
-                          src={BHDLogo}
-                          className="h-6 md:h-8"
-                          alt="Bighorn Design"
-                        />
-                      </div>
-                    </div>
-                  </animated.div>
-                );
-              })}
+                ref={landing}
+                className="w-full h-full flex flex-col justify-between  rounded-xl p-6 relative accent-edge"
+              >
+                <div className="flex flex-col h-min items-center gap-1 pt-4"></div>
+                {/* Focus */}
+                <div className="flex flex-col items-start md:items-center gap-4 md:gap-1 px-0 md:px-10 z-10 text-zinc-50">
+                  <h1 className=" text-left md:text-center fugaz text-5xl md:text-7xl lg:text-8xl">
+                    PURPOSEFUL
+                    <br />
+                    DESIGN SOLUTIONS
+                  </h1>
+                  <h3 className="text-base md:text-xl text-left md:text-center font-medium uppercase">
+                    I create quality user experiences with in-depth research and
+                    compelling visual design.
+                  </h3>
+                </div>
+                {/* People I've Worked With */}
+                <div className="p-0 md:p-4 flex flex-col items-center gap-8 z-10">
+                  <h4 className="font-bold text-base md:text-lg">
+                    PEOPLE I'VE WORKED WITH
+                  </h4>
+                  <div className="flex flex-row flex-wrap items-center justify-center gap-8">
+                    <img src={BP} className=" h-6 md:h-8" alt="Botpress" />
+                    <img src={kbLogo} className="h-6 md:h-8" alt="Kabloom" />
+                    <img
+                      src={SHRPrint}
+                      className="h-6 md:h-8"
+                      alt="Sheridan Printing"
+                    />
+                    <img
+                      src={BHDLogo}
+                      className="h-6 md:h-8"
+                      alt="Bighorn Design"
+                    />
+                  </div>
+                </div>
+              </animated.div>
             </div>
 
             {/* WORK SECTION */}
@@ -465,10 +378,7 @@ function App() {
         </div>
 
         {/* Bottom Menu */}
-        <animated.div
-          style={opacityProps}
-          className="flex flex-row w-full justify-center items-center my-2 md:my-4 gap-4 z-10 select-none"
-        >
+        <animated.div className="flex flex-row w-full justify-center items-center my-2 md:my-4 gap-4 z-10 select-none">
           <HomeIcon
             className="h-4 w-4 text-zinc-100 cursor-pointer hover:scale-125 transition"
             onClick={() => {
