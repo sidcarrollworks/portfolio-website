@@ -4,15 +4,16 @@ import { useSpring, animated } from "@react-spring/web";
 import me from "./me.svg";
 import voidPuddle1 from "./voidPuddle1.svg";
 import voidPuddle2 from "./voidPuddle2.svg";
-// import handLeft from "./handLeft.svg";
-// import handRight from "./handRight.svg";
 import dash1 from "./dash1.svg";
 import dash2 from "./dash2.svg";
 import dash3 from "./dash3.svg";
 import dash4 from "./dash4.svg";
 
-const Character = () => {
-  const [hover, setHover] = useState(false);
+interface Props {
+  inView: boolean;
+}
+
+const Character = ({ inView }: Props) => {
   const meProps = useSpring({
     from: {
       y: -7,
@@ -72,7 +73,7 @@ const Character = () => {
       y: -115,
     },
     to: {
-      opacity: hover ? 1 : 0,
+      opacity: inView ? 1 : 0,
       x: 140,
       y: -115,
     },
@@ -92,7 +93,7 @@ const Character = () => {
       y: -230,
     },
     to: {
-      opacity: hover ? 1 : 0,
+      opacity: inView ? 1 : 0,
     },
     delay: 150,
 
@@ -110,7 +111,7 @@ const Character = () => {
       y: -35,
     },
     to: {
-      opacity: hover ? 1 : 0,
+      opacity: inView ? 1 : 0,
     },
     delay: 100,
 
@@ -128,7 +129,7 @@ const Character = () => {
       y: 115,
     },
     to: {
-      opacity: hover ? 1 : 0,
+      opacity: inView ? 1 : 0,
     },
     delay: 50,
 
@@ -144,7 +145,7 @@ const Character = () => {
       opacity: 0,
     },
     to: {
-      opacity: hover ? 1 : 0,
+      opacity: inView ? 1 : 0,
     },
     delay: 300,
     config: {
@@ -155,11 +156,7 @@ const Character = () => {
   });
 
   return (
-    <div
-      className="absolute w-full h-full top-0 left-0 flex items-center justify-center"
-      onMouseOver={() => setHover(true)}
-      onMouseOut={() => setHover(false)}
-    >
+    <div className="absolute w-full h-full top-0 left-0 flex items-center justify-center">
       <animated.div
         style={labelProps}
         className="absolute top-16 left-20 flex flex-col"
