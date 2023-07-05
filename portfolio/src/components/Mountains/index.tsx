@@ -406,11 +406,11 @@ const Mountains = ({ hovered }: Props) => {
 
   const titleProps = useSpring({
     from: {
-      transform: "translateY(0rem)",
+      bottom: "-8%",
       opacity: 0,
     },
     to: {
-      transform: hovered ? "translateY(18rem)" : "translateY(0rem)",
+      bottom: hovered ? "8%" : "-8%",
       opacity: hovered ? 1 : 0,
     },
 
@@ -434,7 +434,7 @@ const Mountains = ({ hovered }: Props) => {
 
       <animated.span
         style={titleProps}
-        className="absolute text-3xl font-bold text-white"
+        className="absolute text-3xl font-bold text-white z-10"
       >
         Graphic Design
       </animated.span>

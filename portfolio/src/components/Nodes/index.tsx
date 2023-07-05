@@ -114,11 +114,11 @@ const Nodes = ({ hovered }: Props) => {
 
   const titleProps = useSpring({
     from: {
-      transform: "translateY(0rem)",
+      bottom: "-8%",
       opacity: 0,
     },
     to: {
-      transform: hovered ? "translateY(18rem)" : "translateY(0rem)",
+      bottom: hovered ? "8%" : "-8%",
       opacity: hovered ? 1 : 0,
     },
 

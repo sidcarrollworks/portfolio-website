@@ -224,6 +224,16 @@ function App() {
     };
   }, []);
 
+  const scrollTo = (ref: any) => {
+    if (ref.current) {
+      window.scrollTo({
+        top: ref.current.offsetTop,
+        left: 0,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <div className="w-full h-full flex flex-col bg-black">
       {/* Header */}
@@ -251,21 +261,30 @@ function App() {
               a product designer committed to crafting intuitive, user-centric
               digital experiences.
             </h4>
+
+            <button
+              onClick={() => {
+                scrollTo(work);
+              }}
+              className="border-[1px] mt-6 border-zinc-50 rounded-lg py-2 px-4 text-zinc-50 hover:bg-zinc-50/20 transition-all duration-200"
+            >
+              view work
+            </button>
           </div>
           {/* People I've Worked With */}
           <div className="p-0 md:p-4 flex flex-col items-center gap-8 z-10">
-            <h5 className="text-base md:text-lg text-zinc-300 leading-[130%]">
+            <h5 className="text-base text-zinc-300 leading-[130%]">
               people I've worked with
             </h5>
             <div className="flex flex-row flex-wrap items-center justify-center gap-8 opacity-90">
-              <img src={BP} className=" h-6 md:h-8" alt="Botpress" />
-              <img src={kbLogo} className="h-6 md:h-8" alt="Kabloom" />
+              <img src={BP} className=" h-4 md:h-6" alt="Botpress" />
+              <img src={kbLogo} className="h-4 md:h-6" alt="Kabloom" />
               <img
                 src={SHRPrint}
-                className="h-6 md:h-8 invert"
+                className="h-4 md:h-6 invert"
                 alt="Sheridan Printing"
               />
-              <img src={BHDLogo} className="h-6 md:h-8" alt="Bighorn Design" />
+              <img src={BHDLogo} className="h-4 md:h-6" alt="Bighorn Design" />
             </div>
           </div>
         </div>

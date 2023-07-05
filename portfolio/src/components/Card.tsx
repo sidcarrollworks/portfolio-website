@@ -74,6 +74,7 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
     to: {
       padding: open ? "0rem" : "0.5rem",
       minWidth: open ? "100%" : "0%",
+
       backgroundColor: open
         ? "rgba(255, 255, 255, 1)"
         : "rgba(255, 255, 255, 0)",
@@ -87,34 +88,35 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
     },
   });
 
-  const titleProps = useSpring({
-    from: {
-      height: "2rem",
-      opacity: 0,
-      marginTop: "0.5rem",
-      display: "flex",
-    },
-    to: [
-      {
-        height: hover ? "0rem" : "2rem",
-        // opacity: hover ? 0 : 1,
-        marginTop: hover ? "0rem" : "0.5rem",
-      },
-      // { display: hover ? "none" : "flex" },
-    ],
-    delay: 100,
-    config: {
-      mass: 1,
-      tension: 800,
-      friction: 40,
-    },
-  });
+  // const titleProps = useSpring({
+  //   from: {
+  //     height: "10%",
+  //     opacity: 0,
+  //     marginTop: "0.5rem",
+  //     display: "flex",
+  //   },
+  //   to: [
+  //     {
+  //       height: hover ? "0%" : "10%",
+  //       // opacity: hover ? 0 : 1,
+  //       marginTop: hover ? "0rem" : "0.5rem",
+  //     },
+  //     // { display: hover ? "none" : "flex" },
+  //   ],
+  //   delay: 100,
+  //   config: {
+  //     mass: 1,
+  //     tension: 800,
+  //     friction: 40,
+  //   },
+  // });
 
   const cardProps = useSpring({
-    from: { background: props.color, opacity: 0.95 },
+    from: { background: props.color, opacity: 0.95, transform: "scale(1)" },
     to: {
       opacity: hover ? 1 : 0.95,
       background: hover ? props.color2 : props.color,
+      transform: open ? "scale(1.1)" : "scale(1)",
     },
     delay: 100,
     config: {
@@ -272,14 +274,14 @@ const Card = forwardRef<HTMLDivElement, Props>((props, ref) => {
               view
             </animated.button> */}
           </animated.div>
-          <animated.span
+          {/* <animated.span
             style={titleProps}
-            className="inter w-full text-center text-xl items-center justify-center flex flex-row gap-2 text-zinc-300"
+            className="inter w-full text-center text-xl items-center justify-center flex flex-row gap-2 text-red-300"
           >
             <span className="font-bold uppercase">{first}</span>
 
             <span className="font-normal uppercase">{last}</span>
-          </animated.span>
+          </animated.span> */}
         </>
       ) : (
         <div className="w-full h-full relative">
