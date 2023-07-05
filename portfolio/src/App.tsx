@@ -257,16 +257,16 @@ function App() {
             <h1 className="w-full text-center inter text-4xl font-bold md:text-5xl lg:text-6xl">
               I'm Sid Carroll,
             </h1>
-            <h4 className="text-base text-center md:text-4xl font-medium">
+            <p className="text-base leading-[140%] text-center md:text-4xl font-medium">
               a product designer committed to crafting intuitive, user-centric
               digital experiences.
-            </h4>
+            </p>
 
             <button
               onClick={() => {
                 scrollTo(work);
               }}
-              className="border-[1px] mt-6 border-zinc-50 rounded-lg py-2 px-4 text-zinc-50 hover:bg-zinc-50/20 transition-all duration-200"
+              className="border-[1px] mt-6 border-zinc-50 rounded-lg py-2 px-4 text-zinc-50 hover:bg-zinc-50/10 transition-all duration-200"
             >
               view work
             </button>
@@ -292,7 +292,7 @@ function App() {
         {/* WORK SECTION */}
         <animated.div
           ref={work}
-          className="w-full h-full md:h-[90vh] flex flex-col md:flex-row gap-6 rounded-xl"
+          className="w-full h-full md:h-[90vh] flex flex-col md:flex-row gap-6 rounded-xl px-6"
         >
           {cards.map((card, i) =>
             !card.close ? (
